@@ -12,14 +12,14 @@ Pulso=new function(){
             fonsCity.x-=40;
             fonsCity2.x-=40;
 
-            if(fonsCity.x<-ampFons){
-                fonsCity.x=fonsCity2.x+ampFons;
-            }
-            if(fonsCity2.x<-ampFons){
-                fonsCity2.x=fonsCity.x+ampFons;
-            }
-        }
 
+        }
+        if(fonsCity.x<-ampFons){
+            fonsCity.x=fonsCity2.x+ampFons;
+        }
+        if(fonsCity2.x<-ampFons){
+            fonsCity2.x=fonsCity.x+ampFons;
+        }
 
         stage.update();
 

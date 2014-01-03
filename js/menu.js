@@ -10,6 +10,7 @@ var corriendo;
 var correns;
 var fonsCity, fonsCity2;
 var fons;
+var sc;
 
 var instr1_1,instr2,instr3,instr4;
 
@@ -41,20 +42,20 @@ Menu=new  function() {
         }
 
 
-        Utils.pon(fonsCity,0,alt-1024,true,1,fons);
-        Utils.pon(fonsCity2,2880,alt-1024,true,1,fons);
+        Utils.pon(fonsCity,0,alt/2,true,sc,fons);
+        Utils.pon(fonsCity2,2880*sc,alt/2,true,sc,fons);
 
-        altFons=fonsCity.getTransformedBounds().height;
-        ampFons=fonsCity.getBounds().width;
+        altFons=fonsCity.getTransformedBounds().height*sc;
+        ampFons=fonsCity.getTransformedBounds().width*sc;
 
 
         if( corriendo == null || corriendo == undefined ) {
             corriendo=new createjs.Container();
         }
         corriendo.x=amp/4;
-
+        corriendo.y=alt;
         stage.addChild(corriendo);
-        corriendo.y=alt-200;
+
 
         var array_imatges = new createjs.SpriteSheet({
             "animations":
@@ -80,19 +81,21 @@ Menu=new  function() {
         anima = new createjs.BitmapAnimation(array_imatges);
 
         corriendo.addChild(anima);
+        corriendo.y=alt-corriendo.getTransformedBounds().height/2;
         corriendo.addEventListener("mousedown",Menu.downHandler);
 
     };
 
     this.downHandler=function(){
+        $("#consola").text("amp "+amp+" alt "+alt);
         createjs.Tween.removeAllTweens();
         anima.gotoAndPlay("correns");
         correns=true;
 
         var quant=Math.random();
 
-        createjs.Tween.get(fons).to({scaleX:1+quant,scaleY:1+quant,y:alt/2+quant*109},500,createjs.Ease.circInOut).call(Menu.torna);
-        createjs.Tween.get(corriendo).to({scaleX:1+quant,scaleY:1+quant,y:alt-200+quant*200},500,createjs.Ease.circInOut);
+        createjs.Tween.get(fons).to({scaleX:sc+quant,scaleY:sc+quant},500,createjs.Ease.circInOut).call(Menu.torna);
+        createjs.Tween.get(corriendo).to({scaleX:sc+quant,scaleY:sc+quant,y:alt/2+quant*200},500,createjs.Ease.circInOut);
         console.log(quant," quant");
     };
     this.torna=function(){/// call

@@ -25,7 +25,7 @@ Main = new function()
 
         $("#background").css('width','100%');
         $("#background").css('heigth','100%');
-        $("#background").css('background-color','red');
+        $("#background").css('background-color','grey');
 
         canvas = $("#mainCanvas");
         canvas.css('background-color','grey');
@@ -36,7 +36,7 @@ Main = new function()
         stage.canvas.height = window.innerHeight;
        // Main.InitGame();
 //Menu.initMenu();
-        //ratio =   960/1440;
+
     };
 
 
