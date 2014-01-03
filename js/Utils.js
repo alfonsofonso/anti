@@ -2,6 +2,8 @@
  User: alfonso
  Data: 2/11/13 , 10:33
  */
+var localDades;
+
 
 Utils=new function(){
 
@@ -75,5 +77,20 @@ Utils=new function(){
 
         return array;
     }
+
+
+
+
+    this.apuntaPunt=function(){
+        var nom="mi variable";
+        localDades=localDades||window.localStorage
+        var valor=localDades.getItem(nom);
+
+        valor=parseInt(valor);
+        valor++;
+        console.log("valor: ",valor," en ",nom);
+        localDades.setItem(nom,valor);
+
+    };
 
 };

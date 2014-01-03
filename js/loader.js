@@ -13,25 +13,15 @@ var fons_loader;
 
 Loader = new function() {
 
-
-
     this.initLoad = function (){
 
         Main.windowResize();
         amp=window.innerWidth;//720//$('#mainCanvas').css('width').substr(0,$('#mainCanvas').css('width').lastIndexOf('px'));
         alt=window.innerHeight;//$('#mainCanvas').css('height').substr(0,$('#mainCanvas').css('height').lastIndexOf('px'));
 
-       // Loader.createCounter();
        // Loader.loadSound();
-        Loader.reload();
+        Loader.reload();// load images
 
-    };
-    this.createCounter = function ()
-    {
-        // console.log($("#mainCanvas"));
-        /// /////////////////////////////////    CREO STAGE (CREATEJS)  ////////////////////
-
-        $("#background").css('background-color','grey');
     };
 
 
@@ -40,7 +30,7 @@ Loader = new function() {
         fons_loader=new createjs.Bitmap(imatges['SCREEN_01']);
         Utils.pon(fons_loader,amp/2,alt/2,true,1);
         stage.addChild(percent);
-};
+    };
 
 
     this.loadSound = function(){
@@ -114,20 +104,15 @@ Loader = new function() {
     this.loadAll = function () {
       //  console.log("loaded images "+manifest.length);
         while (manifest.length > 0) {
-            Loader.loadAnother();
+            var item = manifest.shift();
+            preload.loadFile(item);
+            // If we have no more items, disable the UI.
+            if (manifest.length == 0) {
+
+            }
         }
     };
 
-    this.loadAnother = function () {
-        // Get the next manifest item, and load it
-       // console.log("loadAnoder");
-        var item = manifest.shift();
-        preload.loadFile(item);
-        // If we have no more items, disable the UI.
-        if (manifest.length == 0) {
-
-        }
-    };
 
     // File complete handler
     this.handleFileLoad = function (event) {
@@ -162,7 +147,6 @@ Loader = new function() {
           // stage.removeChild( fons_loader );
          //   stage.removeAllChildren();
             Menu.initMenu();
-
         }
 
     };
