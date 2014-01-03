@@ -3,7 +3,7 @@ alfonsofonso
 */
 
 
-
+var stage;
 var corriendo1,corriendo2,corriendo3,corriendo4;
 var anima;
 var corriendo;
@@ -19,27 +19,14 @@ Menu=new  function() {
 
     this.initMenu = function ()///  B A C K    B U T T O N
      {
-        /// listeners
-          // Main.windowResize();
-
-         stage = new createjs.Stage(document.getElementById("mainCanvas"));
-         createjs.Touch.enable(stage);
-
-         $("#mainCanvas").css('background-color','red');
-         $("#background").css('background-color','grey');
-         createjs.Ticker.setFPS(20);
          createjs.Ticker.addEventListener("tick",Pulso.handlerTick);
-
          Menu.posaBotons();
-         //////////
 
     };
 
 
 
     this.posaBotons=function(){
-
-        //stage.removeChild(fons_loader);
 
         if( fons == null || fonsCity == undefined ) {
             fons=new createjs.Container();
@@ -56,8 +43,8 @@ Menu=new  function() {
         altFons=fonsCity2.getTransformedBounds().height;
         ampFons=fonsCity2.getBounds().width;
 
-        Utils.pon(fonsCity,0,altFons/2,true,1,fons);
-        Utils.pon(fonsCity2,2880,altFons/2,true,1,fons);
+        Utils.pon(fonsCity,0,alt-altFons/2,true,1,fons);
+        Utils.pon(fonsCity2,2880,alt-altFons/2,true,1,fons);
 
 
 
@@ -68,7 +55,7 @@ Menu=new  function() {
         corriendo.x=amp/4;
 
         stage.addChild(corriendo);
-        corriendo.y=altFons-256;
+        corriendo.y=alt-200;
 
         var array_imatges = new createjs.SpriteSheet({
             "animations":
@@ -77,9 +64,7 @@ Menu=new  function() {
                     frames: [0,1,2,3],
                     next:"saltant",
                     speed:.4
-
                 }//,
-
             },
             "images": [imatges['corriendoSprite']],
             "frames":
@@ -107,7 +92,7 @@ Menu=new  function() {
 
         var quant=Math.random()*2000;
 
-        createjs.Tween.get(fons).to({scaleX:1+quant/1000,scaleY:1+quant/1000,y:-quant},500,createjs.Ease.circInOut).call(Menu.torna);
+        createjs.Tween.get(fons).to({scaleX:1+quant/1000,scaleY:1+quant/1000,y:alt-altFons/2-quant/2},500,createjs.Ease.circInOut).call(Menu.torna);
         createjs.Tween.get(corriendo).to({scaleX:1+quant/1000,scaleY:1+quant/1000},500,createjs.Ease.circInOut);
 
     };

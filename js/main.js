@@ -1,5 +1,4 @@
 
-var stage;
 var RESOLUTION =2;
 var amp;
 var alt;
@@ -12,30 +11,39 @@ Main = new function()
 {
     this.InitGame = function ()
     {
-        console.log("INIT GAME MAIN");
-
+        console.log("INIT GAME MAIN + windows resize");
+       // Listen for orientation changes
+        window.addEventListener("orientationchange", function() {          // Announce the new orientation number
+           this.windowResize();
+            alert("windos")
+        }, false);
         this.windowResize();
     };
 
     this.windowResize =function ()
     {
         console.log("windowResize");
+
         $("#background").css('width','100%');
         $("#background").css('heigth','100%');
+        $("#background").css('background-color','grey');
 
         canvas = $("#mainCanvas");
-       //  canvas.css('width','100%');
-       canvas.css('height','100%');
+        canvas.css('background-color','red');
+        //  canvas.css('width','100%');
+        //canvas.css('height','100%');
+        stage.canvas.width = window.innerWidth;
+        stage.canvas.height = window.innerHeight;
+
         //ratio =   960/1440;
-
-        console.log(" height: ",canvas.css("height"));
-
     };
 
 
 };
 
 window.addEventListener('resize', Main.windowResize, false);
+
+
 
 
 /*

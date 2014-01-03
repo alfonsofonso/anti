@@ -14,17 +14,14 @@ Pulso=new function(){
 
             if(fonsCity.x<-ampFons){
                 fonsCity.x=fonsCity2.x+ampFons;
-
             }
             if(fonsCity2.x<-ampFons){
                 fonsCity2.x=fonsCity.x+ampFons;
-
             }
         }
-
 
 
         stage.update();
 
     };
-}
+};

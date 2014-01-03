@@ -15,12 +15,18 @@ Loader = new function() {
 
     this.initLoad = function (){
 
+        stage = new createjs.Stage(document.getElementById("mainCanvas"));
+
         Main.windowResize();
         amp=window.innerWidth;//720//$('#mainCanvas').css('width').substr(0,$('#mainCanvas').css('width').lastIndexOf('px'));
         alt=window.innerHeight;//$('#mainCanvas').css('height').substr(0,$('#mainCanvas').css('height').lastIndexOf('px'));
 
-       // Loader.loadSound();
-        Loader.reload();// load images
+
+        createjs.Touch.enable(stage);
+        createjs.Ticker.setFPS(20);
+
+       // Loader.loadSound(); // or..
+        Loader.reload();// load images directly
 
     };
 
@@ -29,7 +35,9 @@ Loader = new function() {
 
         fons_loader=new createjs.Bitmap(imatges['SCREEN_01']);
         Utils.pon(fons_loader,amp/2,alt/2,true,1);
-        stage.addChild(percent);
+        //stage.addChild(percent);
+        stage.update();
+
     };
 
 
@@ -42,7 +50,6 @@ Loader = new function() {
         {
             var assetsPath = "audio/";
             var manifestAudio = [
-
                 //{src:assetsPath+"cagatio.mp3|"+assetsPath+"cagatio.ogg", id:'cagatio'}
             ];
 
@@ -62,7 +69,7 @@ Loader = new function() {
     };
 
 
-    // Reset everything
+    // Reset everything ---- load images
     this.reload = function () {
         // If there is an open preload queue, close it.
         if (preload != null){ preload.close(); }
@@ -87,7 +94,6 @@ Loader = new function() {
 
         // Use this instead to use tag loading
         //preload = new createjs.LoadQueue(false);
-
         preload.addEventListener("fileload", Loader.handleFileLoad);
         preload.addEventListener("progress", Loader.handleOverallProgress);
         preload.addEventListener("fileprogress", Loader.handleFileProgress);
@@ -131,8 +137,8 @@ Loader = new function() {
                 break;
             case "anti/corriendo4.png": imatges['corriendo4'] =  event.result;
                 break;
-
             case "anti/SCREEN_01.png": imatges['SCREEN_01'] =  event.result;
+                //Loader.posaLoader();
                 break;
             case "corriendo.png": imatges['corriendoSprite'] =  event.result;
                 break;
@@ -143,10 +149,11 @@ Loader = new function() {
         //console.log("loaded",loaded_imatges,"num",NUM_IMATGES);
         if( loaded_imatges == NUM_IMATGES )
         {
-            Main.InitGame();
-          // stage.removeChild( fons_loader );
-         //   stage.removeAllChildren();
-            Menu.initMenu();
+           Main.InitGame();
+           //stage.removeChild( fons_loader );///////////////////////////////////////////////////////////>>>>>>
+           //stage.removeAllChildren();
+           Menu.initMenu();
+
         }
 
     };
