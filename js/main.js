@@ -13,10 +13,9 @@ Main = new function()
     {
         console.log("INIT GAME MAIN + windows resize");
        // Listen for orientation changes
-        window.addEventListener("orientationchange", function() {          // Announce the new orientation number
-           this.windowResize();
-            alert("windos")
-        }, false);
+        window.addEventListener("orientationchange",         // Announce the new orientation number
+            function() { Main.windowResize();}, false);
+
         this.windowResize();
     };
 
@@ -26,10 +25,10 @@ Main = new function()
 
         $("#background").css('width','100%');
         $("#background").css('heigth','100%');
-        $("#background").css('background-color','grey');
+        $("#background").css('background-color','red');
 
         canvas = $("#mainCanvas");
-        canvas.css('background-color','red');
+        canvas.css('background-color','grey');
         //  canvas.css('width','100%');
         //canvas.css('height','100%');
         stage.canvas.width = window.innerWidth;

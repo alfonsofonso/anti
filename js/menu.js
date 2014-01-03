@@ -90,11 +90,11 @@ Menu=new  function() {
         anima.gotoAndPlay("correns");
         correns=true;
 
-        var quant=Math.random()*2000;
+        var quant=Math.random();
 
-        createjs.Tween.get(fons).to({scaleX:1+quant/1000,scaleY:1+quant/1000,y:alt-altFons/2-quant/2},500,createjs.Ease.circInOut).call(Menu.torna);
-        createjs.Tween.get(corriendo).to({scaleX:1+quant/1000,scaleY:1+quant/1000},500,createjs.Ease.circInOut);
-
+        createjs.Tween.get(fons).to({scaleX:.5+quant,scaleY:.5+quant,y:alt-altFons/2-quant/4},500,createjs.Ease.circInOut).call(Menu.torna);
+        createjs.Tween.get(corriendo).to({scaleX:.5+quant,scaleY:.5+quant,y:alt-200+quant*200},500,createjs.Ease.circInOut);
+        console.log(quant," quant");
     };
     this.torna=function(){/// call
         correns=false;
