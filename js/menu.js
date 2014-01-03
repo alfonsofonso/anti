@@ -63,8 +63,11 @@ Menu=new  function() {
                 "correns":{
                     frames: [0,1,2,3],
                     next:"saltant",
-                    speed:.4
-                }//,
+                    speed: .4
+                },
+                "saltant":{
+                    frames:[1]
+                }
             },
             "images": [imatges['corriendoSprite']],
             "frames":

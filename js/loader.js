@@ -18,12 +18,10 @@ Loader = new function() {
 
         stage = new createjs.Stage(document.getElementById("mainCanvas"));
         Main.windowResize();
-        amp=window.innerWidth;//720//$('#mainCanvas').css('width').substr(0,$('#mainCanvas').css('width').lastIndexOf('px'));
-        alt=window.innerHeight;//$('#mainCanvas').css('height').substr(0,$('#mainCanvas').css('height').lastIndexOf('px'));
-        sc =   alt/1024;
+
 
         createjs.Touch.enable(stage);
-        createjs.Ticker.setFPS(30);
+        createjs.Ticker.setFPS(20);
 
        // Loader.loadSound(); // or..
         Loader.reload();// load images directly

@@ -16,6 +16,10 @@ Main = new function()
         window.addEventListener("orientationchange",         // Announce the new orientation number
             function() { Main.windowResize();}, false);
 
+        amp=window.innerWidth;//720//$('#mainCanvas').css('width').substr(0,$('#mainCanvas').css('width').lastIndexOf('px'));
+        alt=window.innerHeight;//$('#mainCanvas').css('height').substr(0,$('#mainCanvas').css('height').lastIndexOf('px'));
+        sc =   alt/1024;
+
         this.windowResize();
     };
 
