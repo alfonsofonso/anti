@@ -29,11 +29,13 @@ Main = new function()
 
         canvas = $("#mainCanvas");
         canvas.css('background-color','grey');
-        //  canvas.css('width','100%');
+        //  canvas.css('width','100%')
         //canvas.css('height','100%');
+
         stage.canvas.width = window.innerWidth;
         stage.canvas.height = window.innerHeight;
-
+       // Main.InitGame();
+//Menu.initMenu();
         //ratio =   960/1440;
     };
 

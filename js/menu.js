@@ -40,13 +40,12 @@ Menu=new  function() {
             fonsCity2=new createjs.Bitmap(imatges["fonsCity"]);
         }
 
-        altFons=fonsCity2.getTransformedBounds().height;
-        ampFons=fonsCity2.getBounds().width;
 
-        Utils.pon(fonsCity,0,alt-altFons/2,true,1,fons);
-        Utils.pon(fonsCity2,2880,alt-altFons/2,true,1,fons);
+        Utils.pon(fonsCity,0,alt-1024,true,1,fons);
+        Utils.pon(fonsCity2,2880,alt-1024,true,1,fons);
 
-
+        altFons=fonsCity.getTransformedBounds().height;
+        ampFons=fonsCity.getBounds().width;
 
 
         if( corriendo == null || corriendo == undefined ) {
@@ -92,8 +91,8 @@ Menu=new  function() {
 
         var quant=Math.random();
 
-        createjs.Tween.get(fons).to({scaleX:.5+quant,scaleY:.5+quant,y:alt-altFons/2-quant/4},500,createjs.Ease.circInOut).call(Menu.torna);
-        createjs.Tween.get(corriendo).to({scaleX:.5+quant,scaleY:.5+quant,y:alt-200+quant*200},500,createjs.Ease.circInOut);
+        createjs.Tween.get(fons).to({scaleX:1+quant,scaleY:1+quant,y:alt/2+quant*109},500,createjs.Ease.circInOut).call(Menu.torna);
+        createjs.Tween.get(corriendo).to({scaleX:1+quant,scaleY:1+quant,y:alt-200+quant*200},500,createjs.Ease.circInOut);
         console.log(quant," quant");
     };
     this.torna=function(){/// call
