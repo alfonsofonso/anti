@@ -14,11 +14,12 @@ Main = new function()
         console.log("INIT GAME MAIN + windows resize");
        // Listen for orientation changes
         window.addEventListener("orientationchange",         // Announce the new orientation number
-            function() { Main.windowResize();}, false);
+            function() {
+                Main.windowResize();
 
-        amp=window.innerWidth;//720//$('#mainCanvas').css('width').substr(0,$('#mainCanvas').css('width').lastIndexOf('px'));
-        alt=window.innerHeight;//$('#mainCanvas').css('height').substr(0,$('#mainCanvas').css('height').lastIndexOf('px'));
-        sc =   alt/1024;
+            }, false);
+
+
 
         this.windowResize();
     };
@@ -38,6 +39,9 @@ Main = new function()
 
         stage.canvas.width = window.innerWidth;
         stage.canvas.height = window.innerHeight;
+        amp=window.innerWidth;//720//$('#mainCanvas').css('width').substr(0,$('#mainCanvas').css('width').lastIndexOf('px'));
+        alt=window.innerHeight;//$('#mainCanvas').css('height').substr(0,$('#mainCanvas').css('height').lastIndexOf('px'));
+        sc =   alt/1024;
        // Main.InitGame();
 //Menu.initMenu();
 

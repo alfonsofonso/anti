@@ -90,7 +90,7 @@ Menu=new  function() {
     };
 
     this.downHandler=function(){
-        $("#consola").text("amp "+amp+" alt "+alt);
+       // $("#consola").text("amp "+amp+" alt "+alt);
         createjs.Tween.removeAllTweens();
         anima.gotoAndPlay("correns");
         correns=true;

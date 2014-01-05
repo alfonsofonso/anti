@@ -17,6 +17,13 @@ Loader = new function() {
 
 
         stage = new createjs.Stage(document.getElementById("mainCanvas"));
+        window.requestAnimFrame =  (function(callback) {
+            return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame ||
+                function(callback) {
+                    window.setTimeout(callback, 1000 / 66);
+                };
+        })();
+
         Main.windowResize();
 
 
