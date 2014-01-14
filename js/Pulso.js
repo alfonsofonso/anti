@@ -9,17 +9,15 @@ Pulso=new function(){
     {
 
         if(correns){
-            fonsCity.x-=40;
-            fonsCity2.x-=40;
+            fons.x-=40;
 
 
         }
-        if(fonsCity.x<-ampFons){
-            fonsCity.x=fonsCity2.x+ampFons;
+        if(fons.x<-fons.getTransformedBounds().width/3){
+            console.log(fons.getTransformedBounds().width,"es fons.getTrandformedBounds.width",fons.getBounds().width,"es getBounds.width");
+            fons.x=0;
         }
-        if(fonsCity2.x<-ampFons){
-            fonsCity2.x=fonsCity.x+ampFons;
-        }
+
 
         stage.update();
 

@@ -7,6 +7,8 @@ var botBack;
 var canvas;
 var ampFons;
 
+var sc;// alt/1024
+
 Main = new function()
 {
     this.InitGame = function ()
@@ -42,6 +44,7 @@ Main = new function()
         amp=window.innerWidth;//720//$('#mainCanvas').css('width').substr(0,$('#mainCanvas').css('width').lastIndexOf('px'));
         alt=window.innerHeight;//$('#mainCanvas').css('height').substr(0,$('#mainCanvas').css('height').lastIndexOf('px'));
         sc =   alt/1024;
+
        // Main.InitGame();
 //Menu.initMenu();
 
