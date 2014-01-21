@@ -31,7 +31,7 @@
     <file path="/mj_unipunts.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1381239816009" ignored="false" />
     <file path="/mj_busca.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1381242400407" ignored="false" />
     <file path="/config.php" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1381999386193" ignored="false" />
-    <file path="/config.xml" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1390317354932" ignored="false" />
+    <file path="/config.xml" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1390317602439" ignored="false" />
     <file path="/Utils.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1386166304827" ignored="false" />
     <file path="/Joc1.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1388418324995" ignored="false" />
     <file path="/humans.txt" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1383652580892" ignored="false" />
@@ -76,7 +76,7 @@
       <file leaf-file-name="config.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="20" selection-start="348" selection-end="348" vertical-scroll-proportion="0.34249085">
+            <state line="77" column="21" selection-start="5468" selection-end="5468" vertical-scroll-proportion="0.7715931">
               <folding />
             </state>
           </provider>
@@ -240,6 +240,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\anti" />
       <recent name="C:\xampp\htdocs\any1714" />
       <recent name="C:\xampp\htdocs\mini\img_mig" />
       <recent name="W:\Super3Biribiri\Biribiri\js" />
@@ -348,12 +349,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291714" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24980111" sideWeight="0.6708286" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20029785" sideWeight="0.8700855" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20029785" sideWeight="0.8700855" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3982906" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20029785" sideWeight="0.12991454" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991454" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -525,7 +526,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="20" selection-start="348" selection-end="348" vertical-scroll-proportion="0.34249085">
+        <state line="77" column="21" selection-start="5468" selection-end="5468" vertical-scroll-proportion="0.7715931">
           <folding />
         </state>
       </provider>
