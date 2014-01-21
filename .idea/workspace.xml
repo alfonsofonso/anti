@@ -31,7 +31,7 @@
     <file path="/mj_unipunts.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1381239816009" ignored="false" />
     <file path="/mj_busca.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1381242400407" ignored="false" />
     <file path="/config.php" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1381999386193" ignored="false" />
-    <file path="/config.xml" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1390317602439" ignored="false" />
+    <file path="/config.xml" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1390323339067" ignored="false" />
     <file path="/Utils.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1386166304827" ignored="false" />
     <file path="/Joc1.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1388418324995" ignored="false" />
     <file path="/humans.txt" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1383652580892" ignored="false" />
@@ -67,7 +67,7 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="34" selection-start="1882" selection-end="1882" vertical-scroll-proportion="-4.1538463">
+            <state line="46" column="34" selection-start="1882" selection-end="1882" vertical-scroll-proportion="-30.076923">
               <folding />
             </state>
           </provider>
@@ -76,7 +76,7 @@
       <file leaf-file-name="config.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="26" selection-start="283" selection-end="283" vertical-scroll-proportion="0.19577736">
+            <state line="7" column="23" selection-start="308" selection-end="308" vertical-scroll-proportion="0.2284069">
               <folding />
             </state>
           </provider>
@@ -204,16 +204,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="the game" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="the game" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="anti" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -519,14 +509,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="34" selection-start="1882" selection-end="1882" vertical-scroll-proportion="-4.1538463">
+        <state line="46" column="34" selection-start="1882" selection-end="1882" vertical-scroll-proportion="-30.076923">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="26" selection-start="283" selection-end="283" vertical-scroll-proportion="0.19577736">
+        <state line="7" column="23" selection-start="308" selection-end="308" vertical-scroll-proportion="0.2284069">
           <folding />
         </state>
       </provider>
