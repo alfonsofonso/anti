@@ -4,12 +4,12 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.lalluvia.any1714"
-        version   = "0.9.0">
+        version   = "0.9.1">
 
-    <name>any1714</name>
+    <name>anti</name>
 
     <description>
-      any1714, the games
+      anti, the game
     </description>
 
     <author href="http://lalluvia.com" email="info@lalluvia.com">
