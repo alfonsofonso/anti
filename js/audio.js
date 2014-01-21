@@ -23,89 +23,32 @@
  tira_linia
  touch
  */
+var my_media;
 
-var piloteja=true;
+
 Audio = new  function()
 {
-    this.sonaaplaudiment =function ()
-    {
-        createjs.Sound.play('aplaudiment', createjs.Sound.INTERRUPT_EARLY, 0, 0, false, 1);
-    };
 
-    this.sonaagafa_peca_roba =function ()
-    {
-        createjs.Sound.play('agafa_peca_roba', createjs.Sound.INTERRUPT_EARLY, 0, 0, false, 1);
-    };
+    this.playAudio=function(url) {
+        try {
 
-    this.sonaarquet_ok =function ()
-    {
-        createjs.Sound.play('arquet_ok', createjs.Sound.INTERRUPT_EARLY, Math.random()*200, 0, false, 1);
-    };
+            my_media = new Media(url,
+                // success callback
+                function () {
+                    my_media.release();
+                },
+                // error callback
+                function (err) {
+                    my_media.release();
+                });
 
-    this.sonabola_llenca =function ()
-    {
-        createjs.Sound.play('bola_llenca', createjs.Sound.INTERRUPT_EARLY, 0, 0, false, 1);
-    };
+            // Play audio
+            my_media.play();
+        } catch (e) {
+            alert(e.message);
+        }
+    }
 
-    this.sonafi_ko =function ()
-    {
-        createjs.Sound.play('fi_ko', createjs.Sound.INTERRUPT_EARLY, 0, 0, false, 1);
-    };
-
-    this.sonafi_ok =function ()
-    {
-        createjs.Sound.play('fi_ok', createjs.Sound.INTERRUPT_EARLY, 0, 0, false, 1);
-    };
-
-    this.sonaingredient_ok =function ()
-    {
-        createjs.Sound.play('ingredient_ok', createjs.Sound.INTERRUPT_EARLY, 0, 0, false, 1);
-    };
-
-    this.sonalletra =function ()
-    {
-        createjs.Sound.play('lletra', createjs.Sound.INTERRUPT_EARLY, 0, 0, false, 1);
-    };
-
-    this.sonamec =function ()
-    {
-        createjs.Sound.play('mec', createjs.Sound.INTERRUPT_EARLY, 0, 0, false, 1);
-    };
-
-    this.sonaminimec =function ()
-    {
-        createjs.Sound.play('minimec', createjs.Sound.INTERRUPT_EARLY, 0, 0, false, 1);
-    };
-
-    this.sonapeca_ok =function ()
-    {
-        createjs.Sound.play('peca_ok', createjs.Sound.INTERRUPT_EARLY, 0, 0, false, 1);
-    };
-
-    this.sonapersonatge_ok =function ()
-    {
-        createjs.Sound.play('personatge_ok', createjs.Sound.INTERRUPT_EARLY, 0, 0, false, 1);
-    };
-
-    this.sonarebot_amb_paret =function ()
-    {
-        createjs.Sound.play('rebot_amb_paret', createjs.Sound.INTERRUPT_EARLY, 0, 0, false, 1);
-    };
-
-    this.sonasalt =function ()
-    {
-        createjs.Sound.play('salt', createjs.Sound.INTERRUPT_EARLY, 0, 0, false, 1);
-    };
-
-    this.sonatira_linia =function ()
-    {
-        createjs.Sound.play('tira_linia', createjs.Sound.INTERRUPT_EARLY, 0, 0, false, 1);
-    };
-
-    this.sonatouch =function ()
-    {
-        createjs.Sound.play('touch', createjs.Sound.INTERRUPT_EARLY, 0, 0, false, 1);
-    };
 
 
 };

@@ -27,6 +27,8 @@ Menu=new  function() {
 
     this.posaBotons=function(){
 
+        Audio.playAudio("audio/pueaghRules.mp3");
+
         if( corriendo == null || corriendo == undefined ) {// container Jugador
             corriendo=new createjs.Container();
         }
