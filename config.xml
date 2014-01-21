@@ -52,11 +52,12 @@
     <plugin name="Geolocation" value="org.apache.cordova.GeoBroker" />
     <plugin name="SplashScreen" value="org.apache.cordova.SplashScreen"/>
     -->
+    <plugin name="Media" value="org.apache.cordova.media"/>
     <!--
         <gap:plugin name="Example" />
         A list of available plugins are available at https://build.phonegap.com/docs/plugins
     -->
-    <gap:plugin name="org.apache.cordova.media"/>
+   
 
     <uses-permission name="android.permission.RECORD_AUDIO" />
     <uses-permission name="android.permission.MODIFY_AUDIO_SETTINGS" />
