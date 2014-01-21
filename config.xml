@@ -4,7 +4,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.lalluvia.anti"
-        version   = "3.1.7"
+        version   = "3.1.8"
         versionCode= "1">
 
     <name>anti</name>
@@ -57,7 +57,7 @@
         <gap:plugin name="Example" />
         A list of available plugins are available at https://build.phonegap.com/docs/plugins
     -->
-
+    <gap:plugin name="org.apache.cordova.media"/>
 
     <uses-permission name="android.permission.RECORD_AUDIO" />
     <uses-permission name="android.permission.MODIFY_AUDIO_SETTINGS" />
