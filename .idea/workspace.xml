@@ -31,7 +31,7 @@
     <file path="/mj_unipunts.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1381239816009" ignored="false" />
     <file path="/mj_busca.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1381242400407" ignored="false" />
     <file path="/config.php" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1381999386193" ignored="false" />
-    <file path="/config.xml" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1390327616912" ignored="false" />
+    <file path="/config.xml" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1390383363312" ignored="false" />
     <file path="/Utils.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1386166304827" ignored="false" />
     <file path="/Joc1.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1388418324995" ignored="false" />
     <file path="/humans.txt" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1383652580892" ignored="false" />
@@ -73,10 +73,19 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="configOLD.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/configOLD.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="84" column="4" selection-start="5756" selection-end="5787" vertical-scroll-proportion="-10.2">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="config.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="26" selection-start="280" selection-end="280" vertical-scroll-proportion="0.19577736">
+            <state line="45" column="4" selection-start="2983" selection-end="2983" vertical-scroll-proportion="1.3574766">
               <folding />
             </state>
           </provider>
@@ -155,7 +164,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/js/Joc1.js" />
         <option value="$PROJECT_DIR$/js/Joc2.js" />
         <option value="$PROJECT_DIR$/js/Joc3.js" />
         <option value="$PROJECT_DIR$/js/Joc4.js" />
@@ -170,6 +178,7 @@
         <option value="$PROJECT_DIR$/js/audio.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/menu.js" />
+        <option value="$PROJECT_DIR$/configOLD.xml" />
         <option value="$PROJECT_DIR$/config.xml" />
       </list>
     </option>
@@ -222,20 +231,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="anti" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="the game" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="anti" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -390,10 +385,10 @@
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.0" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.03931624" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.0" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2017094" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24980111" sideWeight="0.6708286" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20029785" sideWeight="0.8752137" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20029785" sideWeight="0.6735043" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3982906" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20029785" sideWeight="0.124786325" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991454" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -559,9 +554,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/configOLD.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="84" column="4" selection-start="5756" selection-end="5787" vertical-scroll-proportion="-10.2">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/config.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="26" selection-start="280" selection-end="280" vertical-scroll-proportion="0.19577736">
+        <state line="45" column="4" selection-start="2983" selection-end="2983" vertical-scroll-proportion="1.3574766">
           <folding />
         </state>
       </provider>
