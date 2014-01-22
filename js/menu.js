@@ -21,6 +21,7 @@ Menu=new  function() {
          Fons.posaFons();
          Menu.posaBotons();
 
+
     };
 
 
@@ -68,9 +69,9 @@ Menu=new  function() {
     };
 
 
-    this.downHandler=function(){
+    this.downHandler=function(e){
        // $("#consola").text("amp "+amp+" alt "+alt);
-        Audio.playAudio("audio/pueaghRules.mp3");
+
         createjs.Tween.removeAllTweens();
         anima.gotoAndPlay("correns");
         correns=true;

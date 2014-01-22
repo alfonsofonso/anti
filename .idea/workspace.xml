@@ -4,7 +4,7 @@
     <list default="true" id="4a711f43-1321-4657-827c-d9c36c66a548" name="Default" comment="" />
     <ignored path="Biribiri.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/main.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1389713887505" ignored="false" />
+    <file path="/main.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1390388936758" ignored="false" />
     <file path="/index.html" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1390329269964" ignored="false" />
     <file path="/Graphics_winding.html" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1373637532231" ignored="false" />
     <file path="/loader.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1388766220033" ignored="false" />
@@ -12,7 +12,7 @@
     <file path="/biribiri.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1380805834360" ignored="false" />
     <file path="/main.css" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1388654649819" ignored="false" />
     <file path="/storage.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1379430436664" ignored="false" />
-    <file path="/menu.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1389716034873" ignored="false" />
+    <file path="/menu.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1390385180631" ignored="false" />
     <file path="/model.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1381504805928" ignored="false" />
     <file path="/minijocDisfressa.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1378819610603" ignored="false" />
     <file path="/mj_disfressa.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1380288517293" ignored="false" />
@@ -67,7 +67,7 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="3" selection-start="1098" selection-end="1135" vertical-scroll-proportion="-5.8846154">
+            <state line="22" column="64" selection-start="1050" selection-end="1135" vertical-scroll-proportion="-4.576923">
               <folding />
             </state>
           </provider>
@@ -76,17 +76,19 @@
       <file leaf-file-name="configOLD.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/configOLD.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="84" column="4" selection-start="5756" selection-end="5787" vertical-scroll-proportion="-10.2">
+            <state line="23" column="1" selection-start="635" selection-end="811" vertical-scroll-proportion="-9.52">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config.xml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="config.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="4" selection-start="2983" selection-end="2983" vertical-scroll-proportion="1.3574766">
-              <folding />
+            <state line="61" column="0" selection-start="3795" selection-end="3845" vertical-scroll-proportion="0.0">
+              <folding>
+                <marker date="1390384968083" expanded="true" signature="5615:6781" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -94,16 +96,16 @@
       <file leaf-file-name="audio.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/audio.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="13" selection-start="400" selection-end="400" vertical-scroll-proportion="0.0">
+            <state line="49" column="5" selection-start="850" selection-end="850" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="main.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="0" selection-start="1247" selection-end="1247" vertical-scroll-proportion="0.0">
+            <state line="49" column="54" selection-start="1348" selection-end="1348" vertical-scroll-proportion="0.32476637">
               <folding />
             </state>
           </provider>
@@ -139,7 +141,7 @@
       <file leaf-file-name="menu.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/menu.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="72" column="49" selection-start="1625" selection-end="1625" vertical-scroll-proportion="0.0">
+            <state line="23" column="0" selection-start="374" selection-end="374" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -174,12 +176,12 @@
         <option value="$PROJECT_DIR$/js/vendor/jquery-1.10.2.min.js" />
         <option value="$PROJECT_DIR$/js/Pulso.js" />
         <option value="$PROJECT_DIR$/js/fons.js" />
-        <option value="$PROJECT_DIR$/js/main.js" />
         <option value="$PROJECT_DIR$/js/audio.js" />
-        <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/js/menu.js" />
         <option value="$PROJECT_DIR$/configOLD.xml" />
         <option value="$PROJECT_DIR$/config.xml" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/js/menu.js" />
+        <option value="$PROJECT_DIR$/js/main.js" />
       </list>
     </option>
   </component>
@@ -507,13 +509,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/loader.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="35" selection-start="826" selection-end="826" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/splash.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -528,42 +523,51 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="3" selection-start="1098" selection-end="1135" vertical-scroll-proportion="-5.8846154">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/audio.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="13" selection-start="400" selection-end="400" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="0" selection-start="1247" selection-end="1247" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/menu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="49" selection-start="1625" selection-end="1625" vertical-scroll-proportion="0.0">
+        <state line="22" column="64" selection-start="1050" selection-end="1135" vertical-scroll-proportion="-4.576923">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/configOLD.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="4" selection-start="5756" selection-end="5787" vertical-scroll-proportion="-10.2">
+        <state line="23" column="1" selection-start="635" selection-end="811" vertical-scroll-proportion="-9.52">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/audio.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="5" selection-start="850" selection-end="850" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="4" selection-start="2983" selection-end="2983" vertical-scroll-proportion="1.3574766">
+        <state line="61" column="0" selection-start="3795" selection-end="3845" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1390384968083" expanded="true" signature="5615:6781" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/loader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="35" selection-start="826" selection-end="826" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/menu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="0" selection-start="374" selection-end="374" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="54" selection-start="1348" selection-end="1348" vertical-scroll-proportion="0.32476637">
           <folding />
         </state>
       </provider>

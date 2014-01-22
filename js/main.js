@@ -47,14 +47,17 @@ Main = new function()
 
        // Main.InitGame();
 //Menu.initMenu();
+        document.addEventListener("deviceready", Main.phonegap(), false);
+
 
     };
-
+    this.phonegap=function(){
+        Audio.playAudio("audio/pueaghRules.mp3");
+    };
 
 };
 
 window.addEventListener('resize', Main.windowResize, false);
-
 
 
 
