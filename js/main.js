@@ -47,7 +47,7 @@ Main = new function()
 
        // Main.InitGame();
 //Menu.initMenu();
-        document.addEventListener("deviceready", Main.phonegap(), false);
+
 
 
     };
@@ -56,7 +56,7 @@ Main = new function()
     };
 
 };
-
+document.addEventListener("deviceready", Main.phonegap(), false);
 window.addEventListener('resize', Main.windowResize, false);
 
 
