@@ -31,7 +31,7 @@
     <file path="/mj_unipunts.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1381239816009" ignored="false" />
     <file path="/mj_busca.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1381242400407" ignored="false" />
     <file path="/config.php" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1381999386193" ignored="false" />
-    <file path="/config.xml" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1390383363312" ignored="false" />
+    <file path="/config.xml" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1390396257118" ignored="false" />
     <file path="/Utils.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1386166304827" ignored="false" />
     <file path="/Joc1.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1388418324995" ignored="false" />
     <file path="/humans.txt" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1383652580892" ignored="false" />
@@ -67,7 +67,7 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="64" selection-start="1050" selection-end="1135" vertical-scroll-proportion="-4.576923">
+            <state line="32" column="43" selection-start="1578" selection-end="1578" vertical-scroll-proportion="-7.1923075">
               <folding />
             </state>
           </provider>
@@ -82,13 +82,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config.xml" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="config.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="61" column="0" selection-start="3795" selection-end="3845" vertical-scroll-proportion="0.0">
-              <folding>
-                <marker date="1390384968083" expanded="true" signature="5615:6781" placeholder="..." />
-              </folding>
+            <state line="15" column="16" selection-start="482" selection-end="482" vertical-scroll-proportion="0.039719626">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -102,10 +100,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="58" column="65" selection-start="1460" selection-end="1460" vertical-scroll-proportion="0.80140185">
+            <state line="58" column="65" selection-start="1460" selection-end="1460" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -178,10 +176,10 @@
         <option value="$PROJECT_DIR$/js/fons.js" />
         <option value="$PROJECT_DIR$/js/audio.js" />
         <option value="$PROJECT_DIR$/configOLD.xml" />
-        <option value="$PROJECT_DIR$/config.xml" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/menu.js" />
         <option value="$PROJECT_DIR$/js/main.js" />
+        <option value="$PROJECT_DIR$/config.xml" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -224,30 +222,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="the game" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="the game" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="anti" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="the game" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="anti" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="audio" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -521,13 +495,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="64" selection-start="1050" selection-end="1135" vertical-scroll-proportion="-4.576923">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/configOLD.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="23" column="1" selection-start="635" selection-end="811" vertical-scroll-proportion="-9.52">
@@ -539,15 +506,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="49" column="5" selection-start="850" selection-end="850" vertical-scroll-proportion="0.0">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="0" selection-start="3795" selection-end="3845" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1390384968083" expanded="true" signature="5615:6781" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -567,7 +525,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="65" selection-start="1460" selection-end="1460" vertical-scroll-proportion="0.80140185">
+        <state line="58" column="65" selection-start="1460" selection-end="1460" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="43" selection-start="1578" selection-end="1578" vertical-scroll-proportion="-7.1923075">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="16" selection-start="482" selection-end="482" vertical-scroll-proportion="0.039719626">
           <folding />
         </state>
       </provider>
