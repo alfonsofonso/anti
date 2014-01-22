@@ -73,10 +73,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config.xml" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="config.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="0" selection-start="4176" selection-end="4176" vertical-scroll-proportion="-40.8">
+            <state line="6" column="26" selection-start="280" selection-end="280" vertical-scroll-proportion="0.19577736">
               <folding />
             </state>
           </provider>
@@ -127,10 +127,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="menu.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="menu.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/menu.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="72" column="49" selection-start="1625" selection-end="1625" vertical-scroll-proportion="0.57423973">
+            <state line="72" column="49" selection-start="1625" selection-end="1625" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -169,8 +169,8 @@
         <option value="$PROJECT_DIR$/js/main.js" />
         <option value="$PROJECT_DIR$/js/audio.js" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/config.xml" />
         <option value="$PROJECT_DIR$/js/menu.js" />
+        <option value="$PROJECT_DIR$/config.xml" />
       </list>
     </option>
   </component>
@@ -538,13 +538,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="0" selection-start="4176" selection-end="4176" vertical-scroll-proportion="-40.8">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/audio.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="31" column="13" selection-start="400" selection-end="400" vertical-scroll-proportion="0.0">
@@ -561,7 +554,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/menu.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="49" selection-start="1625" selection-end="1625" vertical-scroll-proportion="0.57423973">
+        <state line="72" column="49" selection-start="1625" selection-end="1625" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="26" selection-start="280" selection-end="280" vertical-scroll-proportion="0.19577736">
           <folding />
         </state>
       </provider>
