@@ -4,7 +4,7 @@ var manifest;
 var imatges= new Array();
 
 var NUM_AUDIOS = 0;
-var NUM_IMATGES = 7 ;//+ NUM_AUDIOS;
+var NUM_IMATGES = 4 ;//+ NUM_AUDIOS;
 var loaded_imatges = 0;
 var percent;
 var carregant;
@@ -83,10 +83,7 @@ Loader = new function() {
         manifest = [
             //entorn -- 1 imatge
             "menu.jpg",
-            "anti/corriendo1.png",
-            "anti/corriendo2.png",
-            "anti/corriendo3.png",
-            "anti/corriendo4.png",
+            "bot.png",
             "corriendo.png",
             "fonsCiti.jpg"
 
@@ -134,14 +131,9 @@ Loader = new function() {
         switch(event.item.src)
         {
 
-            case "anti/corriendo1.png": imatges['corriendo1'] =  event.result;
+            case "bot.png": imatges['botPause'] =  event.result;
                 break
-            case "anti/corriendo2.png": imatges['corriendo2'] =  event.result;
-                break;
-            case "anti/corriendo3.png": imatges['corriendo3'] =  event.result;
-                break;
-            case "anti/corriendo4.png": imatges['corriendo4'] =  event.result;
-                break;
+
             case "menu.jpg": imatges['SCREEN_01'] =  event.result;
                 //Loader.posaLoader();
                 break;

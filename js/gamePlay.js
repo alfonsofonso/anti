@@ -3,9 +3,10 @@
  Data: 29/01/14 , 11:22
  */
 
-var corriendo1,corriendo2,corriendo3,corriendo4;
+
 var anima;
 var jugador;
+
 
 var taping;
 
@@ -15,50 +16,12 @@ var GamePlay=new function(){
         screen01.removeEventListener("click");
         stage.removeAllChildren();
         createjs.Ticker.addEventListener("tick",Pulso.handlerTick);
-        Fons.posaFons();
-        GamePlay.ponJugador();
-    };
 
-
-    this.ponJugador=function(){
+        Assets.posaFons();
+        Assets.ponJugador();
+        Assets.ponHUB();
 
         AudioPunk.play();
-
-        if( jugador == null || jugador == undefined ) {// container Jugador
-            jugador=new createjs.Container();
-        }
-        jugador.x=amp/4;
-        jugador.y=alt;
-        stage.addChild(jugador);
-
-        var array_imatges = new createjs.SpriteSheet({ // SpriteSheet
-            "animations":
-            {
-                "correns":{
-                    frames: [0,1,2,3],
-                    next:"quieto",
-                    speed: .4
-                },
-                "saltant":{
-                    frames:[0]
-                }
-            },
-            "images": [imatges['corriendoSprite']],
-            "frames":
-            {
-                "height": 512,
-                "width":512,
-                "regX": 256,
-                "regY":256,
-                "count": 4
-            }
-        });
-
-        anima = new createjs.Sprite(array_imatges);
-        jugador.addChild(anima);
-        jugador.y=alt-jugador.getTransformedBounds().height/2;
-        jugador.addEventListener("mousedown",GamePlay.downJugador);
-
     };
 
 
@@ -70,7 +33,7 @@ var GamePlay=new function(){
             anima.gotoAndPlay("correns");
             taping=true;
         }else{
-            taping=false;//////////////////////// comentable
+            //taping=false;//////////////////////// comentable
         }
 
 
