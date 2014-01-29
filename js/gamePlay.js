@@ -3,6 +3,11 @@
  Data: 29/01/14 , 11:22
  */
 
+var corriendo1,corriendo2,corriendo3,corriendo4;
+var anima;
+var jugador;
+
+var taping;
 
 var GamePlay=new function(){
 
@@ -19,12 +24,12 @@ var GamePlay=new function(){
 
         AudioPunk.play();
 
-        if( corriendo == null || corriendo == undefined ) {// container Jugador
-            corriendo=new createjs.Container();
+        if( jugador == null || jugador == undefined ) {// container Jugador
+            jugador=new createjs.Container();
         }
-        corriendo.x=amp/4;
-        corriendo.y=alt;
-        stage.addChild(corriendo);
+        jugador.x=amp/4;
+        jugador.y=alt;
+        stage.addChild(jugador);
 
         var array_imatges = new createjs.SpriteSheet({ // SpriteSheet
             "animations":
@@ -50,29 +55,34 @@ var GamePlay=new function(){
         });
 
         anima = new createjs.Sprite(array_imatges);
-        corriendo.addChild(anima);
-        corriendo.y=alt-corriendo.getTransformedBounds().height/2;
-        corriendo.addEventListener("mousedown",GamePlay.downJugador);
+        jugador.addChild(anima);
+        jugador.y=alt-jugador.getTransformedBounds().height/2;
+        jugador.addEventListener("mousedown",GamePlay.downJugador);
 
     };
 
 
     this.downJugador=function(e){//////////////////////////////////    M O U S E D O W N
         // $("#consola").text("amp "+amp+" alt "+alt);
-        AudioPunk.riff1();
-        createjs.Tween.removeAllTweens();
-        anima.gotoAndPlay("correns");
-        correns=true;
+        TocaRiff.corriendo();
+
+        if(!taping){
+            anima.gotoAndPlay("correns");
+            taping=true;
+        }else{
+            taping=false;//////////////////////// comentable
+        }
+
 
         var quant=Math.random()/4;
 
         createjs.Tween.get(fons).to({scaleX:sc+quant,scaleY:sc+quant},500,createjs.Ease.circInOut).call(GamePlay.torna);
-        createjs.Tween.get(corriendo).to({scaleX:sc+quant,scaleY:sc+quant,x:amp/4,y:alt/1.3+quant*200},500,createjs.Ease.circInOut);
+        createjs.Tween.get(jugador).to({scaleX:sc+quant,scaleY:sc+quant,x:amp/4,y:alt/1.3+quant*200},500,createjs.Ease.circInOut);
 
-        console.log(quant," quant + scY: "+sc);
+        //console.log(quant," quant + scY: "+sc);
     };
-    this.torna=function(){/// call
-        correns=false;
+    this.torna=function(){/// fin traveling fons i jugador
+        taping=false;
     };
 
 };

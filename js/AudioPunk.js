@@ -6,7 +6,6 @@ var audioContext = null;    // los altavoces
 
 var melodiaGuit,melodiaBajo,melodiaBate;
 var guitarra,bajo,bateria;
-var currentGuit,currentBajo,currentBate;
 
 AudioPunk= new function(){
 
@@ -44,9 +43,10 @@ AudioPunk= new function(){
     };
 
 
-    this.escribeNota=function(time) { //this.scheduleNote=function( beatNumber, time ) {
+    this.escribeNota=function(time) { //escribe en el buffer
         //console.log("semicorchea: ",semicorchea);
         notesInQueue.push( { note: semicorchea, time: time } );//push, even if we're not playing for de Draw.js methods
+
         AudioPunk.tocaGuitarra(time);
         AudioPunk.tocaBajo(time);
         AudioPunk.tocaBateria(time);
@@ -62,7 +62,6 @@ AudioPunk= new function(){
             semicorchea = 0;
         }
     };
-
 
     this.tocaGuitarra=function(time){// escribe nota de guitarra
         if(melodiaGuit[semicorchea].duracion==0){return}
@@ -94,6 +93,7 @@ AudioPunk= new function(){
         // guitarra.buffer = melodia[semicorchea].buffer; // tañe nota
         ///////////////////////////////////////      A Q U I  S U E N A en time   /////////////////////////////////////
         bajo.start(time);
+
         bajo.stop(time + duracion);// play the source ( in seconds!!! )
         /////////////////////////////////////////////////////////////////////////////////////////////////////
     };
@@ -115,14 +115,6 @@ AudioPunk= new function(){
         /////////////////////////////////////////////////////////////////////////////////////////////////////
     };
 
-    this.todoCargado=function(){///// AudioPunk preparado
-
-        Loader.reload();
-
-       // var b=document.getElementById('container');
-        //b.addEventListener("click",AudioPunk.play);
-
-    };
 
     this.play=function() {//////////////////////////////////   play/stop
         console.log("play");
@@ -141,26 +133,12 @@ AudioPunk= new function(){
         }
     };
 
-    this.riff1=function(){
-
-        /*melodiaGuit=[{nota:"aG",duracion:2},{nota:"aG",duracion:0},{nota:"aG",duracion:1},{nota:"aG",duracion:2},
-            {nota:"aG",duracion:0},{nota:"aG",duracion:1},{nota:"aG",duracion:1},{nota:"aG",duracion:1},
-            {nota:"fG",duracion:2},{nota:"fG",duracion:0},{nota:"fG",duracion:1},{nota:"gG",duracion:2},
-            {nota:"gG",duracion:0},{nota:"gG",duracion:1},{nota:"gG",duracion:1},{nota:"gG",duracion:1}];*/
-        currentGuit="riff1";
-
-        melodiaBate=[{nota:"caj",duracion:1},{nota:"bom",duracion:1},{nota:"caj",duracion:1},{nota:"bom",duracion:1},
-            {nota:"caj",duracion:1},{nota:"bom",duracion:1},{nota:"caj",duracion:1},{nota:"bom",duracion:1},
-            {nota:"caj",duracion:1},{nota:"bom",duracion:1},{nota:"caj",duracion:1},{nota:"bom",duracion:1},
-            {nota:"caj",duracion:1},{nota:"bom",duracion:1},{nota:"caj",duracion:1},{nota:"bom",duracion:1}];
-    };
 
 
     /////////////////////////////////////////////////////////   AUDIO UTILS ////////////////////////////////
     this.frequencyFromNoteNumber=function( nota ) {
         //console.log(nota);
         return basenote *110* Math.pow(2,nota/12);//////////1.059463    pow(2, note- nota base?)/ 12notas de la escala);
-
     };
 
     this.cambiaTempo=function(event){
@@ -169,7 +147,6 @@ AudioPunk= new function(){
         duracionTiempo=(1/tiemposCompas)*secondsPerBeat;
         //basenote=event.target.value;
         console.log("tempo:",tempo);
-
     };
 
     this.initializeVars=function(){
@@ -184,12 +161,6 @@ AudioPunk= new function(){
         basenote=1;
         noteLength = 1;
 
-        currentGuit="none";
-
-        melodiaGuit=[{nota:"aG",duracion:0},{nota:"aG",duracion:0},{nota:"aG",duracion:0},{nota:"aG",duracion:0},
-                     {nota:"aG",duracion:0},{nota:"aG",duracion:0},{nota:"aG",duracion:0},{nota:"aG",duracion:0},
-                     {nota:"fG",duracion:0},{nota:"fG",duracion:0},{nota:"fG",duracion:0},{nota:"gG",duracion:0},
-                     {nota:"gG",duracion:0},{nota:"gG",duracion:0},{nota:"gG",duracion:0},{nota:"gG",duracion:0}];
         melodiaBajo=[{nota:"aB",duracion:2},{nota:"aB",duracion:0},{nota:"aB",duracion:1},{nota:"aB",duracion:2},
                      {nota:"aB",duracion:0},{nota:"aB",duracion:1},{nota:"aB",duracion:1},{nota:"aB",duracion:1},
                      {nota:"fB",duracion:2},{nota:"fB",duracion:0},{nota:"fB",duracion:1},{nota:"gB",duracion:2},
@@ -198,27 +169,32 @@ AudioPunk= new function(){
                      {nota:"caj",duracion:0},{nota:"bom",duracion:0},{nota:"caj",duracion:0},{nota:"bom",duracion:0},
                      {nota:"caj",duracion:0},{nota:"bom",duracion:0},{nota:"caj",duracion:0},{nota:"bom",duracion:0},
                      {nota:"caj",duracion:0},{nota:"bom",duracion:0},{nota:"caj",duracion:0},{nota:"bom",duracion:0}];
+        melodiaGuit=[{nota:"aG",duracion:0},{nota:"aG",duracion:0},{nota:"aG",duracion:0},{nota:"aG",duracion:0},
+            {nota:"aG",duracion:0},{nota:"aG",duracion:0},{nota:"aG",duracion:0},{nota:"aG",duracion:0},
+            {nota:"fG",duracion:0},{nota:"fG",duracion:0},{nota:"fG",duracion:0},{nota:"gG",duracion:0},
+            {nota:"gG",duracion:0},{nota:"gG",duracion:0},{nota:"gG",duracion:0},{nota:"gG",duracion:0}];
 
         notesInQueue = [];
         compas=0;
         secondsPerBeat= 60.0 / tempo;
         duracionTiempo=(1/tiemposCompas)*secondsPerBeat;
-
     };
 
     this.scheduler=function() {//    reloj   timeout
         // while there are notes that will need to play before the next interval,
         // schedule them and advance the pointer.
-
-
         while (nextNoteTime < audioContext.currentTime + scheduleAheadTime ) {// si toca escribe en el buffer
 
             //console.log("nextNonteTime",nextNoteTime,"time + sheduleAhead",audioContext.currentTime + scheduleAheadTime);
             AudioPunk.escribeNota( nextNoteTime);
             AudioPunk.nextNote();
+            if(taping){
+                TocaRiff.corriendo();
+            }else{
+                TocaRiff.mutea("bateria");
+            }
         }
         timerID = window.setTimeout( AudioPunk.scheduler, lookahead );
     };
-
 
 };

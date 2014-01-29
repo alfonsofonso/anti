@@ -72,7 +72,7 @@ var LoaderAudio = new function(){
 
         sonidosCargados++;
         if(sonidosCargados>=todosLosSonidos){                               ////// todoo cargado
-            AudioPunk.todoCargado();
+            Loader.reload();
         }else{
             LoaderAudio.loadSound(sonidos_arr[sonidosCargados])
         }

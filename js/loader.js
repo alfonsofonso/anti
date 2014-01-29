@@ -82,7 +82,7 @@ Loader = new function() {
         // Push each item into our manifest
         manifest = [
             //entorn -- 1 imatge
-            "anti/SCREEN_01.png",
+            "menu.jpg",
             "anti/corriendo1.png",
             "anti/corriendo2.png",
             "anti/corriendo3.png",
@@ -142,7 +142,7 @@ Loader = new function() {
                 break;
             case "anti/corriendo4.png": imatges['corriendo4'] =  event.result;
                 break;
-            case "anti/SCREEN_01.png": imatges['SCREEN_01'] =  event.result;
+            case "menu.jpg": imatges['SCREEN_01'] =  event.result;
                 //Loader.posaLoader();
                 break;
             case "corriendo.png": imatges['corriendoSprite'] =  event.result;

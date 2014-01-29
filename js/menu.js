@@ -4,10 +4,6 @@ alfonsofonso
 
 
 var stage;
-var corriendo1,corriendo2,corriendo3,corriendo4;
-var anima;
-var corriendo;
-var correns;
 
 var instr1_1,instr2,instr3,instr4;
 var screen01;
@@ -23,7 +19,7 @@ Menu=new  function() {
              screen01.addEventListener("click",GamePlay.init);
          }
 
-             screen01.scaleX=screen01.scaleY=amp/2120;
+             screen01.scaleX=screen01.scaleY=amp/1272;
 
          stage.addChild(screen01);
          stage.update();

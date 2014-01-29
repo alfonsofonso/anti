@@ -8,10 +8,8 @@ Pulso=new function(){
     this.handlerTick =function ()
     {
 
-        if(correns){
+        if(taping){
             fons.x-=40;
-
-
         }
         if(fons.x<-fons.getTransformedBounds().width/3){
             console.log(fons.getTransformedBounds().width,"es fons.getTrandformedBounds.width",fons.getBounds().width,"es getBounds.width");
