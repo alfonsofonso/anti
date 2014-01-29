@@ -194,6 +194,7 @@ AudioPunk= new function(){
                 TocaRiff.mutea("bateria");
             }
         }
+        window.clearTimeout( timerID );
         timerID = window.setTimeout( AudioPunk.scheduler, lookahead );
     };
 

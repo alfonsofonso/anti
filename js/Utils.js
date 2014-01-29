@@ -25,7 +25,7 @@ Utils=new function(){
         // positioning
         if(centered){
 
-            obj.regX=obj.getTransformedBounds().width/(r*2);
+            obj.regX=obj.getTransformedBounds().width/(r*2);// instead of normal getTransformedBounds?
             obj.regY=obj.getTransformedBounds().height/(r*2);
         }
         obj.x=ix;

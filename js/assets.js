@@ -11,9 +11,10 @@ var Assets=new function(){
         if( fons == null || fonsCity == undefined ) {
             fons=new createjs.Container();
         }
-        fons.regX=1440;
-        fons.regY=512;
+        fons.regX=720;
+        fons.regY=256;
         fons.y=alt/2;
+        fons.scaleX=fons.scaleY=sc;
         stage.addChild(fons);
         fons.mouseEnabled=false;
 
@@ -29,16 +30,15 @@ var Assets=new function(){
 
         //////              x    y   centered ratio parent
         Utils.pon(fonsCity, 0,   0, false,  1,  fons);
-        Utils.pon(fonsCity2,2880,0, false,  1,  fons);
-        Utils.pon(fonsCity3,5760,0, false,  1,  fons);
+        Utils.pon(fonsCity2,1440,0, false,  1,  fons);
+        Utils.pon(fonsCity3,2880,0, false,  1,  fons);
 
+        fons.cache(0,0,4320,512);
 
 
     };
 
     this.ponJugador=function(){
-
-
 
         if( jugador == null || jugador == undefined ) {// container Jugador
             jugador=new createjs.Container();

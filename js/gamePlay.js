@@ -40,7 +40,8 @@ var GamePlay=new function(){
         var quant=Math.random()/4;
 
         createjs.Tween.get(fons).to({scaleX:sc+quant,scaleY:sc+quant},500,createjs.Ease.circInOut).call(GamePlay.torna);
-        createjs.Tween.get(jugador).to({scaleX:sc+quant,scaleY:sc+quant,x:amp/4,y:alt/1.3+quant*200},500,createjs.Ease.circInOut);
+
+        createjs.Tween.get(jugador).to({scaleX:sc/2+quant,scaleY:sc/2+quant,x:amp/4,y:alt/1.3+quant*200},500,createjs.Ease.circInOut);
 
         //console.log(quant," quant + scY: "+sc);
     };

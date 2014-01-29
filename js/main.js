@@ -42,7 +42,7 @@ Main = new function()
         stage.canvas.height = window.innerHeight;
         amp=window.innerWidth;//720//$('#mainCanvas').css('width').substr(0,$('#mainCanvas').css('width').lastIndexOf('px'));
         alt=window.innerHeight;//$('#mainCanvas').css('height').substr(0,$('#mainCanvas').css('height').lastIndexOf('px'));
-        sc =   alt/1024;
+        sc =   alt/512;
         console.log("alt: ",alt," amp: ",amp);
         stage.update();
 
