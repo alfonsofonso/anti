@@ -21,10 +21,9 @@ Main = new function()
 
             }, false);
 
-
-
         this.windowResize();
     };
+
 
     this.windowResize =function ()
     {
@@ -44,19 +43,14 @@ Main = new function()
         amp=window.innerWidth;//720//$('#mainCanvas').css('width').substr(0,$('#mainCanvas').css('width').lastIndexOf('px'));
         alt=window.innerHeight;//$('#mainCanvas').css('height').substr(0,$('#mainCanvas').css('height').lastIndexOf('px'));
         sc =   alt/1024;
-
-       // Main.InitGame();
-//Menu.initMenu();
-
-
+        console.log("alt: ",alt," amp: ",amp);
+        stage.update();
 
     };
-    this.phonegap=function(){
-        Audio.playAudio("audio/pueaghRules.mp3");
-    };
+
 
 };
-document.addEventListener("deviceready", Main.phonegap(), false);
+
 window.addEventListener('resize', Main.windowResize, false);
 
 

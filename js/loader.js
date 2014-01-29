@@ -2,7 +2,7 @@
 var preload;
 var manifest;
 var imatges= new Array();
-var sons = new Array();
+
 var NUM_AUDIOS = 0;
 var NUM_IMATGES = 7 ;//+ NUM_AUDIOS;
 var loaded_imatges = 0;
@@ -31,7 +31,7 @@ Loader = new function() {
         createjs.Ticker.setFPS(20);
 
        // Loader.loadSound(); // or..
-        Loader.reload();// load images directly
+        AudioPunk.init();// load images directly  /// ... Loader.reload()
 
     };
 

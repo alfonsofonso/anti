@@ -14,6 +14,7 @@ var Fons=new function(){
         fons.regY=512;
         fons.y=alt/2;
         stage.addChild(fons);
+        fons.mouseEnabled=false;
 
         if( fonsCity == null || fonsCity == undefined ) {
             fonsCity=new createjs.Bitmap(imatges["fonsCity"]);
@@ -32,8 +33,7 @@ var Fons=new function(){
 
 
 
-    }
-
+    };
 
 
 

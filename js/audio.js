@@ -29,25 +29,7 @@ var my_media;
 Audio = new  function()
 {
 
-    this.playAudio=function(url) {
-        try {
 
-            my_media = new Media(url,
-                // success callback
-                function () {
-                    my_media.release();
-                },
-                // error callback
-                function (err) {
-                    my_media.release();
-                });
-
-            // Play audio
-            my_media.play();
-        } catch (e) {
-            alert(e.message);
-        }
-    }
 
 
 
