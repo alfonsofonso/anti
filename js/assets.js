@@ -127,7 +127,7 @@ var Assets=new function(){
         animaPoli.gotoAndPlay("correns");
         createjs.Tween.get(madero).to({x:amp/2+Math.random()*50,scaleX:sc/2+zoom,scaleY:sc/2+zoom,y:alt/1.3+zoom*200+Math.random()*30},1000,createjs.Ease.circInOut).call(function(){GamePlay.mamporrear(madero)});//scaleX:sc+zoom, scaleY:sc+zoom,
         madero.addEventListener("mousedown",GamePlay.downPoli);
-        maderos.push(madero);
+
 
     };
 

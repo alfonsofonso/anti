@@ -59,6 +59,7 @@ AudioPunk= new function(){
         semicorchea++;    // Advance the beat number, wrap to zero
         if (semicorchea == 16) {
             compas++;
+            console.log("compas=",compas)
             semicorchea = 0;
         }
     };

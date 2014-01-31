@@ -9,7 +9,6 @@ var animaPoli;
 var jugador;
 var zoom;
 var maxPolis=5;
-var recibiendo;
 
 var taping;
 
@@ -49,7 +48,7 @@ var GamePlay=new function(){
             createjs.Tween.get(maderos[i],{override:false}).to({scaleX:sc/2+zoom,scaleY:sc/2+zoom,y:alt/1.3+zoom*200},350,createjs.Ease.circInOut);
         }
 
-        console.log(" zoom" ,zoom, "scY: ",sc);
+    //    console.log(" zoom" ,zoom, "scY: ",sc);
     };
     this.torna=function(){/// fin traveling fons i jugador
         taping=false;
@@ -58,33 +57,30 @@ var GamePlay=new function(){
 
     this.downPoli=function(e){
         e.target.gotoAndStop(1);
-        maderos.splice(e.target);
+        maderos.pop(e.target);
+        console.log("maderos ",maderos)
         createjs.Tween.removeTweens(e.target);
         e.target.removeAllEventListeners();
         e.target.mouseEnabled=false;
         createjs.Tween.get(e.target).to({scaleX:.8,scaleY:.8,alpha:0,rotation:-50,x: e.target.x+100,y: e.target.y-100},350,createjs.Ease.circInOut).call(function(){GamePlay.poliFuera(e.target)});
-        console.log(e.target);
+        //console.log(e.target);
         AudioPunk.tocaCrash();
 
     };
     this.poliFuera=function(quePoli){
         stage.removeChild(quePoli.parent);
-        recibiendo=false;
+
     };
 
     this.mamporrear=function(mader){
 
-        if(maderos.indexOf(mader)!=-1){
-           recibiendo=true;
-        }else{
-           recibiendo=false;
-        }
-
-
+        maderos.push(mader);
+console.log(maderos);
     };
 
     this.beatDraw=function(t){
-        if(recibiendo){
+
+        if(maderos.length>0){
             AudioPunk.tocaTom(t);
             anima.gotoAndPlay("golpeado");
             createjs.Tween.get(jugador).to({x: amp/9},350,createjs.Ease.circInOut).call(GamePlay.backFromHit);
