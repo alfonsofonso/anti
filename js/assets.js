@@ -2,6 +2,7 @@
 var fons;
 var fonsCity, fonsCity2, fonsCity3;
 var botPause;
+var maderos=[];
 
 var Assets=new function(){
 
@@ -43,23 +44,72 @@ var Assets=new function(){
         if( jugador == null || jugador == undefined ) {// container Jugador
             jugador=new createjs.Container();
         }
-        jugador.x=amp/4;
-        jugador.y=alt;
+        jugador.x=-200;
         stage.addChild(jugador);
 
-        var array_imatges = new createjs.SpriteSheet({ // SpriteSheet
+        var array_imatges = new createjs.SpriteSheet({ // SpriteSheet jugador
             "animations":
             {
                 "correns":{
-                    frames: [0,1,2,3],
+                    frames: [0,1,4,5],
                     next:"quieto",
                     speed: .4
                 },
-                "saltant":{
-                    frames:[0]
+                "quieto":{
+                    frames:[2,6],
+                    speed:.1
+                },
+                "golpeado":{
+                    frames:[7],
+                    next:"quieto",
+                    speed:.2
                 }
             },
             "images": [imatges['corriendoSprite']],
+            "frames":
+            {
+                "height": 512,
+                "width":512,
+                "regX": 256,
+                "regY":256,
+                "count": 8
+            }
+        });
+
+        anima = new createjs.Sprite(array_imatges);
+        jugador.addChild(anima);
+        jugador.y=alt-jugador.getBounds().height/3;
+        jugador.addEventListener("mousedown",GamePlay.downJugador);
+        createjs.Tween.get(jugador).to({x:amp/4},1800,createjs.Ease.circOut);
+
+    };
+
+
+    this.ponPoli=function(){
+
+        if(maxPolis<=maderos.length){return}
+
+        var madero;
+        if( madero == null || madero == undefined ) {// container Jugador
+            madero=new createjs.Container();
+        }
+        madero.x=amp/4;
+        madero.y=alt;
+        stage.addChild(madero);
+
+        var array_imatges_poli = new createjs.SpriteSheet({ // SpriteSheet
+            "animations":
+            {
+                "correns":{
+                    frames: [0,1,2],
+                    next:"correns",
+                    speed: .4
+                },
+                "quieto":{
+                    frames:[3]
+                }
+            },
+            "images": [imatges['poliSprite']],
             "frames":
             {
                 "height": 512,
@@ -70,12 +120,17 @@ var Assets=new function(){
             }
         });
 
-        anima = new createjs.Sprite(array_imatges);
-        jugador.addChild(anima);
-        jugador.y=alt-jugador.getTransformedBounds().height/2;
-        jugador.addEventListener("mousedown",GamePlay.downJugador);
+        animaPoli = new createjs.Sprite(array_imatges_poli);
+        madero.addChild(animaPoli);
+        madero.y=alt-jugador.getTransformedBounds().height/2;
+        madero.x=amp;
+        animaPoli.gotoAndPlay("correns");
+        createjs.Tween.get(madero).to({x:amp/2+Math.random()*50,scaleX:sc/2+zoom,scaleY:sc/2+zoom,y:alt/1.3+zoom*200+Math.random()*30},1000,createjs.Ease.circInOut).call(function(){GamePlay.mamporrear(madero)});//scaleX:sc+zoom, scaleY:sc+zoom,
+        madero.addEventListener("mousedown",GamePlay.downPoli);
+        maderos.push(madero);
 
     };
+
 
     this.ponHUB=function(){
 

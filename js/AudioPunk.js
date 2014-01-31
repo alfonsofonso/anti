@@ -6,10 +6,10 @@ var audioContext = null;    // los altavoces
 
 var melodiaGuit,melodiaBajo,melodiaBate;
 var guitarra,bajo,bateria;
+var gainNode;          // la etapa de potencia
 
 AudioPunk= new function(){
 
-    var gainNode=null;          // la etapa de potencia
 
     var isPlaying = false;      // Are we currently playing?
     var startTime;              // The start time of the entire sequence.
@@ -115,6 +115,19 @@ AudioPunk= new function(){
         /////////////////////////////////////////////////////////////////////////////////////////////////////
     };
 
+    this.tocaTom=function(){
+        var tom = audioContext.createBufferSource();
+        tom.connect(gainNode);
+        tom.buffer=sonidos["tom"];
+        tom.start(nextNoteTime);
+    };
+    this.tocaCrash=function(){// toca una vez el crash
+        var crash = audioContext.createBufferSource();
+        crash.connect(gainNode);
+        crash.buffer=sonidos["crs"];
+        crash.start(nextNoteTime);
+    };
+
 
     this.play=function() {//////////////////////////////////   play/stop
         console.log("play");
@@ -145,7 +158,6 @@ AudioPunk= new function(){
         tempo = event.target.value*30;
         secondsPerBeat = 60.0 / tempo;    // Notice this picks up the CURRENT tempo value to calculate beat length.
         duracionTiempo=(1/tiemposCompas)*secondsPerBeat;
-        //basenote=event.target.value;
         console.log("tempo:",tempo);
     };
 
@@ -170,9 +182,9 @@ AudioPunk= new function(){
                      {nota:"caj",duracion:0},{nota:"bom",duracion:0},{nota:"caj",duracion:0},{nota:"bom",duracion:0},
                      {nota:"caj",duracion:0},{nota:"bom",duracion:0},{nota:"caj",duracion:0},{nota:"bom",duracion:0}];
         melodiaGuit=[{nota:"aG",duracion:0},{nota:"aG",duracion:0},{nota:"aG",duracion:0},{nota:"aG",duracion:0},
-            {nota:"aG",duracion:0},{nota:"aG",duracion:0},{nota:"aG",duracion:0},{nota:"aG",duracion:0},
-            {nota:"fG",duracion:0},{nota:"fG",duracion:0},{nota:"fG",duracion:0},{nota:"gG",duracion:0},
-            {nota:"gG",duracion:0},{nota:"gG",duracion:0},{nota:"gG",duracion:0},{nota:"gG",duracion:0}];
+                     {nota:"aG",duracion:0},{nota:"aG",duracion:0},{nota:"aG",duracion:0},{nota:"aG",duracion:0},
+                     {nota:"fG",duracion:0},{nota:"fG",duracion:0},{nota:"fG",duracion:0},{nota:"gG",duracion:0},
+                     {nota:"gG",duracion:0},{nota:"gG",duracion:0},{nota:"gG",duracion:0},{nota:"gG",duracion:0}];
 
         notesInQueue = [];
         compas=0;
@@ -187,15 +199,20 @@ AudioPunk= new function(){
 
             //console.log("nextNonteTime",nextNoteTime,"time + sheduleAhead",audioContext.currentTime + scheduleAheadTime);
             AudioPunk.escribeNota( nextNoteTime);
+            GamePlay.beatDraw(nextNoteTime);
             AudioPunk.nextNote();
+
             if(taping){
-                TocaRiff.corriendo();
+                Riff.corriendo();
             }else{
-                TocaRiff.mutea("bateria");
+                Riff.mutea("bateria");
             }
+
+
         }
         window.clearTimeout( timerID );
         timerID = window.setTimeout( AudioPunk.scheduler, lookahead );
     };
+
 
 };

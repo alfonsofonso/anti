@@ -10,7 +10,8 @@ var sonidos_arr=["sonidos/faGuitarraLargo.mp3",
     "sonidos/faBajoLargo.mp3",
     "sonidos/solBajoLargo.mp3",
     "sonidos/laBajoLargo.mp3",
-    "sonidos/charles.mp3",
+    "sonidos/crash.mp3",
+    "sonidos/tom.mp3",
     "sonidos/bombo.mp3",
     "sonidos/caja.mp3"];
 
@@ -18,7 +19,7 @@ var sonidos_arr=["sonidos/faGuitarraLargo.mp3",
 
 var LoaderAudio = new function(){
 
-    var todosLosSonidos=9;
+    var todosLosSonidos=10;/// numero total de sonidos a cargar
     var sonidosCargados=0;
     var raiz="sonidos/";
 
@@ -62,7 +63,9 @@ var LoaderAudio = new function(){
                 break
             case raiz+"laBajoLargo.mp3": sonidos['aB'] = buffer;
                 break
-            case raiz+"charles.mp3": sonidos['chs'] = buffer;
+            case raiz+"crash.mp3": sonidos['crs'] = buffer;
+                break
+            case raiz+"tom.mp3": sonidos['tom'] = buffer;
                 break
             case raiz+"bombo.mp3": sonidos['bom'] = buffer;
                 break

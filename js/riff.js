@@ -5,7 +5,7 @@
 
 var currentRiff;
 
-var TocaRiff= new function(){
+var Riff= new function(){
 
     this.corriendo=function(){ // pone bateria riff
 
@@ -24,7 +24,7 @@ var TocaRiff= new function(){
             {nota:"gG",duracion:0},{nota:"gG",duracion:1},{nota:"gG",duracion:1},{nota:"gG",duracion:1}];
     };
 
-    this.mutea=function(cual){// quita guitarra riff
+    this.mutea=function(cual){// quita riff de...
 
         switch (cual) {
             case "guitarra": for(var i=0;i<melodiaGuit.length;i++){melodiaGuit[i].duracion=0}
@@ -35,5 +35,7 @@ var TocaRiff= new function(){
                 break
         }
     };
+
+
 
 };

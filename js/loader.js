@@ -4,7 +4,7 @@ var manifest;
 var imatges= new Array();
 
 var NUM_AUDIOS = 0;
-var NUM_IMATGES = 4 ;//+ NUM_AUDIOS;
+var NUM_IMATGES = 5 ;// --- + NUM_AUDIOS;
 var loaded_imatges = 0;
 var percent;
 var carregant;
@@ -28,7 +28,7 @@ Loader = new function() {
 
 
         createjs.Touch.enable(stage);
-        createjs.Ticker.setFPS(20);
+        createjs.Ticker.setFPS(30);
 
        // Loader.loadSound(); // or..
         AudioPunk.init();// load images directly  /// ... Loader.reload()
@@ -85,7 +85,8 @@ Loader = new function() {
             "menu.jpg",
             "bot.png",
             "corriendo.png",
-            "fonsCiti.jpg"
+            "fonsCiti.jpg",
+            "poli/poliSprite.png"
 
         ];
 
@@ -140,6 +141,8 @@ Loader = new function() {
             case "corriendo.png": imatges['corriendoSprite'] =  event.result;
                 break;
             case "fonsCiti.jpg": imatges['fonsCity'] =  event.result;
+                break;
+            case "poli/poliSprite.png": imatges['poliSprite'] =  event.result;
                 break;
         }
 
