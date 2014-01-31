@@ -209,6 +209,9 @@ AudioPunk= new function(){
                 Riff.mutea("bateria");
             }
 
+            if(compas>3){
+                Riff.luchando();
+            }
 
         }
         window.clearTimeout( timerID );

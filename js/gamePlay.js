@@ -57,25 +57,29 @@ var GamePlay=new function(){
 
     this.downPoli=function(e){
         e.target.gotoAndStop(1);
-        maderos.pop(e.target);
-        console.log("maderos ",maderos)
-        createjs.Tween.removeTweens(e.target);
+        if(maderos.length>0){
+            maderos.length--;
+        }
+
+        console.log("maderos",maderos,"e.target", e.target.parent);
+        createjs.Tween.removeTweens(e.target.parent);
         e.target.removeAllEventListeners();
         e.target.mouseEnabled=false;
-        createjs.Tween.get(e.target).to({scaleX:.8,scaleY:.8,alpha:0,rotation:-50,x: e.target.x+100,y: e.target.y-100},350,createjs.Ease.circInOut).call(function(){GamePlay.poliFuera(e.target)});
-        //console.log(e.target);
+        createjs.Tween.get(e.target,{override:true}).to({scaleX:.8,scaleY:.8,alpha:0,rotation:-50,x: e.target.x+100,y: e.target.y-100},350,createjs.Ease.circInOut).call(function(){GamePlay.poliFuera(e.target)});
+
         AudioPunk.tocaCrash();
+        console.log("zas!")
 
     };
     this.poliFuera=function(quePoli){
+
         stage.removeChild(quePoli.parent);
 
     };
 
     this.mamporrear=function(mader){
-
+        console.log("MAMPORRO!")
         maderos.push(mader);
-console.log(maderos);
     };
 
     this.beatDraw=function(t){
