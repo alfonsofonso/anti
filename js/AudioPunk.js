@@ -7,6 +7,7 @@ var audioContext = null;    // los altavoces
 var melodiaGuit,melodiaBajo,melodiaBate;
 var guitarra,bajo,bateria;
 var gainNode;          // la etapa de potencia
+var conguita;
 
 AudioPunk= new function(){
 
@@ -30,6 +31,7 @@ AudioPunk= new function(){
     var tiemposCompas;
     var duracionTiempo;
     var compas;
+
 
     this.init=function(){
 
@@ -61,6 +63,10 @@ AudioPunk= new function(){
             compas++;
             console.log("compas=",compas)
             semicorchea = 0;
+            if(compas%4==0){
+                conguita=!conguita;
+                conguita?Riff.luchando():Riff.mutea("guitarra");
+            }
         }
     };
 
@@ -209,9 +215,7 @@ AudioPunk= new function(){
                 Riff.mutea("bateria");
             }
 
-            if(compas>3){
-                Riff.luchando();
-            }
+
 
         }
         window.clearTimeout( timerID );

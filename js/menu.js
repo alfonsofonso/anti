@@ -19,7 +19,7 @@ Menu=new  function() {
              screen01.addEventListener("click",GamePlay.init);
          }
 
-             screen01.scaleX=screen01.scaleY=amp/1272;
+         screen01.scaleX=screen01.scaleY=amp/1272;
 
          stage.addChild(screen01);
          stage.update();

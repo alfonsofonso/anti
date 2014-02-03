@@ -78,7 +78,7 @@ var GamePlay=new function(){
     };
 
     this.mamporrear=function(mader){
-        console.log("MAMPORRO!")
+        console.log("MAMPORRO!");
         maderos.push(mader);
     };
 

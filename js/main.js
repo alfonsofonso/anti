@@ -18,7 +18,7 @@ Main = new function()
         window.addEventListener("orientationchange",         // Announce the new orientation number
             function() {
                 Main.windowResize();
-
+                Menu.initMenu();
             }, false);
 
         this.windowResize();
@@ -45,6 +45,7 @@ Main = new function()
         sc =   alt/512;
         console.log("alt: ",alt," amp: ",amp);
         stage.update();
+
 
     };
 
