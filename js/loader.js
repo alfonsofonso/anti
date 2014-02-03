@@ -4,11 +4,10 @@ var manifest;
 var imatges= new Array();
 
 var NUM_AUDIOS = 0;
-var NUM_IMATGES = 5 ;// --- + NUM_AUDIOS;
+var NUM_IMATGES = 6 ;// --- + NUM_AUDIOS;
 var loaded_imatges = 0;
 var percent;
-var carregant;
-var fons_loader;
+var loading;
 
 
 Loader = new function() {
@@ -31,20 +30,23 @@ Loader = new function() {
         createjs.Ticker.setFPS(30);
 
        // Loader.loadSound(); // or..
+        Loader.ponLoading();
         AudioPunk.init();// load images directly  /// ... Loader.reload()
 
     };
 
+    this.ponLoading=function(){
 
-    this.posaLoader=function(){
-
-        fons_loader=new createjs.Bitmap(imatges['SCREEN_01']);
-        Utils.pon(fons_loader,amp/2,alt/2,true,1);
-        //stage.addChild(percent);
+      if(loading==null || loading== undefined ){
+          loading=new createjs.Text("loading...", "bold "+Math.abs(80*amp/alt)+"px BoldinaTwo", "#000000");
+          console.log(sc,"sc")
+          loading.x=amp/4;
+          loading.y=alt/3;
+       }
+        stage.addChild(loading);
         stage.update();
 
     };
-
 
     this.loadSound = function(){
         if (!createjs.Sound.initializeDefaultPlugins()) {
@@ -86,6 +88,7 @@ Loader = new function() {
             "bot.png",
             "corriendo.png",
             "fonsCiti.jpg",
+            "splatter.png",
             "poli/poliSprite.png"
 
         ];
@@ -140,6 +143,8 @@ Loader = new function() {
                 break;
             case "corriendo.png": imatges['corriendoSprite'] =  event.result;
                 break;
+            case "splatter.png": imatges['splatter'] =  event.result;
+                break;
             case "fonsCiti.jpg": imatges['fonsCity'] =  event.result;
                 break;
             case "poli/poliSprite.png": imatges['poliSprite'] =  event.result;
@@ -149,6 +154,7 @@ Loader = new function() {
         //console.log("loaded",loaded_imatges,"num",NUM_IMATGES);
         if( loaded_imatges == NUM_IMATGES )
         {
+           stage.removeChild(loading);
            Main.InitGame();
            //stage.removeChild( fons_loader );///////////////////////////////////////////////////////////>>>>>>
            //stage.removeAllChildren();
@@ -157,7 +163,6 @@ Loader = new function() {
         }
 
     };
-
     // File progress handler
     this.handleFileProgress = function (event) {
         console.log("Imatge: "+ event.item.src+" -  progres: "+ preload.progress );
@@ -167,9 +172,7 @@ Loader = new function() {
     this.handleOverallProgress = function (event) {
     //    percent.text = Math.floor(loaded_imatges*100/NUM_IMATGES)+"%";
        // stage.update();
-
     };
-
     // An error happened on a file
     this.handleFileError = function (event) {
 

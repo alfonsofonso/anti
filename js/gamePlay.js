@@ -18,12 +18,15 @@ var GamePlay=new function(){
         screen01.removeEventListener("click");
         stage.removeAllChildren();
         createjs.Ticker.addEventListener("tick",Pulso.handlerTick);
-
+        zoom=Math.random()/4;
         Assets.posaFons();
         Assets.ponJugador();
         Assets.ponHUB();
         setInterval(Assets.ponPoli,5000);
+        Assets.ponSangre();
         AudioPunk.play();
+        anima.gotoAndPlay("quieto");
+
     };
 
 
@@ -37,13 +40,12 @@ var GamePlay=new function(){
         }else{
             //taping=false;//////////////////////// comentable
         }
-
         zoom=Math.random()/4;
-
+        // fons
         createjs.Tween.get(fons,{override:false}).to({scaleX:sc+zoom,scaleY:sc+zoom},350,createjs.Ease.circInOut).call(GamePlay.torna);
-
+        // jugador
         createjs.Tween.get(jugador,{override:false}).to({scaleX:sc/2+zoom,scaleY:sc/2+zoom,x:amp/4,y:alt/1.3+zoom*200},350,createjs.Ease.circInOut);
-
+        // polis
         for(var i=0;i<maderos.length;i++){
             createjs.Tween.get(maderos[i],{override:false}).to({scaleX:sc/2+zoom,scaleY:sc/2+zoom,y:alt/1.3+zoom*200},350,createjs.Ease.circInOut);
         }
@@ -80,16 +82,27 @@ var GamePlay=new function(){
     this.mamporrear=function(mader){
         console.log("MAMPORRO!");
         maderos.push(mader);
+
     };
 
-    this.beatDraw=function(t){
+    this.beatDraw=function(t){/// siendo golpeado
 
         if(maderos.length>0){
             AudioPunk.tocaTom(t);
             anima.gotoAndPlay("golpeado");
             createjs.Tween.get(jugador).to({x: amp/9},350,createjs.Ease.circInOut).call(GamePlay.backFromHit);
+            stage.addChild(sangre);
+            var sang=setTimeout(GamePlay.sangra,80);
         }
+
     };
+    this.sangra=function(){
+        sangre.rotation=Math.random()*360;
+
+        stage.removeChild(sangre);
+
+    };
+
     this.backFromHit=function(){
 
         createjs.Tween.get(jugador,{override:true}).to({x:amp/4},350,createjs.Ease.circInOut);
