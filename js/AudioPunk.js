@@ -11,8 +11,6 @@ var conguita;
 
 AudioPunk= new function(){
 
-
-    var isPlaying = false;      // Are we currently playing?
     var startTime;              // The start time of the entire sequence.
     var semicorchea;        // What note is currently last scheduled?
     var tempo;           //    tempo
@@ -31,7 +29,7 @@ AudioPunk= new function(){
     var tiemposCompas;
     var duracionTiempo;
     var compas;
-
+    var isPlaying=false;
 
     this.init=function(){
 
@@ -42,6 +40,9 @@ AudioPunk= new function(){
 
         // loadSounds
         LoaderAudio.cargaSonidos();
+        semicorchea = 0;
+        nextNoteTime = audioContext.currentTime;
+        AudioPunk.scheduler();
     };
 
 
@@ -56,14 +57,15 @@ AudioPunk= new function(){
     };
     this.nextNote=function() {
         // Advance current note and time by a 16th note...
-
         nextNoteTime += duracionTiempo;    // Add beat length to last beat time
+
         semicorchea++;    // Advance the beat number, wrap to zero
+
         if (semicorchea == 16) {
             compas++;
-            console.log("compas=",compas)
             semicorchea = 0;
             if(compas%4==0){
+                console.log("compas=",compas)
                 conguita=!conguita;
                 conguita?Riff.luchando():Riff.mutea("guitarra");
             }
@@ -74,13 +76,9 @@ AudioPunk= new function(){
         if(melodiaGuit[semicorchea].duracion==0){return}
 
         var duracion= melodiaGuit[semicorchea].duracion * duracionTiempo;
-
         guitarra = audioContext.createBufferSource(); // creates a sound source
         guitarra.connect(gainNode);       // conecta a ampli
-
         guitarra.buffer=sonidos[melodiaGuit[semicorchea].nota];
-
-       // guitarra.buffer = melodia[semicorchea].buffer; // tañe nota
         ///////////////////////////////////////      A Q U I  S U E N A en time   /////////////////////////////////////
         guitarra.start(time);
         guitarra.stop(time + duracion);// play the source ( in seconds!!! )
@@ -91,16 +89,11 @@ AudioPunk= new function(){
         if(melodiaBajo[semicorchea].duracion==0){return}
 
         var duracion= melodiaBajo[semicorchea].duracion * duracionTiempo;
-
         bajo = audioContext.createBufferSource(); // creates a sound source
         bajo.connect(gainNode);       // conecta a ampli
-
         bajo.buffer=sonidos[melodiaBajo[semicorchea].nota];
-
-        // guitarra.buffer = melodia[semicorchea].buffer; // tañe nota
-        ///////////////////////////////////////      A Q U I  S U E N A en time   /////////////////////////////////////
+    ///////////////////////////////////////      A Q U I  S U E N A en time   /////////////////////////////////////
         bajo.start(time);
-
         bajo.stop(time + duracion);// play the source ( in seconds!!! )
         /////////////////////////////////////////////////////////////////////////////////////////////////////
     };
@@ -136,26 +129,37 @@ AudioPunk= new function(){
     };
 
 
-    this.play=function() {//////////////////////////////////   play/stop
-        console.log("play");
-        isPlaying = !isPlaying;/// switch button
+    this.playStop=function() {//////////////////////////////////   play/stop
 
-        if (isPlaying) { // si toca sonar, comienza
-            semicorchea = 0;
-            nextNoteTime = audioContext.currentTime;
-
-            gainNode= audioContext.createGainNode();////    crea etapa de potencia
-            gainNode.connect(audioContext.destination);//// conectar a altavoces
-
-            AudioPunk.scheduler();    //                 empieza a seguir el ritmo! snap your fingers!
-        } else  {
-            window.clearTimeout( timerID );
-        }
+        isPlaying=!isPlaying;
+        console.log("AudioPunk.isPlaying=",isPlaying);
     };
 
 
-
     /////////////////////////////////////////////////////////   AUDIO UTILS ////////////////////////////////
+
+    this.scheduler=function() {//    reloj   timeout
+        // while there are notes that will need to play before the next interval, schedule them and advance the pointer.
+        while (nextNoteTime < audioContext.currentTime + scheduleAheadTime ) {// si toca escribe en el buffer
+
+            GamePlay.beatDraw(nextNoteTime);//// dibuja
+            if(isPlaying){
+                AudioPunk.escribeNota(nextNoteTime);/// pon nota
+            }
+            AudioPunk.nextNote();
+
+            if(taping){
+                Riff.corriendo();
+            }else{
+                Riff.mutea("bateria");
+            }
+
+        }
+
+        window.clearTimeout( timerID );
+        timerID = window.setTimeout( AudioPunk.scheduler, lookahead );
+    };
+
     this.frequencyFromNoteNumber=function( nota ) {
         //console.log(nota);
         return basenote *110* Math.pow(2,nota/12);//////////1.059463    pow(2, note- nota base?)/ 12notas de la escala);
@@ -180,46 +184,14 @@ AudioPunk= new function(){
         basenote=1;
         noteLength = 1;
 
-        melodiaBajo=[{nota:"aB",duracion:2},{nota:"aB",duracion:0},{nota:"aB",duracion:1},{nota:"aB",duracion:2},
-                     {nota:"aB",duracion:0},{nota:"aB",duracion:1},{nota:"aB",duracion:1},{nota:"aB",duracion:1},
-                     {nota:"fB",duracion:2},{nota:"fB",duracion:0},{nota:"fB",duracion:1},{nota:"gB",duracion:2},
-                     {nota:"gB",duracion:0},{nota:"gB",duracion:1},{nota:"gB",duracion:1},{nota:"gB",duracion:1}];
-        melodiaBate=[{nota:"caj",duracion:0},{nota:"bom",duracion:0},{nota:"caj",duracion:0},{nota:"bom",duracion:0},
-                     {nota:"caj",duracion:0},{nota:"bom",duracion:0},{nota:"caj",duracion:0},{nota:"bom",duracion:0},
-                     {nota:"caj",duracion:0},{nota:"bom",duracion:0},{nota:"caj",duracion:0},{nota:"bom",duracion:0},
-                     {nota:"caj",duracion:0},{nota:"bom",duracion:0},{nota:"caj",duracion:0},{nota:"bom",duracion:0}];
-        melodiaGuit=[{nota:"aG",duracion:0},{nota:"aG",duracion:0},{nota:"aG",duracion:0},{nota:"aG",duracion:0},
-                     {nota:"aG",duracion:0},{nota:"aG",duracion:0},{nota:"aG",duracion:0},{nota:"aG",duracion:0},
-                     {nota:"fG",duracion:0},{nota:"fG",duracion:0},{nota:"fG",duracion:0},{nota:"gG",duracion:0},
-                     {nota:"gG",duracion:0},{nota:"gG",duracion:0},{nota:"gG",duracion:0},{nota:"gG",duracion:0}];
+        gainNode= audioContext.createGainNode();////    crea etapa de potencia
+        gainNode.connect(audioContext.destination);//// conectar a altavoces
+        Riff.initialRiff();// escribe musica inicio
 
         notesInQueue = [];
         compas=0;
         secondsPerBeat= 60.0 / tempo;
         duracionTiempo=(1/tiemposCompas)*secondsPerBeat;
-    };
-
-    this.scheduler=function() {//    reloj   timeout
-        // while there are notes that will need to play before the next interval,
-        // schedule them and advance the pointer.
-        while (nextNoteTime < audioContext.currentTime + scheduleAheadTime ) {// si toca escribe en el buffer
-
-            //console.log("nextNonteTime",nextNoteTime,"time + sheduleAhead",audioContext.currentTime + scheduleAheadTime);
-            AudioPunk.escribeNota( nextNoteTime);
-            GamePlay.beatDraw(nextNoteTime);
-            AudioPunk.nextNote();
-
-            if(taping){
-                Riff.corriendo();
-            }else{
-                Riff.mutea("bateria");
-            }
-
-
-
-        }
-        window.clearTimeout( timerID );
-        timerID = window.setTimeout( AudioPunk.scheduler, lookahead );
     };
 
 

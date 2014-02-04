@@ -1,8 +1,10 @@
 
 var fons;
 var fonsCity, fonsCity2, fonsCity3;
-var botPause;
+var botPause, botMute;
 var maderos=[];
+var energy;
+var energyCont;
 var sangre;
 
 var Assets=new function(){
@@ -78,8 +80,9 @@ var Assets=new function(){
                 "count": 8
             }
         });
-
-        anima = new createjs.Sprite(array_imatges);
+        if(anima==null || anima==undefined){
+            anima = new createjs.Sprite(array_imatges);
+        }
         jugador.addChild(anima);
         jugador.y=alt-jugador.getBounds().height/3;
         jugador.addEventListener("mousedown",GamePlay.downJugador);
@@ -92,39 +95,27 @@ var Assets=new function(){
 
         if(maxPolis<=maderos.length){return}
 
+        console.log("pongo poli");
         var madero;
         if( madero == null || madero == undefined ) {// container Jugador
             madero=new createjs.Container();
         }
 
         var array_imatges_poli = new createjs.SpriteSheet({ // SpriteSheet
-            "animations":
-            {
-                "correns":{
-                    frames: [0,1,2],
-                    next:"correns",
-                    speed: .4
-                },
-                "quieto":{
-                    frames:[3]
-                }
+            "animations":   {
+                "correns":{ frames: [0,1,2], next:"correns", speed: .4 },
+                "quieto": { frames:[3] }
             },
-            "images": [imatges['poliSprite']],
-            "frames":
-            {
-                "height": 512,
-                "width":512,
-                "regX": 256,
-                "regY":256,
-                "count": 4
-            }
+            "images":       [imatges['poliSprite']],
+            "frames":       { "height": 512, "width":512, "regX": 256, "regY":256, "count": 4 }
         });
 
         animaPoli = new createjs.Sprite(array_imatges_poli);
 
-       // madero.y=alt;
         madero.y=alt-jugador.getTransformedBounds().height/2;
         madero.x=amp;
+        madero.scaleX=sc/2+zoom;
+        madero.scaleY=sc/2+zoom;
         madero.addEventListener("mousedown",GamePlay.downPoli);
         madero.addChild(animaPoli);
         stage.addChild(madero);
@@ -136,9 +127,7 @@ var Assets=new function(){
             scaleY:sc/2+zoom,
             x:jugador.x+200*sc,
             y:alt/1.3+zoom*200+Math.random()*30},
-            1000,createjs.Ease.circInOut).call(function(){GamePlay.mamporrear(madero)});//scaleX:sc+zoom, scaleY:sc+zoom,
-
-
+            1000).call(function(){GamePlay.mamporrear(madero)});//scaleX:sc+zoom, scaleY:sc+zoom,
     };
 
     this.ponSangre=function(){
@@ -154,11 +143,30 @@ var Assets=new function(){
 
     this.ponHUB=function(){
 
-        if( botPause == null || botPause == undefined ) {
+        if( botPause == null || botPause == undefined ) { /////////////////   boton Pause
             botPause=new createjs.Bitmap(imatges["botPause"]);
-            botPause.addEventListener("click",AudioPunk.play);
+            botPause.addEventListener("click",GamePlay.playStop);
         }
-        Utils.pon(botPause,20,20,false,.5);
+        Utils.pon(botPause,10,50,false,.4);
+
+        if( botMute == null || botMute == undefined ) {/////////////////////   boton Mute
+            botMute=new createjs.Bitmap(imatges["botMute"]);
+            botMute.addEventListener("click",AudioPunk.playStop);
+        }
+        Utils.pon(botMute,10,110,false,.4);
+
+        if( energyCont == null || energyCont == undefined ) {///////////////////   barra de energia
+            energyCont=new createjs.Container();
+            energyCont.x=10;
+            energyCont.y=10;
+        }
+        if( energy == null || energy == undefined ) {
+            energy=new createjs.Shape();
+            energy.graphics.beginFill("#ff0000").drawRect(0,0, 200, 30);
+            energy.alpha=.8;
+        }
+        energyCont.addChild(energy);
+        stage.addChild(energyCont);
 
     };
 

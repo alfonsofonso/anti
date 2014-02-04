@@ -24,9 +24,7 @@ var LoaderAudio = new function(){
     var raiz="sonidos/";
 
     this.cargaSonidos=function(){
-
         LoaderAudio.loadSound(sonidos_arr[0]);
-
     };
 
     this.loadSound=function(url) {
@@ -47,7 +45,6 @@ var LoaderAudio = new function(){
 
     this.cargado=function(buffer,url){
         console.log("cargado",buffer,"url",url);
-
 
         switch(url)
         {
@@ -74,7 +71,7 @@ var LoaderAudio = new function(){
         }
 
         sonidosCargados++;
-        if(sonidosCargados>=todosLosSonidos){                               ////// todoo cargado
+        if(sonidosCargados>=todosLosSonidos){             //////  luego cargar imagenes
             Loader.reload();
         }else{
             LoaderAudio.loadSound(sonidos_arr[sonidosCargados])

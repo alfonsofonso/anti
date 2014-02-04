@@ -20,13 +20,9 @@ Menu=new  function() {
          }
 
          screen01.scaleX=screen01.scaleY=amp/1272;
-
          stage.addChild(screen01);
          stage.update();
     };
-
-
-
 
 
 

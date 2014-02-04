@@ -7,6 +7,24 @@ var currentRiff;
 
 var Riff= new function(){
 
+    this.initialRiff=function(){
+
+        melodiaBajo=[{nota:"aB",duracion:2},{nota:"aB",duracion:0},{nota:"aB",duracion:1},{nota:"aB",duracion:2},
+            {nota:"aB",duracion:0},{nota:"aB",duracion:1},{nota:"aB",duracion:1},{nota:"aB",duracion:1},
+            {nota:"fB",duracion:2},{nota:"fB",duracion:0},{nota:"fB",duracion:1},{nota:"gB",duracion:2},
+            {nota:"gB",duracion:0},{nota:"gB",duracion:1},{nota:"gB",duracion:1},{nota:"gB",duracion:1}];
+        melodiaBate=[{nota:"caj",duracion:0},{nota:"bom",duracion:0},{nota:"caj",duracion:0},{nota:"bom",duracion:0},
+            {nota:"caj",duracion:0},{nota:"bom",duracion:0},{nota:"caj",duracion:0},{nota:"bom",duracion:0},
+            {nota:"caj",duracion:0},{nota:"bom",duracion:0},{nota:"caj",duracion:0},{nota:"bom",duracion:0},
+            {nota:"caj",duracion:0},{nota:"bom",duracion:0},{nota:"caj",duracion:0},{nota:"bom",duracion:0}];
+        melodiaGuit=[{nota:"aG",duracion:0},{nota:"aG",duracion:0},{nota:"aG",duracion:0},{nota:"aG",duracion:0},
+            {nota:"aG",duracion:0},{nota:"aG",duracion:0},{nota:"aG",duracion:0},{nota:"aG",duracion:0},
+            {nota:"fG",duracion:0},{nota:"fG",duracion:0},{nota:"fG",duracion:0},{nota:"gG",duracion:0},
+            {nota:"gG",duracion:0},{nota:"gG",duracion:0},{nota:"gG",duracion:0},{nota:"gG",duracion:0}];
+
+    };
+
+
     this.corriendo=function(){ // pone bateria riff
 
         melodiaBate=[{nota:"caj",duracion:1},{nota:"bom",duracion:1},{nota:"caj",duracion:1},{nota:"bom",duracion:1},

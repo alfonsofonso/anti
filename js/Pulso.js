@@ -12,7 +12,7 @@ Pulso=new function(){
             fons.x-=40;
 
         }
-        if(fons.x<-fons.getBounds().width/3){
+        if(fons.x<-fons.getTransformedBounds().width/3){
            // console.log(fons.getTransformedBounds().width,"es fons.getTrandformedBounds.width",fons.getBounds().width,"es getBounds.width");
             fons.x=0;
         }

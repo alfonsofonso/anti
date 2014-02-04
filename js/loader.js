@@ -4,7 +4,7 @@ var manifest;
 var imatges= new Array();
 
 var NUM_AUDIOS = 0;
-var NUM_IMATGES = 6 ;// --- + NUM_AUDIOS;
+var NUM_IMATGES = 7 ;// --- + NUM_AUDIOS;
 var loaded_imatges = 0;
 var percent;
 var loading;
@@ -39,7 +39,7 @@ Loader = new function() {
 
       if(loading==null || loading== undefined ){
           loading=new createjs.Text("loading...", "bold "+Math.abs(80*amp/alt)+"px BoldinaTwo", "#000000");
-          console.log(sc,"sc")
+
           loading.x=amp/4;
           loading.y=alt/3;
        }
@@ -85,7 +85,8 @@ Loader = new function() {
         manifest = [
             //entorn -- 1 imatge
             "menu.jpg",
-            "bot.png",
+            "botPause.png",
+            "botMute.png",
             "corriendo.png",
             "fonsCiti.jpg",
             "splatter.png",
@@ -135,7 +136,9 @@ Loader = new function() {
         switch(event.item.src)
         {
 
-            case "bot.png": imatges['botPause'] =  event.result;
+            case "botMute.png": imatges['botMute'] =  event.result;
+                break
+            case "botPause.png": imatges['botPause'] =  event.result;
                 break
 
             case "menu.jpg": imatges['SCREEN_01'] =  event.result;
@@ -176,8 +179,9 @@ Loader = new function() {
     // An error happened on a file
     this.handleFileError = function (event) {
 
-        alert("error"+event.message);
-        console.log("error= "+event.message);
+        //alert("error"+event.message);
+        Loader.initLoad();
+        console.log("ERROR!!! = "+event.message);
     }
 
 
