@@ -3,7 +3,7 @@
  Data: 3/01/14 , 10:43
  */
 
-Pulso=new function(){
+Pulso = new function(){
 
     this.handlerTick =function ()
     {

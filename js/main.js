@@ -18,7 +18,7 @@ Main = new function()
         window.addEventListener("orientationchange",         // Announce the new orientation number
             function() {
                 Main.windowResize();
-                Menu.initMenu();
+
             }, false);
 
         this.windowResize();
@@ -44,6 +44,9 @@ Main = new function()
         alt=window.innerHeight;//$('#mainCanvas').css('height').substr(0,$('#mainCanvas').css('height').lastIndexOf('px'));
         sc =   alt/512;
         console.log("alt: ",alt," amp: ",amp);
+        if(jugando){
+            GamePlay.zoomea(sc);
+        }
         stage.update();
 
 

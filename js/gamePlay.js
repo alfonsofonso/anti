@@ -8,11 +8,12 @@ var anima;
 var animaPoli;
 var jugador;
 var zoom;
-var maxPolis=5;
-var energia=200;
+var maxPolis;
+var energia;
+var refuerzosTime;
 var taping;
 var timerPonPoli,timerMuerte,timerDescansa;
-var refuerzosTime=5000;
+
 var jugando=false;
 
 var GamePlay=new function(){
@@ -20,18 +21,21 @@ var GamePlay=new function(){
     this.init=function(){
         screen01.removeEventListener("click");
         stage.removeAllChildren();
-        createjs.Ticker.addEventListener("tick",Pulso.handlerTick);
-        zoom=Math.random()/4;
+        stage.update();
+                // init vars
+        GamePlay.initVars();
 
+                // poner assets
         Assets.posaFons();
         Assets.ponJugador();
         Assets.ponHUB();
         Assets.ponSangre();
-
+                //start
         GamePlay.playStop();
         anima.gotoAndPlay("quieto");
-
-        AudioPunk.playStop();
+        if(!AudioPunk.isPlaying) {AudioPunk.playStop();}
+        createjs.Ticker.addEventListener("tick",Pulso.handlerTick);
+        GamePlay.zoomea();
     };
 
 
@@ -44,7 +48,7 @@ var GamePlay=new function(){
             taping=true;
             timerDescansa=setTimeout(GamePlay.torna,300);
         }
-        //GamePlay.zoomea();
+        GamePlay.zoomea();
 
     };
     this.torna=function(){/// fin zoomea y tap caja
@@ -64,6 +68,9 @@ var GamePlay=new function(){
         e.target.parent.mouseEnabled=false;
         e.target.parent.scaleX= e.target.parent.scaleY=1;
         createjs.Tween.get(e.target,{override:true}).to({scaleX:.8,scaleY:.8,alpha:0,rotation:-50,x: e.target.x+100,y: e.target.y-100},350,createjs.Ease.circInOut).call(function(){GamePlay.poliFuera(e.target)});
+        clearInterval(timerPonPoli);
+        if(refuerzosTime>=100){refuerzosTime-=100;}
+        timerPonPoli=setInterval(Assets.ponPoli,refuerzosTime);
 
         AudioPunk.tocaCrash();
         console.log("zas!")
@@ -89,7 +96,8 @@ var GamePlay=new function(){
             stage.addChild(sangre);
             var sang=setTimeout(GamePlay.sangra,80);
             energia-=10;
-            if(energia<=0){GamePlay.muerte();return;}
+            if(energia<=0){GamePlay.muerte()}
+
             energy.graphics.clear();
             energy.graphics.beginFill("#ff0000").drawRect(0,0, energia, 30);
         }
@@ -105,46 +113,65 @@ var GamePlay=new function(){
 
 
     this.muerte=function(){
+
         energy.graphics.clear();
         clearInterval(timerPonPoli);
-        GamePlay.zoomea(2);
+        anima.gotoAndStop("golpeado");
+
+        GamePlay.zoomea(4);
+        jugando=false;
+        timerMuerte=setTimeout(GamePlay.pantallaFin,2000);
+
 
     };
 
-    this.playStop=function(){
+    this.playStop=function(){/// boton pause
         jugando=!jugando;
         console.log("GamePlay.jugando=",jugando);
+        clearInterval(timerPonPoli);
+        clearTimeout(timerID);
+
         if(jugando){
             timerPonPoli=setInterval(Assets.ponPoli,refuerzosTime);
-        }else{
-            clearInterval(timerPonPoli);
-           // AudioPunk.playStop();
+            timerID=setTimeout(AudioPunk.scheduler, lookahead);
         }
     };
 
     this.zoomea=function(cuantoZoom){
-        if(cuantoZoom==undefined){
-            zoom=Math.random()/4;
-        }else{
-            timerMuerte=setTimeout(GamePlay.pantallaFin,2000);
-            zoom=cuantoZoom;
-        }
-        // fons
-        createjs.Tween.get(fons,{override:false}).to({scaleX:sc+zoom,scaleY:sc+zoom},1800,createjs.Ease.circInOut);
+        console.log("zoomea",cuantoZoom, "or",sc);
+        zoom=cuantoZoom||sc;
+               // fons
+        createjs.Tween.get(fons,{override:true}).to({scaleX:zoom *1.3,scaleY:zoom *1.3,y:alt/2},1200,createjs.Ease.circInOut);
         // jugador
-        createjs.Tween.get(jugador,{override:false}).to({scaleX:sc/2+zoom,scaleY:sc/2+zoom,x:amp/4,y:alt/1.3+zoom*200},1800,createjs.Ease.circInOut);
+        createjs.Tween.get(jugador,{override:true}).to({scaleX:zoom /1.3,scaleY:zoom /1.3, x:amp/4, y:alt/1.5},1200,createjs.Ease.circInOut);
         // polis
         for(var i=0;i<maderos.length;i++){
-            createjs.Tween.get(maderos[i],{override:false}).to({scaleX:sc/2+zoom,scaleY:sc/2+zoom,y:alt/1.3+zoom*200},1800,createjs.Ease.circInOut);
+            createjs.Tween.get(maderos[i],{override:true}).to({scaleX:zoom /1.3,scaleY:zoom /1.3, y:alt/1.4},1200,createjs.Ease.circInOut);
         }
 
     };
 
-    this.pantallaFin=function(){
+    this.pantallaFin=function(){// en la trena
 
-
+        stage.removeAllChildren();
+        stage.addChild(sangre);
+        Assets.ponGameOver();
+        console.log("FIN");
 
     };
+    this.topGames=function(){// volver a jugar
+        console.log("topGames");
+        stage.removeAllChildren();
+        GamePlay.init();
+    };
 
+    this.initVars=function(){
+        zoom=1;
+        maxPolis=5;
+        energia=200;
+        refuerzosTime=5000;
+        maderos=[];
+
+    };
 
 };

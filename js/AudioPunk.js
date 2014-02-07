@@ -8,19 +8,22 @@ var melodiaGuit,melodiaBajo,melodiaBate;
 var guitarra,bajo,bateria;
 var gainNode;          // la etapa de potencia
 var conguita;
+var timerID;            // setInterval identifier.
+var lookahead;         // How frequently to call scheduling function (in milliseconds)
+
 
 AudioPunk= new function(){
 
     var startTime;              // The start time of the entire sequence.
     var semicorchea;        // What note is currently last scheduled?
     var tempo;           //    tempo
-    var lookahead;         // How frequently to call scheduling function (in milliseconds)
+
         // 25 milisegundos cada llamada se escriben 100 milisegundos
     var scheduleAheadTime;// 100 milisegundos;  // How far ahead to schedule sonidos (sec)
         // This is calculated from lookahead, and overlaps with next interval (in case the timer is late)
     var nextNoteTime;     // when the next note is due.
     var noteResolution;     // 0 == 16th, 1 == 8th, 2 == quarter note
-    var timerID;            // setInterval identifier.
+
     var notesInQueue;      // the notes that have been put into the web sonidos, and may or may not have played yet. {note, time}
     var portamento;
     var basenote;
@@ -29,7 +32,8 @@ AudioPunk= new function(){
     var tiemposCompas;
     var duracionTiempo;
     var compas;
-    var isPlaying=false;
+
+    this.isPlaying=false;
 
     this.init=function(){
 
@@ -42,7 +46,7 @@ AudioPunk= new function(){
         LoaderAudio.cargaSonidos();
         semicorchea = 0;
         nextNoteTime = audioContext.currentTime;
-        AudioPunk.scheduler();
+
     };
 
 
@@ -56,6 +60,7 @@ AudioPunk= new function(){
 
     };
     this.nextNote=function() {
+
         // Advance current note and time by a 16th note...
         nextNoteTime += duracionTiempo;    // Add beat length to last beat time
 
@@ -65,7 +70,7 @@ AudioPunk= new function(){
             compas++;
             semicorchea = 0;
             if(compas%4==0){
-                console.log("compas=",compas)
+                console.log("compas=",compas);
                 conguita=!conguita;
                 conguita?Riff.luchando():Riff.mutea("guitarra");
             }
@@ -131,8 +136,10 @@ AudioPunk= new function(){
 
     this.playStop=function() {//////////////////////////////////   play/stop
 
-        isPlaying=!isPlaying;
-        console.log("AudioPunk.isPlaying=",isPlaying);
+        AudioPunk.isPlaying=!AudioPunk.isPlaying;
+        console.log("AudioPunk.muteUnmute=",AudioPunk.isPlaying);
+
+        if(AudioPunk.isPlaying){gainNode.gain.value=1;}else{gainNode.gain.value=0}
     };
 
 
@@ -143,9 +150,9 @@ AudioPunk= new function(){
         while (nextNoteTime < audioContext.currentTime + scheduleAheadTime ) {// si toca escribe en el buffer
 
             GamePlay.beatDraw(nextNoteTime);//// dibuja
-            if(isPlaying){
-                AudioPunk.escribeNota(nextNoteTime);/// pon nota
-            }
+
+            AudioPunk.escribeNota(nextNoteTime);/// pon nota
+
             AudioPunk.nextNote();
 
             if(taping){

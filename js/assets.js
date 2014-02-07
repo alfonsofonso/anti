@@ -6,6 +6,7 @@ var maderos=[];
 var energy;
 var energyCont;
 var sangre;
+var gameOver;
 
 var Assets=new function(){
 
@@ -16,7 +17,7 @@ var Assets=new function(){
             fons=new createjs.Container();
         }
         fons.regX=720;
-        fons.regY=256;
+        fons.regY=300;//380;// el horizonte en el png
         fons.y=alt/2;
         fons.scaleX=fons.scaleY=sc;
         stage.addChild(fons);
@@ -38,7 +39,7 @@ var Assets=new function(){
         Utils.pon(fonsCity3,2880,0, false,  1,  fons);
 
         fons.cache(0,0,4320,512);
-        createjs.Tween.get(fons,{override:false}).to({scaleX:sc+zoom,scaleY:sc+zoom},1800,createjs.Ease.circInOut).call(GamePlay.torna);
+        createjs.Tween.get(fons,{override:false}).to({scaleX:sc,scaleY:sc},1800,createjs.Ease.circInOut).call(GamePlay.torna);
 
     };
 
@@ -48,9 +49,6 @@ var Assets=new function(){
         if( jugador == null || jugador == undefined ) {// container Jugador
             jugador=new createjs.Container();
         }
-        jugador.x=0;
-        jugador.scaleX=jugador.scaleY=2;
-        stage.addChild(jugador);
 
         var array_imatges = new createjs.SpriteSheet({ // SpriteSheet jugador
             "animations":
@@ -83,10 +81,19 @@ var Assets=new function(){
         if(anima==null || anima==undefined){
             anima = new createjs.Sprite(array_imatges);
         }
+        //jugador.regX=jugador.regY=256;
         jugador.addChild(anima);
-        jugador.y=alt-jugador.getBounds().height/3;
-        jugador.addEventListener("mousedown",GamePlay.downJugador);
-        createjs.Tween.get(jugador).to({x:amp/4,y:alt/1.3+zoom*200,scaleX:sc/2+zoom,scaleY:sc/2+zoom},1800,createjs.Ease.circOut);
+
+        jugador.x=amp/2;
+        jugador.y=alt/1.5;//alt-jugador.getBounds().height/3;
+
+        //jugador.scaleX=jugador.scaleY=2;
+        stage.addChild(jugador);
+
+        if(!jugador.hasEventListener("mousedown")){
+            jugador.addEventListener("mousedown",GamePlay.downJugador);
+        }
+        //createjs.Tween.get(jugador).to({x:amp/2,y:alt/1.3+zoom*200,scaleX:sc/2+zoom,scaleY:sc/2+zoom},1800,createjs.Ease.circOut);
 
     };
 
@@ -112,22 +119,17 @@ var Assets=new function(){
 
         animaPoli = new createjs.Sprite(array_imatges_poli);
 
-        madero.y=alt-jugador.getTransformedBounds().height/2;
+        madero.y=jugador.y;
         madero.x=amp;
-        madero.scaleX=sc/2+zoom;
-        madero.scaleY=sc/2+zoom;
+        madero.scaleX=sc/1.3;
+        madero.scaleY=sc/1.3;
         madero.addEventListener("mousedown",GamePlay.downPoli);
         madero.addChild(animaPoli);
         stage.addChild(madero);
 
         animaPoli.gotoAndPlay("correns");
 
-        createjs.Tween.get(madero).to({
-            scaleX:sc/2+zoom,
-            scaleY:sc/2+zoom,
-            x:jugador.x+200*sc,
-            y:alt/1.3+zoom*200+Math.random()*30},
-            1000).call(function(){GamePlay.mamporrear(madero)});//scaleX:sc+zoom, scaleY:sc+zoom,
+        createjs.Tween.get(madero).to({x:jugador.x+200*sc},1000).call(function(){GamePlay.mamporrear(madero);GamePlay.zoomea(sc);});//
     };
 
     this.ponSangre=function(){
@@ -136,7 +138,7 @@ var Assets=new function(){
             sangre.regX=sangre.regY=480;
             sangre.mouseEnabled=false;
         }
-        sangre.x=-jugador.x+150*sc;
+        sangre.x=jugador.x/2;
         sangre.y=jugador.y;
 
     };
@@ -162,14 +164,25 @@ var Assets=new function(){
         }
         if( energy == null || energy == undefined ) {
             energy=new createjs.Shape();
-            energy.graphics.beginFill("#ff0000").drawRect(0,0, 200, 30);
+
             energy.alpha=.8;
         }
+        energy.graphics.beginFill("#ff0000").drawRect(0,0, 200, 30);
         energyCont.addChild(energy);
         stage.addChild(energyCont);
 
     };
 
+
+    this.ponGameOver=function(){
+
+        if(gameOver==null||gameOver==undefined){
+            gameOver=new createjs.Bitmap(imatges["gameOver"]);
+            gameOver.addEventListener("click",GamePlay.topGames);
+        }
+        Utils.pon(gameOver,amp/2,alt/2,true);
+
+    };
 
 
 

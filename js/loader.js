@@ -4,7 +4,7 @@ var manifest;
 var imatges= new Array();
 
 var NUM_AUDIOS = 0;
-var NUM_IMATGES = 7 ;// --- + NUM_AUDIOS;
+var NUM_IMATGES = 8 ;// --- + NUM_AUDIOS;
 var loaded_imatges = 0;
 var percent;
 var loading;
@@ -88,6 +88,7 @@ Loader = new function() {
             "botPause.png",
             "botMute.png",
             "corriendo.png",
+            "gameOver.jpg",
             "fonsCiti.jpg",
             "splatter.png",
             "poli/poliSprite.png"
@@ -140,7 +141,8 @@ Loader = new function() {
                 break
             case "botPause.png": imatges['botPause'] =  event.result;
                 break
-
+            case "gameOver.jpg": imatges['gameOver'] =  event.result;
+                break
             case "menu.jpg": imatges['SCREEN_01'] =  event.result;
                 //Loader.posaLoader();
                 break;
