@@ -13,7 +13,7 @@ var energia;
 var refuerzosTime;
 var taping;
 var timerPonPoli,timerMuerte,timerDescansa;
-
+var minimoZoom=.8;
 var jugando=false;
 
 var GamePlay=new function(){
@@ -31,7 +31,7 @@ var GamePlay=new function(){
         Assets.ponHUB();
         Assets.ponSangre();
                 //start
-        GamePlay.playStop();
+        TouchEvents.playStop();
         anima.gotoAndPlay("quieto");
         if(!AudioPunk.isPlaying) {AudioPunk.playStop();}
         createjs.Ticker.addEventListener("tick",Pulso.handlerTick);
@@ -39,53 +39,6 @@ var GamePlay=new function(){
     };
 
 
-    this.downJugador=function(e){//////////////////////////////////    M O U S E D O W N
-        // $("#consola").text("amp "+amp+" alt "+alt);
-
-        if(!taping){
-            Riff.corriendo();
-            anima.gotoAndPlay("correns");
-            taping=true;
-            timerDescansa=setTimeout(GamePlay.torna,300);
-        }
-        GamePlay.zoomea();
-
-    };
-    this.torna=function(){/// fin zoomea y tap caja
-        taping=false;
-        clearTimeout(timerDescansa);
-    };
-
-
-    this.downPoli=function(e){///////////////////////////////////////////// down poli
-        e.target.gotoAndStop(1);
-        if(maderos.length>0){
-            maderos.length--;
-        }
-
-        createjs.Tween.removeTweens(e.target.parent);
-        e.target.parent.removeAllEventListeners();
-        e.target.parent.mouseEnabled=false;
-        e.target.parent.scaleX= e.target.parent.scaleY=1;
-        createjs.Tween.get(e.target,{override:true}).to({scaleX:.8,scaleY:.8,alpha:0,rotation:-50,x: e.target.x+100,y: e.target.y-100},350,createjs.Ease.circInOut).call(function(){GamePlay.poliFuera(e.target)});
-        clearInterval(timerPonPoli);
-        if(refuerzosTime>=100){refuerzosTime-=100;}
-        timerPonPoli=setInterval(Assets.ponPoli,refuerzosTime);
-
-        AudioPunk.tocaCrash();
-        console.log("zas!")
-
-    };
-    this.poliFuera=function(quePoli){
-
-        stage.removeChild(quePoli.parent);
-
-    };
-
-    this.mamporrear=function(mader){
-        console.log("MAMPORRO!");
-        maderos.push(mader);
-    };
 
     this.beatDraw=function(t){/// siendo golpeado
 
@@ -125,28 +78,21 @@ var GamePlay=new function(){
 
     };
 
-    this.playStop=function(){/// boton pause
-        jugando=!jugando;
-        console.log("GamePlay.jugando=",jugando);
-        clearInterval(timerPonPoli);
-        clearTimeout(timerID);
 
-        if(jugando){
-            timerPonPoli=setInterval(Assets.ponPoli,refuerzosTime);
-            timerID=setTimeout(AudioPunk.scheduler, lookahead);
-        }
-    };
 
     this.zoomea=function(cuantoZoom){
         console.log("zoomea",cuantoZoom, "or",sc);
-        zoom=cuantoZoom||sc;
+        zoom=cuantoZoom||0.3;
                // fons
-        createjs.Tween.get(fons,{override:true}).to({scaleX:zoom *1.3,scaleY:zoom *1.3,y:alt/2},1200,createjs.Ease.circInOut);
+        createjs.Tween.get(fons,{override:true}).to({scaleX:minimoZoom+zoom *1.3,scaleY:minimoZoom+zoom *1.3,y:alt/2},1200,createjs.Ease.circInOut);
         // jugador
-        createjs.Tween.get(jugador,{override:true}).to({scaleX:zoom /1.3,scaleY:zoom /1.3, x:amp/4, y:alt/1.5},1200,createjs.Ease.circInOut);
+        createjs.Tween.get(jugador,{override:true}).to({scaleX:minimoZoom+zoom /1.3,scaleY:minimoZoom+zoom /1.3, x:amp/4, y:alt/1.5},1200,createjs.Ease.circInOut);
         // polis
         for(var i=0;i<maderos.length;i++){
-            createjs.Tween.get(maderos[i],{override:true}).to({scaleX:zoom /1.3,scaleY:zoom /1.3, y:alt/1.4},1200,createjs.Ease.circInOut);
+            createjs.Tween.get(maderos[i],{override:true}).to({scaleX:minimoZoom+zoom /1.3,scaleY:minimoZoom+zoom /1.3, y:alt/1.4},1200,createjs.Ease.circInOut);
+        }
+        for(var j=0;j<refuerzos.length;j++){
+            createjs.Tween.get(refuerzos[j],{override:true}).to({scaleX:minimoZoom+zoom /1.3,scaleY:minimoZoom+zoom /1.3, y:alt/1.4},1200,createjs.Ease.circInOut);
         }
 
     };
@@ -166,7 +112,7 @@ var GamePlay=new function(){
     };
 
     this.initVars=function(){
-        zoom=1;
+        zoom=.2;
         maxPolis=5;
         energia=200;
         refuerzosTime=5000;

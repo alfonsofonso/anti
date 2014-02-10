@@ -3,6 +3,7 @@ var fons;
 var fonsCity, fonsCity2, fonsCity3;
 var botPause, botMute;
 var maderos=[];
+var refuerzos=[];
 var energy;
 var energyCont;
 var sangre;
@@ -39,7 +40,7 @@ var Assets=new function(){
         Utils.pon(fonsCity3,2880,0, false,  1,  fons);
 
         fons.cache(0,0,4320,512);
-        createjs.Tween.get(fons,{override:false}).to({scaleX:sc,scaleY:sc},1800,createjs.Ease.circInOut).call(GamePlay.torna);
+        createjs.Tween.get(fons,{override:false}).to({scaleX:sc,scaleY:sc},1800,createjs.Ease.circInOut);
 
     };
 
@@ -91,7 +92,7 @@ var Assets=new function(){
         stage.addChild(jugador);
 
         if(!jugador.hasEventListener("mousedown")){
-            jugador.addEventListener("mousedown",GamePlay.downJugador);
+            jugador.addEventListener("mousedown",TouchEvents.downJugador);
         }
         //createjs.Tween.get(jugador).to({x:amp/2,y:alt/1.3+zoom*200,scaleX:sc/2+zoom,scaleY:sc/2+zoom},1800,createjs.Ease.circOut);
 
@@ -102,7 +103,7 @@ var Assets=new function(){
 
         if(maxPolis<=maderos.length){return}
 
-        console.log("pongo poli");
+        console.log("pongo poli, minZum",minimoZoom,"zoom",zoom);
         var madero;
         if( madero == null || madero == undefined ) {// container Jugador
             madero=new createjs.Container();
@@ -121,15 +122,16 @@ var Assets=new function(){
 
         madero.y=jugador.y;
         madero.x=amp;
-        madero.scaleX=sc/1.3;
-        madero.scaleY=sc/1.3;
-        madero.addEventListener("mousedown",GamePlay.downPoli);
+        madero.scaleX=minimoZoom+zoom/1.3;
+        madero.scaleY=minimoZoom+zoom/1.3;
+        madero.addEventListener("mousedown",TouchEvents.downPoli);
         madero.addChild(animaPoli);
         stage.addChild(madero);
 
         animaPoli.gotoAndPlay("correns");
 
-        createjs.Tween.get(madero).to({x:jugador.x+200*sc},1000).call(function(){GamePlay.mamporrear(madero);GamePlay.zoomea(sc);});//
+       refuerzos.push(madero);
+        //{GamePlay.mamporrear(madero)});//
     };
 
     this.ponSangre=function(){
@@ -147,7 +149,7 @@ var Assets=new function(){
 
         if( botPause == null || botPause == undefined ) { /////////////////   boton Pause
             botPause=new createjs.Bitmap(imatges["botPause"]);
-            botPause.addEventListener("click",GamePlay.playStop);
+            botPause.addEventListener("click",TouchEvents.playStop);
         }
         Utils.pon(botPause,10,50,false,.4);
 
@@ -173,7 +175,6 @@ var Assets=new function(){
 
     };
 
-
     this.ponGameOver=function(){
 
         if(gameOver==null||gameOver==undefined){
@@ -183,6 +184,7 @@ var Assets=new function(){
         Utils.pon(gameOver,amp/2,alt/2,true);
 
     };
+
 
 
 
