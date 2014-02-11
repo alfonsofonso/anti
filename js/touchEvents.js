@@ -43,6 +43,10 @@ TouchEvents=new function(){
             refuerzos[i].scaleX=minimoZoom+zoom /1.3;
             refuerzos[i].scaleY=minimoZoom+zoom /1.3;
         }
+        for(var i=0;i<maderos.length;i++){
+            maderos[i].scaleX=minimoZoom+zoom /1.3;
+            maderos[i].scaleY=minimoZoom+zoom /1.3;
+        }
 
     };
 
@@ -59,10 +63,10 @@ TouchEvents=new function(){
         e.target.gotoAndStop(1);
 
         if(maderos.indexOf(e.target.parent)!=-1){
-            maderos.length--;
+            maderos.splice(maderos.indexOf(e.target.parent),1);
         }
         if(refuerzos.indexOf(e.target.parent)!=-1){
-            refuerzos.splice(refuerzos.indexOf(e.target.parent,1));
+            refuerzos.splice(refuerzos.indexOf(e.target.parent),1);
         }
 
 
@@ -72,11 +76,11 @@ TouchEvents=new function(){
 
         createjs.Tween.get(e.target.parent,{override:true}).to({alpha:0},350,createjs.Ease.circInOut).call(function(){TouchEvents.poliFuera(e.target)});
 
-        //clearInterval(timerPonPoli);
+    ////////// acelerar pasma
 
-        if(refuerzosTime>=100){refuerzosTime-=100;}
-
-        //timerPonPoli=setInterval(Assets.ponPoli,refuerzosTime);
+        clearInterval(timerPonPoli);
+        if(refuerzosTime>=300){refuerzosTime-=100;}
+        timerPonPoli=setInterval(Assets.ponPoli,refuerzosTime);
 
         AudioPunk.tocaCrash();
         console.log("zas!");

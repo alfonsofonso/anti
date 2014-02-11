@@ -101,9 +101,10 @@ var Assets=new function(){
 
     this.ponPoli=function(){
 
-        if(maxPolis<=maderos.length){return}
+        if(maxPolis<=refuerzos.length+maderos.length){return}
 
         console.log("pongo poli, minZum",minimoZoom,"zoom",zoom);
+
         var madero;
         if( madero == null || madero == undefined ) {// container Jugador
             madero=new createjs.Container();
@@ -130,7 +131,7 @@ var Assets=new function(){
 
         animaPoli.gotoAndPlay("correns");
 
-       refuerzos.push(madero);
+        refuerzos.push(madero);
         //{GamePlay.mamporrear(madero)});//
     };
 

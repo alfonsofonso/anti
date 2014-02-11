@@ -80,7 +80,6 @@ var GamePlay=new function(){
         jugando=false;
         timerMuerte=setTimeout(GamePlay.pantallaFin,2000);
 
-
     };
 
 
@@ -120,8 +119,9 @@ var GamePlay=new function(){
         zoom=.2;
         maxPolis=5;
         energia=200;
-        refuerzosTime=5000;
+        refuerzosTime=2000;
         maderos=[];
+        refuerzos=[];
 
     };
 
