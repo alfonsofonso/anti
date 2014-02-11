@@ -12,7 +12,7 @@ var gameOver;
 var Assets=new function(){
 
 
-    this.posaFons=function(){
+    this.ponFons=function(){
 
         if( fons == null || fonsCity == undefined ) {
             fons=new createjs.Container();
@@ -57,7 +57,7 @@ var Assets=new function(){
                 "correns":{
                     frames: [0,1,4,5],
                     next:"quieto",
-                    speed: .4
+                    speed: .3
                 },
                 "quieto":{
                     frames:[2,6],
@@ -85,8 +85,8 @@ var Assets=new function(){
         //jugador.regX=jugador.regY=256;
         jugador.addChild(anima);
 
-        jugador.x=amp/2;
-        jugador.y=alt/1.5;//alt-jugador.getBounds().height/3;
+        jugador.x=amp/1.6;
+        jugador.y=alt/1.3;//alt-jugador.getBounds().height/3;
 
         //jugador.scaleX=jugador.scaleY=2;
         stage.addChild(jugador);

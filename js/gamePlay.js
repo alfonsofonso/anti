@@ -26,15 +26,20 @@ var GamePlay=new function(){
         GamePlay.initVars();
 
                 // poner assets
-        Assets.posaFons();
+        Assets.ponFons();
+        fons.visible=true;
+
+        stage.removeChild(jugador);
         Assets.ponJugador();
+        jugador.mouseEnabled=true;
+
         Assets.ponHUB();
         Assets.ponSangre();
                 //start
         TouchEvents.playStop();
         anima.gotoAndPlay("quieto");
         if(!AudioPunk.isPlaying) {AudioPunk.playStop();}
-        createjs.Ticker.addEventListener("tick",Pulso.handlerTick);
+
         GamePlay.zoomea();
     };
 

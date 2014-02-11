@@ -31,7 +31,7 @@ TouchEvents=new function(){
 
 
         zoom=(e.stageX -jugador.x)/1000;
-        console.log("mueve", e.stageX,jugador.x,"zoom",zoom);
+        console.log("mueve", e.stageX-jugador.x,"zoom",zoom);
         // fons
         fons.scaleX=2*minimoZoom+zoom *1.3;
         fons.scaleY=2*minimoZoom+zoom *1.3;
@@ -69,8 +69,8 @@ TouchEvents=new function(){
         createjs.Tween.removeTweens(e.target.parent);
         e.target.parent.removeAllEventListeners();
         e.target.parent.mouseEnabled=false;
-        e.target.parent.scaleX= e.target.parent.scaleY=1;
-        createjs.Tween.get(e.target.parent,{override:true}).to({scaleX:.8,scaleY:.8,alpha:0,rotation:-50,x: e.target.x+100,y: e.target.y-100},350,createjs.Ease.circInOut).call(function(){TouchEvents.poliFuera(e.target)});
+
+        createjs.Tween.get(e.target.parent,{override:true}).to({alpha:0},350,createjs.Ease.circInOut).call(function(){TouchEvents.poliFuera(e.target)});
 
         //clearInterval(timerPonPoli);
 
@@ -79,7 +79,8 @@ TouchEvents=new function(){
         //timerPonPoli=setInterval(Assets.ponPoli,refuerzosTime);
 
         AudioPunk.tocaCrash();
-        console.log("zas!")
+        console.log("zas!");
+        e.target.gotoAndStop("quieto");
 
     };
     this.poliFuera=function(quePoli){

@@ -12,7 +12,7 @@
     <file path="/biribiri.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1380805834360" ignored="false" />
     <file path="/main.css" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1390820713131" ignored="false" />
     <file path="/storage.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1379430436664" ignored="false" />
-    <file path="/menu.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1391795935301" ignored="false" />
+    <file path="/menu.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1392061006102" ignored="false" />
     <file path="/model.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1381504805928" ignored="false" />
     <file path="/minijocDisfressa.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1378819610603" ignored="false" />
     <file path="/mj_disfressa.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1380288517293" ignored="false" />
@@ -60,13 +60,13 @@
     <file path="$PROJECT_DIR$/../ritmo/js/Draw.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1390987959737" ignored="false" />
     <file path="/AudioPunk.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1391796467483" ignored="false" />
     <file path="/loaderAudio.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1390988945512" ignored="false" />
-    <file path="/gamePlay.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1392053894260" ignored="false" />
+    <file path="/gamePlay.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1392060713526" ignored="false" />
     <file path="/tocaGuitarra.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1391004158223" ignored="false" />
     <file path="$PROJECT_DIR$/js/tocaGuitarra.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1391004162979" ignored="false" />
     <file path="/tocaCorriendo.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1391005976478" ignored="false" />
-    <file path="/assets.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1392053959645" ignored="false" />
+    <file path="/assets.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1392060033182" ignored="false" />
     <file path="/riff.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1391528995142" ignored="false" />
-    <file path="/touchEvents.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1392054366954" ignored="false" />
+    <file path="/touchEvents.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1392110523677" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +107,7 @@
       <file leaf-file-name="gamePlay.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/gamePlay.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="80" column="0" selection-start="1938" selection-end="1938" vertical-scroll-proportion="-6.52">
+            <state line="34" column="0" selection-start="646" selection-end="646" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -116,7 +116,7 @@
       <file leaf-file-name="touchEvents.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/touchEvents.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="94" column="26" selection-start="2771" selection-end="2772" vertical-scroll-proportion="-20.92">
+            <state line="71" column="0" selection-start="1966" selection-end="1966" vertical-scroll-proportion="-9.52">
               <folding>
                 <element signature="e#0#46#0" expanded="false" />
               </folding>
@@ -145,7 +145,7 @@
       <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="0" selection-start="419" selection-end="419" vertical-scroll-proportion="0.0">
+            <state line="44" column="22" selection-start="1229" selection-end="1243" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -163,7 +163,7 @@
       <file leaf-file-name="menu.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/menu.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="74" selection-start="409" selection-end="409" vertical-scroll-proportion="0.0">
+            <state line="36" column="26" selection-start="953" selection-end="953" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -172,7 +172,7 @@
       <file leaf-file-name="assets.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/assets.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="185" column="6" selection-start="5692" selection-end="5692" vertical-scroll-proportion="0.93227094">
+            <state line="64" column="18" selection-start="1842" selection-end="1842" vertical-scroll-proportion="0.49335864">
               <folding />
             </state>
           </provider>
@@ -195,14 +195,14 @@
         <option value="$PROJECT_DIR$/js/riff.js" />
         <option value="$PROJECT_DIR$/js/loaderAudio.js" />
         <option value="$PROJECT_DIR$/js/loader.js" />
-        <option value="$PROJECT_DIR$/js/menu.js" />
         <option value="$PROJECT_DIR$/js/AudioPunk.js" />
         <option value="$PROJECT_DIR$/js/main.js" />
         <option value="$USER_HOME$/Desktop/lalluvia/htdocs/lalluvia/index.html" />
         <option value="$PROJECT_DIR$/js/Pulso.js" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/js/touchEvents.js" />
         <option value="$PROJECT_DIR$/js/gamePlay.js" />
+        <option value="$PROJECT_DIR$/js/menu.js" />
+        <option value="$PROJECT_DIR$/js/touchEvents.js" />
         <option value="$PROJECT_DIR$/js/assets.js" />
       </list>
     </option>
@@ -405,16 +405,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991454" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.054700855" sideWeight="0.4996277" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24980111" sideWeight="0.6708286" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20029785" sideWeight="0.6820513" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20029785" sideWeight="0.74700856" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3982906" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20029785" sideWeight="0.26324788" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20029785" sideWeight="0.1982906" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.054700855" sideWeight="0.5003723" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -535,37 +535,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/loaderAudio.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="21" selection-start="434" selection-end="434" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/menu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="74" selection-start="409" selection-end="409" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/AudioPunk.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="147" column="16" selection-start="5640" selection-end="5640" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="0" selection-start="419" selection-end="419" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/Pulso.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="47" selection-start="493" selection-end="493" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -577,25 +549,53 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/Pulso.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="47" selection-start="493" selection-end="493" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="22" selection-start="1229" selection-end="1243" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/loaderAudio.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="21" selection-start="434" selection-end="434" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/menu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="26" selection-start="953" selection-end="953" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/gamePlay.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="0" selection-start="646" selection-end="646" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/touchEvents.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="26" selection-start="2771" selection-end="2772" vertical-scroll-proportion="-20.92">
+        <state line="71" column="0" selection-start="1966" selection-end="1966" vertical-scroll-proportion="-9.52">
           <folding>
             <element signature="e#0#46#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/gamePlay.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="0" selection-start="1938" selection-end="1938" vertical-scroll-proportion="-6.52">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/assets.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="185" column="6" selection-start="5692" selection-end="5692" vertical-scroll-proportion="0.93227094">
+        <state line="64" column="18" selection-start="1842" selection-end="1842" vertical-scroll-proportion="0.49335864">
           <folding />
         </state>
       </provider>

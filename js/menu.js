@@ -17,13 +17,25 @@ Menu=new  function() {
          if( screen01 == null || screen01 == undefined ) {
              screen01=new createjs.Bitmap(imatges["SCREEN_01"]);
              screen01.addEventListener("click",function(){GamePlay.init();AudioPunk.init()});
+             screen01.regY=400;
          }
 
-         screen01.scaleX=screen01.scaleY=amp/1272;
-         stage.addChild(screen01);
+         //screen01.scaleX=screen01.scaleY=amp/1272;
 
-         stage.update();
-
+         if (amp<alt){
+             Utils.pon(screen01,amp/2,alt/2,true,alt/800);
+         }else{
+             Utils.pon(screen01,amp/2,alt/2,true,amp/800);
+         }
+         Assets.ponFons();
+         fons.visible=false;
+         Assets.ponJugador();
+         anima.gotoAndPlay("quieto");
+         jugador.mouseEnabled=false;
+         jugador.scaleX=jugador.scaleY=.5;
+         jugador.x=amp/1.6;
+         jugador.y=alt/1.3;
+         createjs.Ticker.addEventListener("tick",Pulso.handlerTick);
     };
 
 
