@@ -16,7 +16,7 @@ Menu=new  function() {
      {
          if( screen01 == null || screen01 == undefined ) {
              screen01=new createjs.Bitmap(imatges["SCREEN_01"]);
-             screen01.addEventListener("click",function(){AudioPunk.init();GamePlay.init();});
+             screen01.addEventListener("click",function(){GamePlay.init();});
              screen01.regY=400;
          }
 

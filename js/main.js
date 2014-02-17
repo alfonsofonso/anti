@@ -22,6 +22,7 @@ Main = new function()
             }, false);
 
         this.windowResize();
+        Menu.initMenu();
     };
 
 

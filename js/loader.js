@@ -3,7 +3,6 @@ var preload;
 var manifest;
 var imatges= new Array();
 
-var NUM_AUDIOS = 0;
 var NUM_IMATGES = 12 ;// --- + NUM_AUDIOS;
 var loaded_imatges = 0;
 var percent;
@@ -175,7 +174,7 @@ Loader = new function() {
            Main.InitGame();
            //stage.removeChild( fons_loader );///////////////////////////////////////////////////////////>>>>>>
            //stage.removeAllChildren();
-           Menu.initMenu();
+
 
         }
 

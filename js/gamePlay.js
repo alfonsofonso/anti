@@ -20,7 +20,7 @@ var scPlayer;
 var GamePlay=new function(){
 
     this.init=function(){
-        console.log("init GamePlay");
+        console.time("prova");
         screen01.removeEventListener("click");
         stage.removeAllChildren();
         stage.update();
@@ -56,6 +56,7 @@ var GamePlay=new function(){
       //  if(!AudioPunk.isPlaying) {AudioPunk.playStop();}
 
         GamePlay.zoomea();
+        console.timeEnd("prova");
     };
 
 

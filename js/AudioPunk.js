@@ -33,10 +33,10 @@ AudioPunk= new function(){
     var duracionTiempo;
     var compas;
 
-    this.isPlaying=false;
+    this.isPlaying=true;
 
     this.init=function(){
-
+        console.log("AudioPunk.init");
         // start Engine
         window.AudioContext=window.AudioContext||window.webkitAudioContext;
         audioContext =  new AudioContext();

@@ -154,10 +154,7 @@ var Assets=new function(){
 
         console.log("pongo poli, minZum",minimoZoom,"zoom",zoom);
 
-        var madero;
-        if( madero == null || madero == undefined ) {// container Jugador
-            madero=new createjs.Container();
-        }
+        var madero=new createjs.Container();
 
         var array_imatges_poli = new createjs.SpriteSheet({ // SpriteSheet
             "animations":   {
