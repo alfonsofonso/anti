@@ -29,14 +29,10 @@ Main = new function()
     {
         console.log("windowResize");
 
-        $("#background").css('width','100%');
-        $("#background").css('heigth','100%');
-        $("#background").css('background-color','black');
-
         canvas = $("#mainCanvas");
         canvas.css('background-color','black');
-        //  canvas.css('width','100%')
-        //canvas.css('height','100%');
+        canvas.css('width','100%');
+        canvas.css('height','100%');
 
         stage.canvas.width = window.innerWidth;
         stage.canvas.height = window.innerHeight;

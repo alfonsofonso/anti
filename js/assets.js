@@ -42,7 +42,7 @@ var Assets=new function(){
 
         paisaje.scaleX=paisaje.scaleY=sc;
         paisaje.regY=alturaFondo/2;
-        paisaje.cache(0,0,paisaje.getTransformedBounds().width,paisaje.getTransformedBounds().height);
+     //   paisaje.cache(0,0,paisaje.getTransformedBounds().width,paisaje.getTransformedBounds().height);
         stage.addChild(paisaje);
 
         //createjs.Tween.get(fons,{override:false}).to({scaleX:sc,scaleY:sc},1800,createjs.Ease.circInOut);

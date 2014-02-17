@@ -86,6 +86,7 @@ TouchEvents=new function(){
     ////////// acelerar pasma
 
         clearInterval(timerPonPoli);
+        timerPonPoli=0;
         if(refuerzosTime>=300){refuerzosTime-=100;}
         timerPonPoli=setInterval(Assets.ponPoli,refuerzosTime);
 
@@ -105,7 +106,9 @@ TouchEvents=new function(){
     this.playStop=function(){/// boton pause
         jugando=!jugando;
         console.log("GamePlay.jugando=",jugando);
+
         clearInterval(timerPonPoli);
+        timerPonPoli=0;
         clearTimeout(timerID);
 
         if(jugando){

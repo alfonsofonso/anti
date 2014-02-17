@@ -20,6 +20,7 @@ var scPlayer;
 var GamePlay=new function(){
 
     this.init=function(){
+        console.log("init GamePlay");
         screen01.removeEventListener("click");
         stage.removeAllChildren();
         stage.update();
@@ -40,8 +41,8 @@ var GamePlay=new function(){
         Assets.ponCasa(casas[2],2600);
         Assets.ponCasa(casas[3],2950);
 
-        fons.cache(0,-100,4000,1000);
-        fons.visible=true;
+        fons.cache(0,-100,3000,1000);
+        //fons.visible=true;
 
         stage.removeChild(jugador);
         Assets.ponJugador();
@@ -52,7 +53,7 @@ var GamePlay=new function(){
                 //start
         TouchEvents.playStop();
         anima.gotoAndPlay("quieto");
-        if(!AudioPunk.isPlaying) {AudioPunk.playStop();}
+      //  if(!AudioPunk.isPlaying) {AudioPunk.playStop();}
 
         GamePlay.zoomea();
     };
@@ -88,6 +89,7 @@ var GamePlay=new function(){
 
         energy.graphics.clear();
         clearInterval(timerPonPoli);
+        timerPonPoli=0;
         anima.gotoAndStop("golpeado");
 
         GamePlay.zoomea(22);

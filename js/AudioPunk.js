@@ -164,6 +164,7 @@ AudioPunk= new function(){
         }
 
         window.clearTimeout( timerID );
+        timerID=0;
         timerID = window.setTimeout( AudioPunk.scheduler, lookahead );
     };
 

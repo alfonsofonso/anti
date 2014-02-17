@@ -72,6 +72,7 @@ var LoaderAudio = new function(){
 
         sonidosCargados++;
         if(sonidosCargados>=todosLosSonidos){             //////  luego cargar imagenes
+            console.log("HE cargado todos los sonidos!!!!!!!!!!!!!!!!!!!");
             Loader.reload();
         }else{
             LoaderAudio.loadSound(sonidos_arr[sonidosCargados])
