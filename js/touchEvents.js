@@ -9,9 +9,11 @@ TouchEvents=new function(){
 
     this.downJugador=function(e){//////////////////////////////////    M O U S E D O W N
         // $("#consola").text("amp "+amp+" alt "+alt);
-
-        jugador.addEventListener("pressmove",TouchEvents.mueve);
-        jugador.addEventListener("pressup",TouchEvents.suelta);
+        //console.log("native", e.nativeEvent)
+        //jugador.addEventListener("pressmove",TouchEvents.mueve);
+        //jugador.addEventListener("pressup",TouchEvents.suelta);
+        // usar
+        //window.addEventListener("touchdown",TouchEvents.tocoPantalla);
         if(!taping){
             Riff.corriendo();
             anima.gotoAndPlay("correns");
@@ -26,26 +28,31 @@ TouchEvents=new function(){
         clearTimeout(timerDescansa);
     };
 
+    this.tocoPantalla=function(e){/// evento touch nativo
+
+        console.log("touchEvent, toco pantalla",e);
+
+    };
 
     this.mueve=function(e){
 
 
-        zoom=(e.stageX -jugador.x)/1000;
+        zoom=(e.rawX -jugador.x)/1000;
         console.log("mueve", e.stageX-jugador.x,"zoom",zoom);
         // fons
         fons.scaleX=2*minimoZoom+zoom *1.3;
         fons.scaleY=2*minimoZoom+zoom *1.3;
         // jugador
-        jugador.scaleX=minimoZoom+zoom /1.3;
-        jugador.scaleY=minimoZoom+zoom /1.3;
+        jugador.scaleX=minimoZoom+zoom*sc;
+        jugador.scaleY=minimoZoom+zoom*sc;
         // polis
         for(var i=0;i<refuerzos.length;i++){
-            refuerzos[i].scaleX=minimoZoom+zoom /1.3;
-            refuerzos[i].scaleY=minimoZoom+zoom /1.3;
+            refuerzos[i].scaleX=minimoZoom+zoom*sc;
+            refuerzos[i].scaleY=minimoZoom+zoom*sc ;
         }
-        for(var i=0;i<maderos.length;i++){
-            maderos[i].scaleX=minimoZoom+zoom /1.3;
-            maderos[i].scaleY=minimoZoom+zoom /1.3;
+        for(var j=0;j<maderos.length;j++){
+            maderos[j].scaleX=minimoZoom+zoom*sc;
+            maderos[j].scaleY=minimoZoom+zoom*sc;
         }
 
     };

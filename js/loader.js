@@ -4,7 +4,7 @@ var manifest;
 var imatges= new Array();
 
 var NUM_AUDIOS = 0;
-var NUM_IMATGES = 8 ;// --- + NUM_AUDIOS;
+var NUM_IMATGES = 12 ;// --- + NUM_AUDIOS;
 var loaded_imatges = 0;
 var percent;
 var loading;
@@ -38,7 +38,7 @@ Loader = new function() {
     this.ponLoading=function(){
 
       if(loading==null || loading== undefined ){
-          loading=new createjs.Text("loading...", "bold "+Math.abs(80*amp/alt)+"px BoldinaTwo", "#000000");
+          loading=new createjs.Text("loading...", "bold "+Math.abs(80*amp/alt)+"px BoldinaTwo", "#ff0000");
 
           loading.x=amp/4;
           loading.y=alt/3;
@@ -89,8 +89,12 @@ Loader = new function() {
             "botMute.png",
             "corriendo.png",
             "gameOver.jpg",
-            "fonsCiti.jpg",
+            "fons.jpg",
             "splatter.png",
+            "casas/lacaca.png",
+            "casas/lesvis.png",
+            "casas/starfuck.png",
+            "casas/edifici1.png",
             "poli/poliSprite.png"
 
         ];
@@ -148,9 +152,17 @@ Loader = new function() {
                 break;
             case "corriendo.png": imatges['corriendoSprite'] =  event.result;
                 break;
+            case "casas/lacaca.png": imatges['lacaca'] =  event.result;
+                break;
+            case "casas/lesvis.png": imatges['lesvis'] =  event.result;
+                break;
+            case "casas/starfuck.png": imatges['starfuck'] =  event.result;
+                break;
+            case "casas/edifici1.png": imatges['edifici1'] =  event.result;
+                break;
             case "splatter.png": imatges['splatter'] =  event.result;
                 break;
-            case "fonsCiti.jpg": imatges['fonsCity'] =  event.result;
+            case "fons.jpg": imatges['fonsCity'] =  event.result;
                 break;
             case "poli/poliSprite.png": imatges['poliSprite'] =  event.result;
                 break;

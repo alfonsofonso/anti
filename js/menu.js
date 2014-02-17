@@ -21,14 +21,16 @@ Menu=new  function() {
          }
 
          //screen01.scaleX=screen01.scaleY=amp/1272;
-
+         Assets.ponFons();
+         Assets.ponUrbe();
          if (amp<alt){
              Utils.pon(screen01,amp/2,alt/2,true,alt/800);
          }else{
              Utils.pon(screen01,amp/2,alt/2,true,amp/800);
          }
-         Assets.ponFons();
+
          fons.visible=false;
+
          Assets.ponJugador();
          anima.gotoAndPlay("quieto");
          jugador.mouseEnabled=false;

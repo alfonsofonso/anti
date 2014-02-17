@@ -31,10 +31,10 @@ Main = new function()
 
         $("#background").css('width','100%');
         $("#background").css('heigth','100%');
-        $("#background").css('background-color','grey');
+        $("#background").css('background-color','black');
 
         canvas = $("#mainCanvas");
-        canvas.css('background-color','grey');
+        canvas.css('background-color','black');
         //  canvas.css('width','100%')
         //canvas.css('height','100%');
 
@@ -43,9 +43,9 @@ Main = new function()
         amp=window.innerWidth;//720//$('#mainCanvas').css('width').substr(0,$('#mainCanvas').css('width').lastIndexOf('px'));
         alt=window.innerHeight;//$('#mainCanvas').css('height').substr(0,$('#mainCanvas').css('height').lastIndexOf('px'));
         sc =   alt/512;
-        console.log("alt: ",alt," amp: ",amp);
+        console.log("sc: ",sc," amp: ",amp);
         if(jugando){
-            GamePlay.zoomea(sc);
+            GamePlay.zoomea();
         }
         stage.update();
 

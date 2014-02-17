@@ -13,8 +13,9 @@ var energia;
 var refuerzosTime;
 var taping;
 var timerPonPoli,timerMuerte,timerDescansa;
-var minimoZoom=.8;
+var minimoZoom=.7;
 var jugando=false;
+var scPlayer;
 
 var GamePlay=new function(){
 
@@ -27,6 +28,19 @@ var GamePlay=new function(){
 
                 // poner assets
         Assets.ponFons();
+        Assets.ponUrbe();
+
+        Assets.ponCasa(casas[0],1);
+        Assets.ponCasa(casas[1],400);
+        Assets.ponCasa(casas[2],900);
+        Assets.ponCasa(casas[3],1250);
+
+        Assets.ponCasa(casas[0],1700);
+        Assets.ponCasa(casas[1],2100);
+        Assets.ponCasa(casas[2],2600);
+        Assets.ponCasa(casas[3],2950);
+
+        fons.cache(0,-100,4000,1000);
         fons.visible=true;
 
         stage.removeChild(jugador);
@@ -76,7 +90,7 @@ var GamePlay=new function(){
         clearInterval(timerPonPoli);
         anima.gotoAndStop("golpeado");
 
-        GamePlay.zoomea(4);
+        GamePlay.zoomea(22);
         jugando=false;
         timerMuerte=setTimeout(GamePlay.pantallaFin,2000);
 
@@ -85,18 +99,22 @@ var GamePlay=new function(){
 
 
     this.zoomea=function(cuantoZoom){
-        console.log("zoomea",cuantoZoom, "or",sc);
-        zoom=cuantoZoom||0.3;
+        console.log("zoomea",cuantoZoom, "or",sc,"or 0.3");
+        zoom=cuantoZoom||.1;
+        scPlayer=sc/13;
+
                // fons
-        createjs.Tween.get(fons,{override:true}).to({scaleX:minimoZoom+zoom *1.3,scaleY:minimoZoom+zoom *1.3,y:alt/2},1200,createjs.Ease.circInOut);
+        createjs.Tween.get(paisaje,{override:true}).to({scaleX:minimoZoom+zoom *sc ,scaleY:minimoZoom+zoom *sc,y:alt/2 },1200,createjs.Ease.circInOut);
+         // casas
+        createjs.Tween.get(fons,{override:true}).to({scaleX:minimoZoom+zoom *sc ,scaleY:minimoZoom+zoom *sc,y:alt/2 },1200,createjs.Ease.circInOut);
         // jugador
-        createjs.Tween.get(jugador,{override:true}).to({scaleX:minimoZoom+zoom /1.3,scaleY:minimoZoom+zoom /1.3, x:amp/4, y:alt/1.5},1200,createjs.Ease.circInOut);
+        createjs.Tween.get(jugador,{override:true}).to({scaleX:minimoZoom+zoom*scPlayer,scaleY:minimoZoom+zoom*scPlayer, x:amp/4, y:alt/1.5},1200,createjs.Ease.circInOut);
         // polis
         for(var i=0;i<maderos.length;i++){
-            createjs.Tween.get(maderos[i],{override:true}).to({scaleX:minimoZoom+zoom /1.3,scaleY:minimoZoom+zoom /1.3, y:alt/1.4},1200,createjs.Ease.circInOut);
+            createjs.Tween.get(maderos[i],{override:true}).to({scaleX:minimoZoom+zoom*scPlayer,scaleY:minimoZoom+zoom*scPlayer, y:alt/1.42},1200,createjs.Ease.circInOut);
         }
         for(var j=0;j<refuerzos.length;j++){
-            createjs.Tween.get(refuerzos[j],{override:true}).to({scaleX:minimoZoom+zoom /1.3,scaleY:minimoZoom+zoom /1.3, y:alt/1.4},1200,createjs.Ease.circInOut);
+            createjs.Tween.get(refuerzos[j],{override:true}).to({scaleX:minimoZoom+zoom*scPlayer,scaleY:minimoZoom+zoom*scPlayer, y:alt/1.4},1200,createjs.Ease.circInOut);
         }
 
     };
@@ -119,7 +137,7 @@ var GamePlay=new function(){
         zoom=.2;
         maxPolis=5;
         energia=200;
-        refuerzosTime=2000;
+        refuerzosTime=5000;
         maderos=[];
         refuerzos=[];
 

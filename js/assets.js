@@ -1,6 +1,7 @@
 
 var fons;
-var fonsCity, fonsCity2, fonsCity3;
+var fonsCity,fonsCity2;
+var paisaje;
 var botPause, botMute;
 var maderos=[];
 var refuerzos=[];
@@ -8,21 +9,25 @@ var energy;
 var energyCont;
 var sangre;
 var gameOver;
+var casas=["edifici1","lacaca","lesvis","starfuck"];
+var casas_arr=[];
+var horizonte;
+
+var anchuraFondo;
 
 var Assets=new function(){
 
 
-    this.ponFons=function(){
+    var alturaFondo=512;
+    anchuraFondo=1311;
 
-        if( fons == null || fonsCity == undefined ) {
-            fons=new createjs.Container();
+    this.ponFons=function(){// poner
+
+
+        if( paisaje == null || paisaje == undefined ) {
+            paisaje=new createjs.Container();
         }
-        fons.regX=720;
-        fons.regY=300;//380;// el horizonte en el png
-        fons.y=alt/2;
-        fons.scaleX=fons.scaleY=sc;
-        stage.addChild(fons);
-        fons.mouseEnabled=false;
+
 
         if( fonsCity == null || fonsCity == undefined ) {
             fonsCity=new createjs.Bitmap(imatges["fonsCity"]);
@@ -30,20 +35,59 @@ var Assets=new function(){
         if( fonsCity2 == null || fonsCity2 == undefined ) {
             fonsCity2=new createjs.Bitmap(imatges["fonsCity"]);
         }
-        if( fonsCity3 == null || fonsCity3 == undefined ) {
-            fonsCity3=new createjs.Bitmap(imatges["fonsCity"]);
-        }
 
         //////              x    y   centered ratio parent
-        Utils.pon(fonsCity, 0,   0, false,  1,  fons);
-        Utils.pon(fonsCity2,1440,0, false,  1,  fons);
-        Utils.pon(fonsCity3,2880,0, false,  1,  fons);
+        Utils.pon(fonsCity, 0,0,false,1,paisaje);
+        Utils.pon(fonsCity2, anchuraFondo,0,false,1,paisaje);
 
-        fons.cache(0,0,4320,512);
-        createjs.Tween.get(fons,{override:false}).to({scaleX:sc,scaleY:sc},1800,createjs.Ease.circInOut);
+        paisaje.scaleX=paisaje.scaleY=sc;
+        paisaje.regY=alturaFondo/2;
+        paisaje.cache(0,0,paisaje.getTransformedBounds().width,paisaje.getTransformedBounds().height);
+        stage.addChild(paisaje);
+
+        //createjs.Tween.get(fons,{override:false}).to({scaleX:sc,scaleY:sc},1800,createjs.Ease.circInOut);
 
     };
 
+    this.ponUrbe=function(){// poner container casas
+
+        horizonte=alt/1.56;
+
+        if( fons == null || fons == undefined ) {
+            fons=new createjs.Container();
+        }
+        //fons.regX=anchuraFondo/2;
+        fons.regY=alturaFondo/2;//300;//380;// el horizonte en el png
+
+        fons.y=alt/2.2;
+        fons.scaleX=fons.scaleY=sc;
+        fons.mouseEnabled=false;
+        stage.addChild(fons);
+    };
+
+
+    this.ponCasa=function(cual,equis){
+
+        var _cual=cual||casas[Math.floor(Math.random()*4)];
+
+        var casa=new createjs.Bitmap(imatges[_cual]);/// coje una imagen de casa en array casas
+
+        //casa.scaleX=sc;
+        casa.regY=casa.getBounds().height;
+
+        var _equis=equis||casa.getTransformedBounds().width/2;
+
+        Utils.pon( casa , _equis , alturaFondo/1.2 , false,1,fons);
+
+        casas_arr.push(casa);
+
+
+    };
+
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////  J U G A D O R   ////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     this.ponJugador=function(){
 
@@ -88,7 +132,7 @@ var Assets=new function(){
         jugador.x=amp/1.6;
         jugador.y=alt/1.3;//alt-jugador.getBounds().height/3;
 
-        //jugador.scaleX=jugador.scaleY=2;
+       //jugador.scaleX=jugador.scaleY=scPlayer;
         stage.addChild(jugador);
 
         if(!jugador.hasEventListener("mousedown")){
@@ -97,6 +141,11 @@ var Assets=new function(){
         //createjs.Tween.get(jugador).to({x:amp/2,y:alt/1.3+zoom*200,scaleX:sc/2+zoom,scaleY:sc/2+zoom},1800,createjs.Ease.circOut);
 
     };
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////   P O L I C I A   ////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
     this.ponPoli=function(){
@@ -123,8 +172,8 @@ var Assets=new function(){
 
         madero.y=jugador.y;
         madero.x=amp;
-        madero.scaleX=minimoZoom+zoom/1.3;
-        madero.scaleY=minimoZoom+zoom/1.3;
+        madero.scaleX=minimoZoom+scPlayer;//minimoZoom+zoom/1.3;
+        madero.scaleY=minimoZoom+scPlayer;//minimoZoom+zoom/1.3;
         madero.addEventListener("mousedown",TouchEvents.downPoli);
         madero.addChild(animaPoli);
         stage.addChild(madero);
@@ -135,16 +184,7 @@ var Assets=new function(){
         //{GamePlay.mamporrear(madero)});//
     };
 
-    this.ponSangre=function(){
-        if(sangre==null || sangre==undefined){
-            sangre=new createjs.Bitmap(imatges["splatter"]);
-            sangre.regX=sangre.regY=480;
-            sangre.mouseEnabled=false;
-        }
-        sangre.x=jugador.x/2;
-        sangre.y=jugador.y;
-
-    };
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     this.ponHUB=function(){
 
@@ -173,6 +213,17 @@ var Assets=new function(){
         energy.graphics.beginFill("#ff0000").drawRect(0,0, 200, 30);
         energyCont.addChild(energy);
         stage.addChild(energyCont);
+
+    };
+
+    this.ponSangre=function(){
+        if(sangre==null || sangre==undefined){
+            sangre=new createjs.Bitmap(imatges["splatter"]);
+            sangre.regX=sangre.regY=480;
+            sangre.mouseEnabled=false;
+        }
+        sangre.x=jugador.x/2;
+        sangre.y=jugador.y;
 
     };
 

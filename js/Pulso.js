@@ -10,15 +10,16 @@ Pulso = new function(){
 
         if(taping){
             fons.x-=40;
+            if( fons.x<-1400){
+                // console.log(fons.getTransformedBounds().width,"es fons.getTrandformedBounds.width",fons.getBounds().width,"es getBounds.width");
+                fons.x=0;
+            }
         }
 
-        if(fons.x<-fons.getTransformedBounds().width/3){
-           // console.log(fons.getTransformedBounds().width,"es fons.getTrandformedBounds.width",fons.getBounds().width,"es getBounds.width");
-            fons.x=0;
-        }
+
 
         for(var i=0;i<refuerzos.length;i++){
-            if(refuerzos[i].x>=jugador.x+100*sc){
+            if(refuerzos[i].x>=jugador.x+200*sc){
                 refuerzos[i].x-=10;
             }else{
                 maderos.push(refuerzos[i]);
