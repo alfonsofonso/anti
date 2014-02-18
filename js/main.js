@@ -50,6 +50,7 @@ Main = new function()
     };
 
     this.toggleFullScreen=function() {
+        if(navigator.userAgent.indexOf("Apple")!=-1){return}
         var doc = window.document;
         var docEl = doc.documentElement;
 

@@ -56,8 +56,6 @@ var GamePlay=new function(){
         TouchEvents.muteUnmute();
         anima.gotoAndPlay("quieto");
 
-
-
         GamePlay.zoomea();
 
     };
@@ -66,17 +64,21 @@ var GamePlay=new function(){
 
     this.beatDraw=function(t){/// siendo golpeado
 
-        if(maderos.length>0 && jugando){
-            AudioPunk.tocaTom(t);
-            anima.gotoAndPlay("golpeado");
-            createjs.Tween.get(jugador).to({x: amp/9},350,createjs.Ease.circInOut).call(GamePlay.backFromHit);
-            stage.addChild(sangre);
-            var sang=setTimeout(GamePlay.sangra,80);
-            energia-=10;
-            if(energia<=0){GamePlay.muerte()}
+        if(maderos.length>0 && jugando ){
+            if(taping){
+                TouchEvents.downPoli(maderos[0]);
+            }else{
+                AudioPunk.tocaTom(t);
+                anima.gotoAndPlay("golpeado");
+                createjs.Tween.get(jugador).to({x: amp/9},350,createjs.Ease.circInOut).call(GamePlay.backFromHit);
+                stage.addChild(sangre);
+                var sang=setTimeout(GamePlay.sangra,80);
+                energia-=10;
+                if(energia<=0){GamePlay.muerte()}
 
-            energy.graphics.clear();
-            energy.graphics.beginFill("#ff0000").drawRect(0,0, energia, 30);
+                energy.graphics.clear();
+                energy.graphics.beginFill("#ff0000").drawRect(0,0, energia, 30);
+            }
         }
     };
     this.backFromHit=function(){
@@ -143,7 +145,7 @@ var GamePlay=new function(){
         zoom=.2;
         maxPolis=5;
         energia=200;
-        refuerzosTime=5000;
+        refuerzosTime=1000;
         maderos=[];
         refuerzos=[];
 

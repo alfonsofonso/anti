@@ -67,21 +67,20 @@ TouchEvents=new function(){
 
 
     this.downPoli=function(e){///////////////////////////////////////////// down poli //////////////////////////////////
-        e.target.gotoAndStop(1);
-
-        if(maderos.indexOf(e.target.parent)!=-1){
-            maderos.splice(maderos.indexOf(e.target.parent),1);
+        e.children[0].gotoAndStop(1);
+console.log(e);
+        if(maderos.indexOf(e)!=-1){
+            maderos.splice(maderos.indexOf(e),1);
         }
-        if(refuerzos.indexOf(e.target.parent)!=-1){
-            refuerzos.splice(refuerzos.indexOf(e.target.parent),1);
+        if(refuerzos.indexOf(e)!=-1){
+            refuerzos.splice(refuerzos.indexOf(e),1);
         }
 
+        createjs.Tween.removeTweens(e);
+        e.removeAllEventListeners();
+        e.mouseEnabled=false;
 
-        createjs.Tween.removeTweens(e.target.parent);
-        e.target.parent.removeAllEventListeners();
-        e.target.parent.mouseEnabled=false;
-
-        createjs.Tween.get(e.target.parent,{override:true}).to({alpha:0},350,createjs.Ease.circInOut).call(function(){TouchEvents.poliFuera(e.target)});
+        createjs.Tween.get(e,{override:true}).to({alpha:0},350,createjs.Ease.circInOut).call(function(){TouchEvents.poliFuera(e)});
 
     ////////// acelerar pasma
 
@@ -92,8 +91,7 @@ TouchEvents=new function(){
 
         AudioPunk.tocaCrash();
         console.log("zas!");
-        e.target.gotoAndStop("quieto");
-
+        e.children[0].gotoAndStop("quieto");
     };
     this.poliFuera=function(quePoli){
 
