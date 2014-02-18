@@ -20,11 +20,10 @@ var scPlayer;
 var GamePlay=new function(){
 
     this.init=function(){
-        console.time("prova");
+
         screen01.removeEventListener("click");
         stage.removeAllChildren();
-        stage.update();
-                // init vars
+
         GamePlay.initVars();
 
                 // poner assets
@@ -39,24 +38,28 @@ var GamePlay=new function(){
         Assets.ponCasa(casas[0],1700);
         Assets.ponCasa(casas[1],2100);
         Assets.ponCasa(casas[2],2600);
-        Assets.ponCasa(casas[3],2950);
+        //Assets.ponCasa(casas[3],2950);
 
-        fons.cache(0,-100,3000,1000);
-        //fons.visible=true;
+        console.time("prova");
+        fons.snapToPixel = true;
+        fons.cache(0,-100,3000,800);
 
+        console.timeEnd("prova");
         stage.removeChild(jugador);
-        Assets.ponJugador();
+        stage.addChild(jugador);
         jugador.mouseEnabled=true;
 
         Assets.ponHUB();
         Assets.ponSangre();
+
                 //start
-        TouchEvents.playStop();
+        TouchEvents.muteUnmute();
         anima.gotoAndPlay("quieto");
-      //  if(!AudioPunk.isPlaying) {AudioPunk.playStop();}
+
+
 
         GamePlay.zoomea();
-        console.timeEnd("prova");
+
     };
 
 

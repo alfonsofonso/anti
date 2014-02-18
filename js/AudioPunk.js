@@ -70,7 +70,7 @@ AudioPunk= new function(){
             compas++;
             semicorchea = 0;
             if(compas%4==0){
-                console.log("compas=",compas);
+                console.log("compas=",compas,"scheduleAheadTime",scheduleAheadTime);
                 conguita=!conguita;
                 conguita?Riff.luchando():Riff.mutea("guitarra");
             }
@@ -134,10 +134,11 @@ AudioPunk= new function(){
     };
 
 
-    this.playStop=function() {//////////////////////////////////   play/stop
+    this.muteUnmute=function() {//////////////////////////////////   play/stop
 
         AudioPunk.isPlaying=!AudioPunk.isPlaying;
         console.log("AudioPunk.muteUnmute=",AudioPunk.isPlaying);
+        AudioPunk.initializeVars();
 
         if(AudioPunk.isPlaying){gainNode.gain.value=1;}else{gainNode.gain.value=0}
     };
@@ -163,8 +164,8 @@ AudioPunk= new function(){
 
         }
 
-        window.clearTimeout( timerID );
-        timerID=0;
+        //window.clearTimeout( timerID );
+        //timerID=0;
         timerID = window.setTimeout( AudioPunk.scheduler, lookahead );
     };
 
@@ -183,6 +184,9 @@ AudioPunk= new function(){
     this.initializeVars=function(){
 
         lookahead = 25;
+        semicorchea=0;
+       // compas=0;
+       // startTime=0;
         scheduleAheadTime = 0.1;
         tiemposCompas=4;
         tempo = 100.0;

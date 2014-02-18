@@ -16,7 +16,7 @@ Menu=new  function() {
      {
          if( screen01 == null || screen01 == undefined ) {
              screen01=new createjs.Bitmap(imatges["SCREEN_01"]);
-             screen01.addEventListener("click",function(){GamePlay.init();});
+             screen01.addEventListener("click",function(){  Main.toggleFullScreen();GamePlay.init();});
              screen01.regY=400;
          }
 
@@ -27,8 +27,6 @@ Menu=new  function() {
          }else{
              Utils.pon(screen01,amp/2,alt/2,true,amp/800);
          }
-
-         //fons.visible=false;
 
          Assets.ponJugador();
          anima.gotoAndPlay("quieto");

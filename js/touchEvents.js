@@ -103,13 +103,14 @@ TouchEvents=new function(){
 
 
     ////////////////////////////////////////////////////  HUB   ////////////////////////////////////////////
-    this.playStop=function(){/// boton pause
+    this.muteUnmute=function(){/// boton pause-play game
         jugando=!jugando;
         console.log("GamePlay.jugando=",jugando);
 
         clearInterval(timerPonPoli);
         timerPonPoli=0;
         clearTimeout(timerID);
+
 
         if(jugando){
             timerPonPoli=setInterval(Assets.ponPoli,refuerzosTime);

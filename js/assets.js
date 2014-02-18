@@ -76,8 +76,12 @@ var Assets=new function(){
         casa.regY=casa.getBounds().height;
 
         var _equis=equis||casa.getTransformedBounds().width/2;
+        casa.x=_equis;
+        casa.y=alturaFondo/1.2;
+        fons.addChild(casa);
+        //Utils.pon( casa , _equis , alturaFondo/1.2 , false,1,fons);
 
-        Utils.pon( casa , _equis , alturaFondo/1.2 , false,1,fons);
+
 
         casas_arr.push(casa);
 
@@ -187,13 +191,13 @@ var Assets=new function(){
 
         if( botPause == null || botPause == undefined ) { /////////////////   boton Pause
             botPause=new createjs.Bitmap(imatges["botPause"]);
-            botPause.addEventListener("click",TouchEvents.playStop);
+            botPause.addEventListener("click",TouchEvents.muteUnmute);
         }
         Utils.pon(botPause,10,50,false,.4);
 
         if( botMute == null || botMute == undefined ) {/////////////////////   boton Mute
             botMute=new createjs.Bitmap(imatges["botMute"]);
-            botMute.addEventListener("click",AudioPunk.playStop);
+            botMute.addEventListener("click",AudioPunk.muteUnmute);
         }
         Utils.pon(botMute,10,110,false,.4);
 

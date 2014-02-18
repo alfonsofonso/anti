@@ -13,7 +13,6 @@ Loader = new function() {
 
     this.initLoad = function (){
 
-
         stage = new createjs.Stage(document.getElementById("mainCanvas"));
         window.requestAnimFrame =  (function(callback) {
             return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame ||
@@ -30,7 +29,7 @@ Loader = new function() {
 
        // Loader.loadSound(); // or..
         Loader.ponLoading();
-        AudioPunk.init();// load images directly  /// ... Loader.reload()
+        AudioPunk.init();//inicia AudioPunk
 
     };
 
