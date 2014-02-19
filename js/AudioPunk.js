@@ -69,7 +69,7 @@ AudioPunk= new function(){
         if (semicorchea == 16) {
             compas++;
             semicorchea = 0;
-            if(compas%4==0){
+            if(compas%4==0&&jugando){
                 console.log("compas=",compas,"scheduleAheadTime",scheduleAheadTime);
                 conguita=!conguita;
                 conguita?Riff.luchando():Riff.mutea("guitarra");
@@ -137,8 +137,9 @@ AudioPunk= new function(){
     this.muteUnmute=function() {//////////////////////////////////   play/stop
 
         AudioPunk.isPlaying=!AudioPunk.isPlaying;
-        console.log("AudioPunk.muteUnmute=",AudioPunk.isPlaying);
-        AudioPunk.initializeVars();
+        console.log("AudioPunk.pausePlay=",AudioPunk.isPlaying);
+
+
 
         if(AudioPunk.isPlaying){gainNode.gain.value=1;}else{gainNode.gain.value=0}
     };
@@ -147,9 +148,10 @@ AudioPunk= new function(){
     /////////////////////////////////////////////////////////   AUDIO UTILS ////////////////////////////////
 
     this.scheduler=function() {//    reloj   timeout
+
         // while there are notes that will need to play before the next interval, schedule them and advance the pointer.
         while (nextNoteTime < audioContext.currentTime + scheduleAheadTime ) {// si toca escribe en el buffer
-
+            console.log("schedulo util");
             GamePlay.beatDraw(nextNoteTime);//// dibuja
 
             AudioPunk.escribeNota(nextNoteTime);/// pon nota
@@ -158,8 +160,11 @@ AudioPunk= new function(){
 
             if(taping){
                 Riff.corriendo();
-            }else{
+            }else if(jugando){
                 Riff.mutea("bateria");
+            }else{
+
+
             }
 
         }
@@ -167,6 +172,7 @@ AudioPunk= new function(){
         //window.clearTimeout( timerID );
         //timerID=0;
         timerID = window.setTimeout( AudioPunk.scheduler, lookahead );
+
     };
 
     this.frequencyFromNoteNumber=function( nota ) {
@@ -185,12 +191,12 @@ AudioPunk= new function(){
 
         lookahead = 25;
         semicorchea=0;
-       // compas=0;
+        compas=0;
        // startTime=0;
         scheduleAheadTime = 0.1;
         tiemposCompas=4;
         tempo = 100.0;
-        nextNoteTime = 0.0;
+        nextNoteTime = audioContext.currentTime;
         timerID = 0;
         portamento=0.1;
         basenote=1;

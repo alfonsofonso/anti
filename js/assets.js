@@ -81,10 +81,7 @@ var Assets=new function(){
         fons.addChild(casa);
         //Utils.pon( casa , _equis , alturaFondo/1.2 , false,1,fons);
 
-
-
         casas_arr.push(casa);
-
 
     };
 
@@ -156,7 +153,7 @@ var Assets=new function(){
 
         if(maxPolis<=refuerzos.length+maderos.length){return}
 
-        console.log("pongo poli, minZum",minimoZoom,"zoom",zoom);
+        console.time("pongo poli");
 
         var madero=new createjs.Container();
 
@@ -177,11 +174,13 @@ var Assets=new function(){
         madero.scaleY=minimoZoom+scPlayer;//minimoZoom+zoom/1.3;
         //madero.addEventListener("mousedown",TouchEvents.downPoli);
         madero.addChild(animaPoli);
+        madero.mouseEnabled=false;
         stage.addChild(madero);
 
         animaPoli.gotoAndPlay("correns");
 
         refuerzos.push(madero);
+        console.timeEnd("pongo poli");
         //{GamePlay.mamporrear(madero)});//
     };
 
@@ -191,7 +190,7 @@ var Assets=new function(){
 
         if( botPause == null || botPause == undefined ) { /////////////////   boton Pause
             botPause=new createjs.Bitmap(imatges["botPause"]);
-            botPause.addEventListener("click",TouchEvents.muteUnmute);
+            botPause.addEventListener("click",TouchEvents.pausePlay);
         }
         Utils.pon(botPause,10,50,false,.4);
 

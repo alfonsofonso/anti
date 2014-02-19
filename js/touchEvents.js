@@ -14,18 +14,24 @@ TouchEvents=new function(){
         //jugador.addEventListener("pressup",TouchEvents.suelta);
         // usar
         //window.addEventListener("touchdown",TouchEvents.tocoPantalla);
+
         if(!taping){
             Riff.corriendo();
             anima.gotoAndPlay("correns");
             taping=true;
-            timerDescansa=setTimeout(TouchEvents.torna,300);
+           // timerDescansa=setTimeout(TouchEvents.torna,300);
+            createjs.Tween.get(jugador,{override:true}).to({x:amp/3},200,createjs.Ease.circOut).call(TouchEvents.torna);
+
         }
-        //GamePlay.zoomea();
+
 
     };
     this.torna=function(){/// fin zoomea y tap caja
+        createjs.Tween.get(jugador,{override:true}).to({x:amp/4},300,createjs.Ease.circIn).call(TouchEvents.torna2);
+        // clearTimeout(timerDescansa);
+    };
+    this.torna2=function(){/// fin zoomea y tap caja
         taping=false;
-        clearTimeout(timerDescansa);
     };
 
     this.tocoPantalla=function(e){/// evento touch nativo
@@ -34,8 +40,7 @@ TouchEvents=new function(){
 
     };
 
-    this.mueve=function(e){
-
+    this.mueve=function(e){// mouseMove
 
         zoom=(e.rawX -jugador.x)/1000;
         console.log("mueve", e.stageX-jugador.x,"zoom",zoom);
@@ -66,49 +71,19 @@ TouchEvents=new function(){
 
 
 
-    this.downPoli=function(e){///////////////////////////////////////////// down poli //////////////////////////////////
-        e.children[0].gotoAndStop(1);
-console.log(e);
-        if(maderos.indexOf(e)!=-1){
-            maderos.splice(maderos.indexOf(e),1);
-        }
-        if(refuerzos.indexOf(e)!=-1){
-            refuerzos.splice(refuerzos.indexOf(e),1);
-        }
 
-        createjs.Tween.removeTweens(e);
-        e.removeAllEventListeners();
-        e.mouseEnabled=false;
-
-        createjs.Tween.get(e,{override:true}).to({alpha:0},350,createjs.Ease.circInOut).call(function(){TouchEvents.poliFuera(e)});
-
-    ////////// acelerar pasma
-
-        clearInterval(timerPonPoli);
-        timerPonPoli=0;
-        if(refuerzosTime>=300){refuerzosTime-=100;}
-        timerPonPoli=setInterval(Assets.ponPoli,refuerzosTime);
-
-        AudioPunk.tocaCrash();
-        console.log("zas!");
-        e.children[0].gotoAndStop("quieto");
-    };
-    this.poliFuera=function(quePoli){
-
-        stage.removeChild(quePoli.parent);
-
-    };
 
 
     ////////////////////////////////////////////////////  HUB   ////////////////////////////////////////////
-    this.muteUnmute=function(){/// boton pause-play game
+    this.pausePlay=function(){/// boton pause-play game
         jugando=!jugando;
         console.log("GamePlay.jugando=",jugando);
 
         clearInterval(timerPonPoli);
         timerPonPoli=0;
-        clearTimeout(timerID);
 
+        clearTimeout(timerID);
+        AudioPunk.initializeVars();
 
         if(jugando){
             timerPonPoli=setInterval(Assets.ponPoli,refuerzosTime);

@@ -7,7 +7,7 @@ var botBack;
 var canvas;
 var ampFons;
 
-var sc;// alt/1024
+var sc;// alt/1024 ipod= 1136 x 640
 
 Main = new function()
 {

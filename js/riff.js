@@ -53,7 +53,40 @@ var Riff= new function(){
                 break;
         }
     };
+    this.toqueMortal=function(){
+        melodiaBajo=[{nota:"gB",duracion:16},{nota:"aB",duracion:0},{nota:"aB",duracion:0},{nota:"aB",duracion:0},
+            {nota:"aB",duracion:0},{nota:"aB",duracion:0},{nota:"aB",duracion:0},{nota:"aB",duracion:0},
+            {nota:"aB",duracion:0},{nota:"fB",duracion:0},{nota:"fB",duracion:0},{nota:"gB",duracion:0},
+            {nota:"gB",duracion:0},{nota:"gB",duracion:0},{nota:"gB",duracion:0},{nota:"gB",duracion:0}];
+
+        melodiaBate=[{nota:"bom",duracion:4},{nota:"bom",duracion:0},{nota:"caj",duracion:0},{nota:"bom",duracion:1},
+            {nota:"bom",duracion:3},{nota:"caj",duracion:0},{nota:"caj",duracion:0},{nota:"bom",duracion:0},
+            {nota:"crs",duracion:0},{nota:"bom",duracion:0},{nota:"caj",duracion:0},{nota:"bom",duracion:1},
+            {nota:"bom",duracion:3},{nota:"bom",duracion:0},{nota:"caj",duracion:0},{nota:"bom",duracion:0}];
+
+        melodiaGuit=[{nota:"gG",duracion:16},{nota:"aB",duracion:0},{nota:"aB",duracion:0},{nota:"aB",duracion:0},
+            {nota:"aG",duracion:0},{nota:"aB",duracion:0},{nota:"aB",duracion:0},{nota:"aG",duracion:0},
+            {nota:"aG",duracion:0},{nota:"fB",duracion:0},{nota:"fB",duracion:0},{nota:"gB",duracion:0},
+            {nota:"gB",duracion:0},{nota:"gB",duracion:0},{nota:"gB",duracion:0},{nota:"gB",duracion:0}];
+    };
 
 
+    this.funebre=function(){
+
+        melodiaBajo=[{nota:"aB",duracion:4},{nota:"aB",duracion:0},{nota:"aB",duracion:0},{nota:"aB",duracion:0},
+            {nota:"aB",duracion:3},{nota:"aB",duracion:0},{nota:"aB",duracion:0},{nota:"aB",duracion:1},
+            {nota:"aB",duracion:8},{nota:"fB",duracion:0},{nota:"fB",duracion:0},{nota:"gB",duracion:0},
+            {nota:"gB",duracion:0},{nota:"gB",duracion:0},{nota:"gB",duracion:0},{nota:"gB",duracion:0}];
+
+        melodiaBate=[{nota:"crs",duracion:0},{nota:"bom",duracion:0},{nota:"caj",duracion:0},{nota:"bom",duracion:1},
+            {nota:"bom",duracion:3},{nota:"caj",duracion:0},{nota:"caj",duracion:0},{nota:"bom",duracion:0},
+            {nota:"crs",duracion:0},{nota:"bom",duracion:0},{nota:"caj",duracion:0},{nota:"bom",duracion:1},
+            {nota:"bom",duracion:3},{nota:"bom",duracion:0},{nota:"caj",duracion:0},{nota:"bom",duracion:0}];
+
+        melodiaGuit=[{nota:"aG",duracion:4},{nota:"aB",duracion:0},{nota:"aB",duracion:0},{nota:"aB",duracion:0},
+            {nota:"aG",duracion:3},{nota:"aB",duracion:0},{nota:"aB",duracion:0},{nota:"aG",duracion:1},
+            {nota:"aG",duracion:8},{nota:"fB",duracion:0},{nota:"fB",duracion:0},{nota:"gB",duracion:0},
+            {nota:"gB",duracion:0},{nota:"gB",duracion:0},{nota:"gB",duracion:0},{nota:"gB",duracion:0}];
+    }
 
 };
