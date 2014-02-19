@@ -69,18 +69,16 @@ var GamePlay=new function(){
         if(refuerzos.indexOf(e)!=-1){
             refuerzos.splice(refuerzos.indexOf(e),1);
         }
-
         createjs.Tween.removeTweens(e);
         e.removeAllEventListeners();
         e.mouseEnabled=false;
-
         createjs.Tween.get(e,{override:true}).to({alpha:0,x:amp},350,createjs.Ease.circInOut).call(function(){GamePlay.poliFuera(e)});
 
-        ////////// acelerar pasma
+        ////////// acelerar pasma /// hasta 100ms
 
         clearInterval(timerPonPoli);
         timerPonPoli=0;
-        if(refuerzosTime>=300){refuerzosTime-=100;}
+        if(refuerzosTime>=200){refuerzosTime-=100;}
         timerPonPoli=setInterval(Assets.ponPoli,refuerzosTime);
 
         AudioPunk.tocaCrash();
@@ -131,10 +129,8 @@ var GamePlay=new function(){
         timerPonPoli=0;
         anima.gotoAndStop("golpeado");
 
-
-
         AudioPunk.initializeVars();
-        conguita=true;
+
         Riff.toqueMortal();
 
         GamePlay.zoomea(55);

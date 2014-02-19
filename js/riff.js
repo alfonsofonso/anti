@@ -53,20 +53,21 @@ var Riff= new function(){
                 break;
         }
     };
+
     this.toqueMortal=function(){
-        melodiaBajo=[{nota:"gB",duracion:16},{nota:"aB",duracion:0},{nota:"aB",duracion:0},{nota:"aB",duracion:0},
-            {nota:"aB",duracion:0},{nota:"aB",duracion:0},{nota:"aB",duracion:0},{nota:"aB",duracion:0},
-            {nota:"aB",duracion:0},{nota:"fB",duracion:0},{nota:"fB",duracion:0},{nota:"gB",duracion:0},
+        melodiaBajo=[{nota:"fB",duracion:7},{nota:"aB",duracion:0},{nota:"aB",duracion:0},{nota:"aB",duracion:0},
+            {nota:"aB",duracion:0},{nota:"aB",duracion:0},{nota:"aB",duracion:0},{nota:"fB",duracion:1},
+            {nota:"gB",duracion:8},{nota:"fB",duracion:0},{nota:"fB",duracion:0},{nota:"gB",duracion:0},
             {nota:"gB",duracion:0},{nota:"gB",duracion:0},{nota:"gB",duracion:0},{nota:"gB",duracion:0}];
 
-        melodiaBate=[{nota:"bom",duracion:4},{nota:"bom",duracion:0},{nota:"caj",duracion:0},{nota:"bom",duracion:1},
+        melodiaBate=[{nota:"bom",duracion:0},{nota:"bom",duracion:0},{nota:"caj",duracion:0},{nota:"bom",duracion:1},
             {nota:"bom",duracion:3},{nota:"caj",duracion:0},{nota:"caj",duracion:0},{nota:"bom",duracion:0},
-            {nota:"crs",duracion:0},{nota:"bom",duracion:0},{nota:"caj",duracion:0},{nota:"bom",duracion:1},
+            {nota:"bom",duracion:0},{nota:"bom",duracion:0},{nota:"caj",duracion:0},{nota:"bom",duracion:1},
             {nota:"bom",duracion:3},{nota:"bom",duracion:0},{nota:"caj",duracion:0},{nota:"bom",duracion:0}];
 
-        melodiaGuit=[{nota:"gG",duracion:16},{nota:"aB",duracion:0},{nota:"aB",duracion:0},{nota:"aB",duracion:0},
-            {nota:"aG",duracion:0},{nota:"aB",duracion:0},{nota:"aB",duracion:0},{nota:"aG",duracion:0},
-            {nota:"aG",duracion:0},{nota:"fB",duracion:0},{nota:"fB",duracion:0},{nota:"gB",duracion:0},
+        melodiaGuit=[{nota:"fG",duracion:7},{nota:"aB",duracion:0},{nota:"aB",duracion:0},{nota:"aB",duracion:0},
+            {nota:"aG",duracion:0},{nota:"aB",duracion:0},{nota:"aB",duracion:0},{nota:"fG",duracion:1},
+            {nota:"gG",duracion:8},{nota:"fB",duracion:0},{nota:"fB",duracion:0},{nota:"gB",duracion:0},
             {nota:"gB",duracion:0},{nota:"gB",duracion:0},{nota:"gB",duracion:0},{nota:"gB",duracion:0}];
     };
 

@@ -40,6 +40,9 @@ AudioPunk= new function(){
         // start Engine
         window.AudioContext=window.AudioContext||window.webkitAudioContext;
         audioContext =  new AudioContext();
+        gainNode= audioContext.createGainNode();////    crea etapa de potencia
+        gainNode.connect(audioContext.destination);//// conectar a altavoces
+
         AudioPunk.initializeVars();
 
         // loadSounds
@@ -135,12 +138,7 @@ AudioPunk= new function(){
 
 
     this.muteUnmute=function() {//////////////////////////////////   play/stop
-
         AudioPunk.isPlaying=!AudioPunk.isPlaying;
-        console.log("AudioPunk.pausePlay=",AudioPunk.isPlaying);
-
-
-
         if(AudioPunk.isPlaying){gainNode.gain.value=1;}else{gainNode.gain.value=0}
     };
 
@@ -201,9 +199,8 @@ AudioPunk= new function(){
         portamento=0.1;
         basenote=1;
         noteLength = 1;
+conguita=false;
 
-        gainNode= audioContext.createGainNode();////    crea etapa de potencia
-        gainNode.connect(audioContext.destination);//// conectar a altavoces
         Riff.initialRiff();// escribe musica inicio
 
         notesInQueue = [];
