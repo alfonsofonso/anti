@@ -178,7 +178,7 @@ var GamePlay=new function(){
     this.topGames=function(){// volver a jugar
         console.log("topGames");
         stage.removeAllChildren();
-
+        toques=0;
         GamePlay.init();
     };
 

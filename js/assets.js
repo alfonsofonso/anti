@@ -12,8 +12,10 @@ var gameOver;
 var casas=["edifici1","lacaca","lesvis","starfuck"];
 var casas_arr=[];
 var horizonte;
-
+var puntext;
 var anchuraFondo;
+
+var iconFB;
 
 var Assets=new function(){
 
@@ -230,12 +232,31 @@ var Assets=new function(){
     };
 
     this.ponGameOver=function(){
-
+                                                /// trena
         if(gameOver==null||gameOver==undefined){
             gameOver=new createjs.Bitmap(imatges["gameOver"]);
             gameOver.addEventListener("click",GamePlay.topGames);
         }
-        Utils.pon(gameOver,amp/2,alt/2,true);
+        Utils.pon(gameOver,amp/10,alt/10+52*sc,false,sc);
+
+
+                                          // puntos
+        if(puntext==null || puntext== undefined ){
+            puntext=new createjs.Text("m.", "bold "+Math.abs(50*sc)+"px BoldinaTwo", "#b00000");
+
+            puntext.x=gameOver.x;
+            puntext.y=alt/10;
+        }
+        puntext.text="distance: "+toques*5+" m.";
+        stage.addChild(puntext);
+
+                                                            /// fb
+        if(iconFB==null||iconFB==undefined){
+            iconFB=new createjs.Bitmap(imatges["iconFB"]);
+            //iconFB.addEventListener("click",GamePlay.facebook);
+        }
+        //Utils.pon(iconFB,amp/1.5,alt/3,false);
+
 
     };
 

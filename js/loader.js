@@ -3,7 +3,7 @@ var preload;
 var manifest;
 var imatges= new Array();
 
-var NUM_IMATGES = 12 ;// --- + NUM_AUDIOS;
+var NUM_IMATGES = 13 ;// --- + NUM_AUDIOS;
 var loaded_imatges = 0;
 var percent;
 var loading;
@@ -48,7 +48,7 @@ Loader = new function() {
 
     this.loadSound = function(){
         if (!createjs.Sound.initializeDefaultPlugins()) {
-            loaded_imatges = NUM_AUDIOS;
+            //loaded_imatges = NUM_AUDIOS;
             this.reload();
         }
         else
@@ -93,7 +93,8 @@ Loader = new function() {
             "casas/lesvis.png",
             "casas/starfuck.png",
             "casas/edifici1.png",
-            "poli/poliSprite.png"
+            "poli/poliSprite.png",
+            "iconFB.png"
 
         ];
 
@@ -163,6 +164,8 @@ Loader = new function() {
             case "fons.jpg": imatges['fonsCity'] =  event.result;
                 break;
             case "poli/poliSprite.png": imatges['poliSprite'] =  event.result;
+                break;
+            case "iconFB.png": imatges['iconFB'] =  event.result;
                 break;
         }
 

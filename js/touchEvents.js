@@ -2,7 +2,7 @@
  User: alfonso
  Data: 10/02/14 , 18:33
  */
-
+var toques=0;
 
 TouchEvents=new function(){
 
@@ -16,6 +16,7 @@ TouchEvents=new function(){
         //window.addEventListener("touchdown",TouchEvents.tocoPantalla);
 
         if(!taping){
+            toques++;
             Riff.corriendo();
             anima.gotoAndPlay("correns");
             taping=true;
