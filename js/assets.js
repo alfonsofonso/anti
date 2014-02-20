@@ -59,10 +59,12 @@ var Assets=new function(){
         //fons.regX=anchuraFondo/2;
         fons.regY=alturaFondo/2;//300;//380;// el horizonte en el png
 
-        fons.y=alt/2.2;
+        fons.y=0;//alt/2.2;
         fons.scaleX=fons.scaleY=sc;
         fons.mouseEnabled=false;
         stage.addChild(fons);
+
+
     };
 
 
@@ -71,7 +73,7 @@ var Assets=new function(){
         var _cual=cual||casas[Math.floor(Math.random()*4)];
 
         var casa=new createjs.Bitmap(imatges[_cual]);/// coje una imagen de casa en array casas
-
+        casa.cache(0,0,casa.getBounds().width,casa.getBounds().height);
         //casa.scaleX=sc;
         casa.regY=casa.getBounds().height;
 
@@ -84,6 +86,7 @@ var Assets=new function(){
         casas_arr.push(casa);
 
     };
+
 
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -153,7 +156,7 @@ var Assets=new function(){
 
         if(maxPolis<=refuerzos.length+maderos.length){return}
 
-        console.time("pongo poli");
+
 
         var madero=new createjs.Container();
 
@@ -170,8 +173,7 @@ var Assets=new function(){
 
         madero.y=jugador.y;
         madero.x=amp;
-        madero.scaleX=minimoZoom+scPlayer;//minimoZoom+zoom/1.3;
-        madero.scaleY=minimoZoom+scPlayer;//minimoZoom+zoom/1.3;
+
         //madero.addEventListener("mousedown",TouchEvents.downPoli);
         madero.addChild(animaPoli);
         madero.mouseEnabled=false;
@@ -180,7 +182,7 @@ var Assets=new function(){
         animaPoli.gotoAndPlay("correns");
 
         refuerzos.push(madero);
-        console.timeEnd("pongo poli");
+        GamePlay.zoomea(zoom);
         //{GamePlay.mamporrear(madero)});//
     };
 

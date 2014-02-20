@@ -38,11 +38,11 @@ var GamePlay=new function(){
         Assets.ponCasa(casas[0],1700);
         Assets.ponCasa(casas[1],2100);
         Assets.ponCasa(casas[2],2600);
-        //Assets.ponCasa(casas[3],2950);
+        Assets.ponCasa(casas[3],2950);
 
         console.time("prova");
         fons.snapToPixel = true;
-        fons.cache(0,-100,3000,800);
+        //fons.cache(0,-100,2560,1920);//max: 2000x1500
 
         console.timeEnd("prova");
         stage.removeChild(jugador);
@@ -104,7 +104,7 @@ var GamePlay=new function(){
                 createjs.Tween.get(jugador).to({x: amp/9},350,createjs.Ease.circInOut).call(GamePlay.backFromHit);
                 stage.addChild(sangre);
                 var sang=setTimeout(GamePlay.sangra,80);
-                energia-=10;
+                energia-=20;
                 if(energia<=0){GamePlay.muerte()}
 
                 energy.graphics.clear();
@@ -138,7 +138,6 @@ var GamePlay=new function(){
         timerMuerte=setTimeout(GamePlay.pantallaFin,2000);
         jugador.mouseEnabled=false;
 
-
     };
 
 
@@ -146,20 +145,22 @@ var GamePlay=new function(){
     this.zoomea=function(cuantoZoom){
         console.log("zoomea",cuantoZoom, "or",sc,"or 0.3");
         zoom=cuantoZoom||.1;
-        scPlayer=sc/13;
+        scPlayer=sc;///13;
         taping=false;////// !
+
                // fons
         createjs.Tween.get(paisaje,{override:true}).to({scaleX:minimoZoom+zoom *sc ,scaleY:minimoZoom+zoom *sc,y:alt/2 },1200,createjs.Ease.circInOut);
          // casas
         createjs.Tween.get(fons,{override:true}).to({scaleX:minimoZoom+zoom *sc ,scaleY:minimoZoom+zoom *sc,y:alt/2 },1200,createjs.Ease.circInOut);
+
         // jugador
         createjs.Tween.get(jugador,{override:true}).to({scaleX:minimoZoom + zoom *scPlayer,scaleY:minimoZoom+zoom*scPlayer, x:amp/4, y:alt/1.5},1200,createjs.Ease.circInOut);
         // polis
         for(var i=0;i<maderos.length;i++){
-            createjs.Tween.get(maderos[i],{override:true}).to({scaleX:minimoZoom+zoom*scPlayer,scaleY:minimoZoom+zoom*scPlayer, y:alt/1.42},1200,createjs.Ease.circInOut);
+            createjs.Tween.get(maderos[i],{override:true}).to({scaleX:minimoZoom+zoom*scPlayer,scaleY:minimoZoom+zoom*scPlayer, y:alt/1.5},1200,createjs.Ease.circInOut);
         }
         for(var j=0;j<refuerzos.length;j++){
-            createjs.Tween.get(refuerzos[j],{override:true}).to({scaleX:minimoZoom+zoom*scPlayer,scaleY:minimoZoom+zoom*scPlayer, y:alt/1.4},1200,createjs.Ease.circInOut);
+            createjs.Tween.get(refuerzos[j],{override:true}).to({scaleX:minimoZoom+zoom*scPlayer,scaleY:minimoZoom+zoom*scPlayer, y:alt/1.5},1200,createjs.Ease.circInOut);
         }
 
     };
@@ -173,6 +174,7 @@ var GamePlay=new function(){
         console.log("FIN");
 
     };
+
     this.topGames=function(){// volver a jugar
         console.log("topGames");
         stage.removeAllChildren();

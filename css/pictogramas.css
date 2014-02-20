@@ -1,0 +1,82 @@
+@font-face {
+	font-family: 'icomoonSet';
+	src:url('../../../../Users/alfonso/Desktop/anti-project/icomoonSet/fonts/icomoonSet.eot?4low48');
+	src:url('../../../../Users/alfonso/Desktop/anti-project/icomoonSet/fonts/icomoonSet.eot?#iefix4low48') format('embedded-opentype'),
+		url('../../../../Users/alfonso/Desktop/anti-project/icomoonSet/fonts/icomoonSet.woff?4low48') format('woff'),
+		url('../../../../Users/alfonso/Desktop/anti-project/icomoonSet/fonts/icomoonSet.ttf?4low48') format('truetype'),
+		url('../../../../Users/alfonso/Desktop/anti-project/icomoonSet/fonts/icomoonSet.svg?4low48#icomoonSet') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'icomoonSet';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-facebook:before {
+	content: "\e600";
+}
+.icon-headphone:before {
+	content: "\e601";
+}
+.icon-gamepad:before {
+	content: "\e602";
+}
+.icon-volume:before {
+	content: "\e603";
+}
+.icon-music:before {
+	content: "\e604";
+}
+.icon-cog:before {
+	content: "\e605";
+}
+.icon-info:before {
+	content: "\e606";
+}
+.icon-cup:before {
+	content: "\e607";
+}
+.icon-badge:before {
+	content: "\e608";
+}
+.icon-heart:before {
+	content: "\e609";
+}
+.icon-pointer:before {
+	content: "\e60a";
+}
+.icon-refresh:before {
+	content: "\e60b";
+}
+.icon-medicine:before {
+	content: "\e60c";
+}
+.icon-mobile:before {
+	content: "\e60d";
+}
+.icon-share:before {
+	content: "\e60e";
+}
+.icon-arrow-left:before {
+	content: "\e60f";
+}
+.icon-skull:before {
+	content: "\e610";
+}
+.icon-timer:before {
+	content: "\e611";
+}
+.icon-scissors:before {
+	content: "\e612";
+}
