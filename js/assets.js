@@ -158,8 +158,6 @@ var Assets=new function(){
 
         if(maxPolis<=refuerzos.length+maderos.length){return}
 
-
-
         var madero=new createjs.Container();
 
         var array_imatges_poli = new createjs.SpriteSheet({ // SpriteSheet
@@ -175,7 +173,7 @@ var Assets=new function(){
 
         madero.y=jugador.y;
         madero.x=amp;
-
+        madero.scaleX=madero.scaleY=minimoZoom + zoom *sc;
         //madero.addEventListener("mousedown",TouchEvents.downPoli);
         madero.addChild(animaPoli);
         madero.mouseEnabled=false;
@@ -237,7 +235,7 @@ var Assets=new function(){
             gameOver=new createjs.Bitmap(imatges["gameOver"]);
             gameOver.addEventListener("click",GamePlay.topGames);
         }
-        Utils.pon(gameOver,amp/10,alt/10,false,sc);
+        Utils.pon(gameOver,amp/2,alt/2,true,sc);
 
 
                                           // puntos

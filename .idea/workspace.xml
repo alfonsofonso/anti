@@ -64,9 +64,9 @@
     <file path="/tocaGuitarra.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1391004158223" ignored="false" />
     <file path="$PROJECT_DIR$/js/tocaGuitarra.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1391004162979" ignored="false" />
     <file path="/tocaCorriendo.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1391005976478" ignored="false" />
-    <file path="/assets.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1392914771451" ignored="false" />
+    <file path="/assets.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1392920656750" ignored="false" />
     <file path="/riff.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1392917963427" ignored="false" />
-    <file path="/touchEvents.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1392918852192" ignored="false" />
+    <file path="/touchEvents.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1392920153236" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,10 +122,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="touchEvents.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="touchEvents.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/touchEvents.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="67" selection-start="931" selection-end="931" vertical-scroll-proportion="0.6891892">
+            <state line="23" column="67" selection-start="776" selection-end="776" vertical-scroll-proportion="-9.52">
               <folding>
                 <element signature="e#1395#2056#0" expanded="false" />
                 <element signature="e#2086#2260#0" expanded="false" />
@@ -152,10 +152,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gamePlay.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="gamePlay.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/gamePlay.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="79" column="8" selection-start="1961" selection-end="1961" vertical-scroll-proportion="0.0">
+            <state line="188" column="23" selection-start="5331" selection-end="5331" vertical-scroll-proportion="0.46596858">
               <folding />
             </state>
           </provider>
@@ -164,7 +164,7 @@
       <file leaf-file-name="assets.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/assets.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="156" column="23" selection-start="4688" selection-end="4690" vertical-scroll-proportion="-3.08">
+            <state line="237" column="38" selection-start="7517" selection-end="7517" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -197,14 +197,14 @@
         <option value="$USER_HOME$/Desktop/anti-project/icomoonSet/demo.html" />
         <option value="$PROJECT_DIR$/css/style.css" />
         <option value="$PROJECT_DIR$/js/Pulso.js" />
-        <option value="$PROJECT_DIR$/js/gamePlay.js" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/js/assets.js" />
         <option value="$PROJECT_DIR$/js/loader.js" />
         <option value="$PROJECT_DIR$/js/riff.js" />
         <option value="$PROJECT_DIR$/js/main.js" />
         <option value="$PROJECT_DIR$/js/AudioPunk.js" />
         <option value="$PROJECT_DIR$/js/touchEvents.js" />
+        <option value="$PROJECT_DIR$/js/assets.js" />
+        <option value="$PROJECT_DIR$/js/gamePlay.js" />
       </list>
     </option>
   </component>
@@ -549,27 +549,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/touchEvents.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="67" selection-start="776" selection-end="776" vertical-scroll-proportion="-9.52">
+          <folding>
+            <element signature="e#1395#2056#0" expanded="false" />
+            <element signature="e#2086#2260#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/assets.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="156" column="23" selection-start="4688" selection-end="4690" vertical-scroll-proportion="-3.08">
+        <state line="237" column="38" selection-start="7517" selection-end="7517" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/gamePlay.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="8" selection-start="1961" selection-end="1961" vertical-scroll-proportion="0.0">
+        <state line="188" column="23" selection-start="5331" selection-end="5331" vertical-scroll-proportion="0.46596858">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/touchEvents.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="67" selection-start="931" selection-end="931" vertical-scroll-proportion="0.6891892">
-          <folding>
-            <element signature="e#1395#2056#0" expanded="false" />
-            <element signature="e#2086#2260#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>

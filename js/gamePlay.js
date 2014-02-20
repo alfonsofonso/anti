@@ -186,7 +186,7 @@ var GamePlay=new function(){
         zoom=.2;
         maxPolis=5;
         energia=200;
-        refuerzosTime=2000;
+        refuerzosTime=1000;
         maderos=[];
         refuerzos=[];
 
