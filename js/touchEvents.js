@@ -24,7 +24,9 @@ TouchEvents=new function(){
             createjs.Tween.get(jugador,{override:true}).to({x:amp/3},200,createjs.Ease.circOut).call(TouchEvents.torna);
 
         }
-
+        if(toques==1){
+            timerPonPoli=setInterval(Assets.ponPoli,refuerzosTime);
+        }
 
     };
     this.torna=function(){/// fin zoomea y tap caja
@@ -87,7 +89,7 @@ TouchEvents=new function(){
         AudioPunk.initializeVars();
 
         if(jugando){
-            timerPonPoli=setInterval(Assets.ponPoli,refuerzosTime);
+
             timerID=setTimeout(AudioPunk.scheduler, lookahead);
         }
     };

@@ -39,7 +39,9 @@ AudioPunk= new function(){
         console.log("AudioPunk.init");
         // start Engine
         window.AudioContext=window.AudioContext||window.webkitAudioContext;
-        audioContext =  new AudioContext();
+        if(audioContext==undefined || audioContext==null){
+            audioContext =  new AudioContext();
+        }
         gainNode= audioContext.createGainNode();////    crea etapa de potencia
         gainNode.connect(audioContext.destination);//// conectar a altavoces
 
@@ -78,6 +80,7 @@ AudioPunk= new function(){
                 conguita?Riff.luchando():Riff.mutea("guitarra");
             }
         }
+
     };
 
     this.tocaGuitarra=function(time){// escribe nota de guitarra
@@ -189,7 +192,7 @@ AudioPunk= new function(){
 
         lookahead = 25;
         semicorchea=0;
-        compas=0;
+
        // startTime=0;
         scheduleAheadTime = 0.1;
         tiemposCompas=4;
@@ -199,7 +202,7 @@ AudioPunk= new function(){
         portamento=0.1;
         basenote=1;
         noteLength = 1;
-conguita=false;
+        conguita=false;
 
         Riff.initialRiff();// escribe musica inicio
 

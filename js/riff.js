@@ -88,6 +88,14 @@ var Riff= new function(){
             {nota:"aG",duracion:3},{nota:"aB",duracion:0},{nota:"aB",duracion:0},{nota:"aG",duracion:1},
             {nota:"aG",duracion:8},{nota:"fB",duracion:0},{nota:"fB",duracion:0},{nota:"gB",duracion:0},
             {nota:"gB",duracion:0},{nota:"gB",duracion:0},{nota:"gB",duracion:0},{nota:"gB",duracion:0}];
-    }
+    };
+
+    this.idle=function(){
+        melodiaBate=[{nota:"bom",duracion:3},{nota:"bom",duracion:0},{nota:"bom",duracion:0},{nota:"bom",duracion:0},
+            {nota:"bom",duracion:0},{nota:"bom",duracion:0},{nota:"bom",duracion:0},{nota:"bom",duracion:0},
+            {nota:"bom",duracion:0},{nota:"bom",duracion:0},{nota:"bom",duracion:0},{nota:"bom",duracion:0},
+            {nota:"bom",duracion:0},{nota:"bom",duracion:0},{nota:"bom",duracion:0},{nota:"bom",duracion:3}];
+
+    };
 
 };

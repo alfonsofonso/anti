@@ -237,17 +237,18 @@ var Assets=new function(){
             gameOver=new createjs.Bitmap(imatges["gameOver"]);
             gameOver.addEventListener("click",GamePlay.topGames);
         }
-        Utils.pon(gameOver,amp/10,alt/10+52*sc,false,sc);
+        Utils.pon(gameOver,amp/10,alt/10,false,sc);
 
 
                                           // puntos
         if(puntext==null || puntext== undefined ){
-            puntext=new createjs.Text("m.", "bold "+Math.abs(50*sc)+"px BoldinaTwo", "#b00000");
+            puntext=new createjs.Text("m.", "bold "+Math.abs(50*sc)+"px BoldinaTwo", "#eeeeee");
 
-            puntext.x=gameOver.x;
-            puntext.y=alt/10;
+            puntext.x=amp/2;
+            puntext.y=alt/3;
         }
-        puntext.text="distance: "+toques*5+" m.";
+        puntext.text=toques*5+" m.";
+        puntext.x=amp/2.3;
         stage.addChild(puntext);
 
                                                             /// fb

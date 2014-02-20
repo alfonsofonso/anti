@@ -86,7 +86,7 @@ Loader = new function() {
             "botPause.png",
             "botMute.png",
             "corriendo.png",
-            "gameOver.jpg",
+            "antiPosturas/dead.png",
             "fons.jpg",
             "splatter.png",
             "casas/lacaca.png",
@@ -144,7 +144,7 @@ Loader = new function() {
                 break
             case "botPause.png": imatges['botPause'] =  event.result;
                 break
-            case "gameOver.jpg": imatges['gameOver'] =  event.result;
+            case "antiPosturas/dead.png": imatges['gameOver'] =  event.result;
                 break
             case "menu.jpg": imatges['SCREEN_01'] =  event.result;
                 //Loader.posaLoader();
