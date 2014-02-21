@@ -8,12 +8,14 @@ TouchEvents=new function(){
 
 
     this.downJugador=function(e){//////////////////////////////////    M O U S E D O W N
+        console.log("down jugador");
         // $("#consola").text("amp "+amp+" alt "+alt);
         //console.log("native", e.nativeEvent)
         //jugador.addEventListener("pressmove",TouchEvents.mueve);
         //jugador.addEventListener("pressup",TouchEvents.suelta);
         // usar
         //window.addEventListener("touchdown",TouchEvents.tocoPantalla);
+        //clearInterval(timerPonPoli);
 
         if(!taping){
             toques++;
@@ -22,11 +24,14 @@ TouchEvents=new function(){
             taping=true;
            // timerDescansa=setTimeout(TouchEvents.torna,300);
             createjs.Tween.get(jugador,{override:true}).to({x:amp/3},200,createjs.Ease.circOut).call(TouchEvents.torna);
+            if(toques==1){
+                console.log("toques==1");
+                timerPonPoli=setInterval(Assets.ponPoli,refuerzosTime);
+                jugando=true;
+            }
+            metros.text=toques*5+" m.";
+        }
 
-        }
-        if(toques==1){
-            timerPonPoli=setInterval(Assets.ponPoli,refuerzosTime);
-        }
 
     };
     this.torna=function(){/// fin zoomea y tap caja

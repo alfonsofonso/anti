@@ -96,6 +96,7 @@ Loader = new function() {
             "poli/poliSprite.png",
             "iconFB.png"
 
+
         ];
 
         // Create a preloader. There is no manifest added to it up-front, we will add items on-demand.
@@ -159,6 +160,7 @@ Loader = new function() {
                 break;
             case "casas/edifici1.png": imatges['edifici1'] =  event.result;
                 break;
+
             case "splatter.png": imatges['splatter'] =  event.result;
                 break;
             case "fons.jpg": imatges['fonsCity'] =  event.result;

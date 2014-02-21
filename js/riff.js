@@ -60,9 +60,9 @@ var Riff= new function(){
             {nota:"gB",duracion:8},{nota:"fB",duracion:0},{nota:"fB",duracion:0},{nota:"gB",duracion:0},
             {nota:"gB",duracion:0},{nota:"gB",duracion:0},{nota:"gB",duracion:0},{nota:"gB",duracion:0}];
 
-        melodiaBate=[{nota:"bom",duracion:0},{nota:"bom",duracion:0},{nota:"caj",duracion:0},{nota:"bom",duracion:1},
-            {nota:"bom",duracion:3},{nota:"caj",duracion:0},{nota:"caj",duracion:0},{nota:"bom",duracion:0},
-            {nota:"bom",duracion:0},{nota:"bom",duracion:0},{nota:"caj",duracion:0},{nota:"bom",duracion:1},
+        melodiaBate=[{nota:"tom",duracion:0},{nota:"tom",duracion:1},{nota:"tom",duracion:1},{nota:"tom",duracion:1},
+            {nota:"tom",duracion:1},{nota:"tom",duracion:1},{nota:"tom",duracion:1},{nota:"tom",duracion:1},
+            {nota:"tom",duracion:1},{nota:"tom",duracion:0},{nota:"tom",duracion:0},{nota:"bom",duracion:1},
             {nota:"bom",duracion:3},{nota:"bom",duracion:0},{nota:"caj",duracion:0},{nota:"bom",duracion:0}];
 
         melodiaGuit=[{nota:"fG",duracion:7},{nota:"aB",duracion:0},{nota:"aB",duracion:0},{nota:"aB",duracion:0},

@@ -117,6 +117,7 @@ window.requestAnimFrame =  (function(callback) {
 
         }
         console.log("sta:", document.body.className);
+
         if(document.body.className=="hidden"){
             AudioPunk.initializeVars();
             jugando=false;
@@ -125,6 +126,7 @@ window.requestAnimFrame =  (function(callback) {
             Riff.idle();
         }else{
             AudioPunk.initializeVars();
+            AudioPunk.scheduler();
             jugando=true;
             Riff.initialRiff();
         }
