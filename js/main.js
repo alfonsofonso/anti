@@ -81,7 +81,7 @@ window.requestAnimFrame =  (function(callback) {
             window.setTimeout(callback, 1000 / 66);
         };
 })();*/
-
+////////////////////////////////////////////// idle
 (function() {
     var hidden = "hidden";
 

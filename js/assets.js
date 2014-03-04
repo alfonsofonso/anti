@@ -1,6 +1,6 @@
 
 var fons,fons2;
-var fonsCity,fonsCity2;
+var fonsCity,fonsCity2,fonsCity3;
 var paisaje;
 var botPause, botMute;
 var maderos=[];
@@ -37,10 +37,14 @@ var Assets=new function(){
         if( fonsCity2 == null || fonsCity2 == undefined ) {
             fonsCity2=new createjs.Bitmap(imatges["fonsCity"]);
         }
+        if( fonsCity3 == null || fonsCity3 == undefined ) {
+            fonsCity3=new createjs.Bitmap(imatges["fonsCity"]);
+        }
 
         //////              x    y   centered ratio parent
         Utils.pon(fonsCity, 0,0,false,1,paisaje);
         Utils.pon(fonsCity2, anchuraFondo,0,false,1,paisaje);
+        Utils.pon(fonsCity3, anchuraFondo*2,0,false,1,paisaje);
 
         paisaje.scaleX=paisaje.scaleY=sc;
         paisaje.regY=alturaFondo/2;
@@ -66,7 +70,6 @@ var Assets=new function(){
         fons.mouseEnabled=false;
         stage.addChild(fons);
 
-
     };
 
 
@@ -88,7 +91,7 @@ var Assets=new function(){
         casas_arr.push(casa);
 
     };
-    this.ponMuro=function(equis){
+    this.ponMuro=function(equis){//  no
 
         var _cual=casas[4];
 

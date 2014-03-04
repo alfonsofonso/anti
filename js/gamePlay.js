@@ -13,7 +13,7 @@ var energia;
 var refuerzosTime;
 var taping;
 var timerPonPoli,timerMuerte,mouseEnabledTimer;
-var minimoZoom=.7;
+var minimoZoom=.3;
 var jugando=false;
 var scPlayer;
 
@@ -41,10 +41,13 @@ var GamePlay=new function(){
         Assets.ponCasa(casas[2],2600);
         Assets.ponCasa(casas[3],2950);
 
+        Assets.ponCasa(casas[0],3400);
+        Assets.ponCasa(casas[1],3800);
+        Assets.ponCasa(casas[2],4300);
+        Assets.ponCasa(casas[3],4700);
 
         fons.snapToPixel = true;
         //fons.cache(0,-100,2560,1920);//max: 2000x1500
-
 
         stage.removeChild(jugador);
         stage.addChild(jugador);
@@ -85,11 +88,11 @@ var GamePlay=new function(){
 
         createjs.Tween.get(e,{override:true}).to({alpha:0,x:amp},350,createjs.Ease.circInOut).call(function(){GamePlay.poliFuera(e)});
 
-        ////////// acelerar pasma /// hasta 100ms
+        ////////// acelerar pasma /// hasta 100 ó 200ms si es > y no >=
 
         clearInterval(timerPonPoli);
         timerPonPoli=0;
-        if(refuerzosTime>=200){refuerzosTime-=100;}
+        if(refuerzosTime>200){refuerzosTime-=100;}
         timerPonPoli =setInterval(Assets.ponPoli,refuerzosTime);
 
 
@@ -176,7 +179,7 @@ var GamePlay=new function(){
         energy.graphics.clear();
         clearInterval(timerPonPoli);
         timerPonPoli=-1;
-        maderos=[];
+
 
         anima.gotoAndStop("golpeado");
 
@@ -185,6 +188,7 @@ var GamePlay=new function(){
         Riff.toqueMortal();
 
         GamePlay.zoomea(55);
+        maderos=[];
         jugando=false;
         timerMuerte=setTimeout(GamePlay.pantallaFin,1800);
 

@@ -12,13 +12,13 @@ Pulso = new function(){
             fons.x-=40;
         }
 
-        if(fons!=undefined && fons.x<-1420){
+        if(fons!=undefined && fons.x<-1420){//o 2130
            // console.log(fons.getTransformedBounds().width,"es fons.getTrandformedBounds.width",fons.getBounds().width,"es getBounds.width");
             fons.x=0;
         }
         //refuerzos
         for(var i=0;i<refuerzos.length;i++){
-            if(refuerzos[i].x>=jugador.x+200*sc){
+            if(refuerzos[i].x>=jugador.x+100*sc){
                 refuerzos[i].x-=10;
             }else{
                 maderos.push(refuerzos[i]);
@@ -29,33 +29,5 @@ Pulso = new function(){
 
     };
 
-    this.handlerTick2 =function ()
-    {
-        //refuerzos
-        for(var i=0;i<refuerzos.length;i++){
-            if(refuerzos[i].x>=jugador.x+200*sc){
-                refuerzos[i].x-=10;
-            }else{
-                maderos.push(refuerzos[i]);
-                refuerzos.splice(i,1);
-            }
-        }
-        stage.update();
 
-        clearInterval(timerPonPoli);
-        timerPonPoli=0;
-
-        if(fons2.x<-200){
-
-            // console.log(fons.getTransformedBounds().width,"es fons.getTrandformedBounds.width",fons.getBounds().width,"es getBounds.width");
-            return
-        }
-
-        if(taping){
-            fons.x-=40;
-            fons2.x-=40;
-        }
-
-
-    };
 };
