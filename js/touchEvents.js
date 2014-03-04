@@ -23,7 +23,7 @@ TouchEvents=new function(){
             anima.gotoAndPlay("correns");
             taping=true;
            // timerDescansa=setTimeout(TouchEvents.torna,300);
-            createjs.Tween.get(jugador,{override:true}).to({x:amp/2},200,createjs.Ease.circOut).call(TouchEvents.torna);
+            createjs.Tween.get(jugador,{override:true}).to({x:amp/2},300,createjs.Ease.circOut).call(TouchEvents.torna);
             if(toques==1){
                 console.log("toques==1");
                 timerPonPoli=setInterval(Assets.ponPoli,refuerzosTime);
@@ -35,7 +35,7 @@ TouchEvents=new function(){
 
     };
     this.torna=function(){/// fin zoomea y tap caja
-        createjs.Tween.get(jugador,{override:true}).to({x:amp/4},300,createjs.Ease.circOut).call(TouchEvents.torna2);
+        createjs.Tween.get(jugador,{override:true}).to({x:amp/4},100,createjs.Ease.circOut).call(TouchEvents.torna2);
         // clearTimeout(timerDescansa);
     };
     this.torna2=function(){/// fin zoomea y tap caja

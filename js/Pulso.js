@@ -17,9 +17,12 @@ Pulso = new function(){
             fons.x=0;
         }
         //refuerzos
+
+        GamePlay.beatDraw();
+
         for(var i=0;i<refuerzos.length;i++){
             if(refuerzos[i].x>=jugador.x+100*sc){
-                refuerzos[i].x-=10;
+                refuerzos[i].x-=(40*Math.random());
             }else{
                 maderos.push(refuerzos[i]);
                 refuerzos.splice(i,1);

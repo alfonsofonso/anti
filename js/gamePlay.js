@@ -13,7 +13,7 @@ var energia;
 var refuerzosTime;
 var taping;
 var timerPonPoli,timerMuerte,mouseEnabledTimer;
-var minimoZoom=.3;
+var minimoZoom=.4;
 var jugando=false;
 var scPlayer;
 
@@ -109,13 +109,13 @@ var GamePlay=new function(){
 
 
 
-    this.beatDraw=function(t){/// siendo golpeado
+    this.beatDraw=function(){/// mirar si esta siendo golpeado
 
         if(maderos.length>0 && jugando ){
             if(taping){
                 GamePlay.downPoli(maderos[0]);
             }else{
-                AudioPunk.tocaTom(t);
+               // AudioPunk.tocaTom(t);
                 anima.gotoAndPlay("golpeado");
                 createjs.Tween.get(jugador).to({x: amp/9},350,createjs.Ease.circInOut).call(GamePlay.backFromHit);
                 stage.addChild(sangre);
@@ -153,7 +153,7 @@ var GamePlay=new function(){
         console.log("zoomea",cuantoZoom, "or",sc,"or 0.3");
         zoom=cuantoZoom||.1;
         scPlayer=sc;///13;
-        taping=false;////// !
+       // taping=false;////// !
 
                // fons
         createjs.Tween.get(paisaje,{override:true}).to({scaleX:minimoZoom+zoom *sc ,scaleY:minimoZoom+zoom *sc,y:alt/2 },1200,createjs.Ease.circInOut);
@@ -161,13 +161,13 @@ var GamePlay=new function(){
         createjs.Tween.get(fons,{override:true}).to({scaleX:minimoZoom+zoom *sc ,scaleY:minimoZoom+zoom *sc,y:alt/2 },1200,createjs.Ease.circInOut);
 
         // jugador
-        createjs.Tween.get(jugador,{override:true}).to({scaleX:minimoZoom + zoom *scPlayer,scaleY:minimoZoom+zoom*scPlayer, x:amp/4, y:alt/1.5},1200,createjs.Ease.circInOut);
+        createjs.Tween.get(jugador,{override:true}).to({scaleX:minimoZoom + zoom*scPlayer, scaleY:minimoZoom + zoom*scPlayer, x:amp/4, y:alt/1.5},1200,createjs.Ease.circInOut);
         // polis
         for(var i=0;i<maderos.length;i++){
-            createjs.Tween.get(maderos[i],{override:true}).to({scaleX:minimoZoom+zoom*scPlayer,scaleY:minimoZoom+zoom*scPlayer, y:alt/1.5},1200,createjs.Ease.circInOut);
+            createjs.Tween.get(maderos[i],{override:true}).to({scaleX:minimoZoom + zoom*scPlayer, scaleY:minimoZoom + zoom*scPlayer, y:alt/1.5},1200,createjs.Ease.circInOut);
         }
         for(var j=0;j<refuerzos.length;j++){
-            createjs.Tween.get(refuerzos[j],{override:true}).to({scaleX:minimoZoom+zoom*scPlayer,scaleY:minimoZoom+zoom*scPlayer, y:alt/1.5},1200,createjs.Ease.circInOut);
+            createjs.Tween.get(refuerzos[j],{override:true}).to({scaleX:minimoZoom + zoom*scPlayer, scaleY:minimoZoom + zoom*scPlayer, y:alt/1.5},1200,createjs.Ease.circInOut);
         }
 
     };
@@ -187,7 +187,7 @@ var GamePlay=new function(){
 
         Riff.toqueMortal();
 
-        GamePlay.zoomea(55);
+        GamePlay.zoomea(4);
         maderos=[];
         jugando=false;
         timerMuerte=setTimeout(GamePlay.pantallaFin,1800);

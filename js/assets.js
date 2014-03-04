@@ -249,7 +249,7 @@ var Assets=new function(){
         //stage.addChild(energyCont);
 
         if(metros==null || metros== undefined ){
-            metros=new createjs.Text("m.", "bold "+Math.abs(30*sc)+"px BoldinaTwo", "#e00000");
+            metros=new createjs.Text("m.", "bold "+Math.abs(70*sc)+"px BoldinaTwo", "#e00000");
             metros.y=10;
         }
         metros.text=toques*5+" m.";
