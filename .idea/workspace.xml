@@ -66,7 +66,7 @@
     <file path="/tocaCorriendo.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1391005976478" ignored="false" />
     <file path="/assets.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1393918493555" ignored="false" />
     <file path="/riff.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1392999777807" ignored="false" />
-    <file path="/touchEvents.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1393000451228" ignored="false" />
+    <file path="/touchEvents.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1393922673819" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,10 +113,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="touchEvents.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="touchEvents.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/touchEvents.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="29" selection-start="1076" selection-end="1076" vertical-scroll-proportion="0.0">
+            <state line="37" column="90" selection-start="1292" selection-end="1292" vertical-scroll-proportion="0.7684825">
               <folding />
             </state>
           </provider>
@@ -140,10 +140,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gamePlay.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="gamePlay.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/gamePlay.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="90" column="71" selection-start="2357" selection-end="2357" vertical-scroll-proportion="1.5">
+            <state line="90" column="71" selection-start="2357" selection-end="2357" vertical-scroll-proportion="-28.56">
               <folding />
             </state>
           </provider>
@@ -196,12 +196,12 @@
         <option value="$PROJECT_DIR$/js/menu.js" />
         <option value="$PROJECT_DIR$/js/AudioPunk.js" />
         <option value="$PROJECT_DIR$/js/riff.js" />
-        <option value="$PROJECT_DIR$/js/touchEvents.js" />
         <option value="$PROJECT_DIR$/js/loader.js" />
         <option value="$PROJECT_DIR$/js/assets.js" />
         <option value="$PROJECT_DIR$/js/Pulso.js" />
         <option value="$PROJECT_DIR$/js/main.js" />
         <option value="$PROJECT_DIR$/js/gamePlay.js" />
+        <option value="$PROJECT_DIR$/js/touchEvents.js" />
       </list>
     </option>
   </component>
@@ -570,13 +570,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/touchEvents.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="29" selection-start="1076" selection-end="1076" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/Pulso.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="31" column="0" selection-start="706" selection-end="706" vertical-scroll-proportion="0.0">
@@ -593,7 +586,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/gamePlay.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="90" column="71" selection-start="2357" selection-end="2357" vertical-scroll-proportion="1.5">
+        <state line="90" column="71" selection-start="2357" selection-end="2357" vertical-scroll-proportion="-28.56">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/touchEvents.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="90" selection-start="1292" selection-end="1292" vertical-scroll-proportion="0.7684825">
           <folding />
         </state>
       </provider>
