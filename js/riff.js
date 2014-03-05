@@ -90,12 +90,6 @@ var Riff= new function(){
             {nota:"gB",duracion:0},{nota:"gB",duracion:0},{nota:"gB",duracion:0},{nota:"gB",duracion:0}];
     };
 
-    this.idle=function(){
-        melodiaBate=[{nota:"bom",duracion:3},{nota:"bom",duracion:0},{nota:"bom",duracion:0},{nota:"bom",duracion:0},
-            {nota:"bom",duracion:0},{nota:"bom",duracion:0},{nota:"bom",duracion:0},{nota:"bom",duracion:0},
-            {nota:"bom",duracion:0},{nota:"bom",duracion:0},{nota:"bom",duracion:0},{nota:"bom",duracion:0},
-            {nota:"bom",duracion:0},{nota:"bom",duracion:0},{nota:"bom",duracion:0},{nota:"bom",duracion:3}];
 
-    };
 
 };

@@ -123,7 +123,8 @@ window.requestAnimFrame =  (function(callback) {
             jugando=false;
             Riff.mutea("guitarra");
             Riff.mutea("bajo");
-            Riff.idle();
+            Riff.mutea("bateria");
+
         }else{
             AudioPunk.initializeVars();
             AudioPunk.scheduler();

@@ -81,14 +81,22 @@ Utils=new function(){
 
 
 
-    this.apuntaPunt=function(){
-        var nom="mi variable";
-        localDades=localDades||window.localStorage
-        var valor=localDades.getItem(nom);
+    this.apuntaPunt=function(puntos){
+        var nom="miRecord";
+        if (localDades==null && localDades==undefined){
+            localDades=localDades||window.localStorage;
+            localDades.setItem(nom,0);
+        }
 
-        valor=parseInt(valor);
-        valor++;
-        console.log("valor: ",valor," en ",nom);
+
+        var valor=localDades.getItem(nom);
+        //console.log("esto es valor:",valor,"y esto puntos:",puntos);
+        //if
+        if(valor<puntos*5){
+            valor=puntos*5;//parseInt(valor)
+        }
+        //valor++;
+       //console.log("valor: ",valor," en ",nom);
         localDades.setItem(nom,valor);
 
     };

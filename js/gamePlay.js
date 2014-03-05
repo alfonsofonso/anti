@@ -201,7 +201,10 @@ var GamePlay=new function(){
         stage.removeAllChildren();
 
         stage.addChild(sangre);
+
+        Utils.apuntaPunt(toques);
         Assets.ponGameOver();
+       // console.log(localDades.getItem("miRecord"));
         console.log("FIN");
 
     };

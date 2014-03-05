@@ -35,6 +35,8 @@ Menu=new  function() {
          jugador.x=amp/1.6;
          jugador.y=alt/1.3;
          createjs.Ticker.addEventListener("tick",Pulso.handlerTick);
+
+
     };
 
 

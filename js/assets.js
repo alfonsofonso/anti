@@ -281,12 +281,13 @@ var Assets=new function(){
         if(puntext==null || puntext== undefined ){
             puntext=new createjs.Text("m.", "bold "+Math.abs(50*sc)+"px BoldinaTwo", "#eeeeee");
 
-            puntext.x=amp/2;
-            puntext.y=alt/3;
+            puntext.x=amp/3;
+            puntext.y=alt/5;
         }
-        puntext.text=toques*5+" m.";
-        puntext.x=amp/2.3;
+        puntext.text=toques*5+" m.\n top: "+localDades.getItem("miRecord")+"m.";
+        puntext.x=amp/5;
         stage.addChild(puntext);
+
 
                                                             /// fb
         if(iconFB==null||iconFB==undefined){
