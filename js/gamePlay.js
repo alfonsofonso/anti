@@ -92,7 +92,7 @@ var GamePlay=new function(){
 
         clearInterval(timerPonPoli);
         timerPonPoli=0;
-        if(refuerzosTime>200){refuerzosTime-=100;}
+        if(refuerzosTime>=200){refuerzosTime-=100;}
         timerPonPoli =setInterval(Assets.ponPoli,refuerzosTime);
 
 
@@ -219,7 +219,7 @@ var GamePlay=new function(){
     this.initVars=function(){
         zoom=.2;
 
-        maxPolis=5;
+        maxPolis=15;
         energia=200;
         refuerzosTime=1000;
         maderos=[];

@@ -40,7 +40,6 @@ Menu=new  function() {
     };
 
 
-
     this.handlerFora = function()
     {
         history.back();

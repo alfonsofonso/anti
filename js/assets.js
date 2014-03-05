@@ -16,6 +16,7 @@ var puntext;
 var anchuraFondo;
 var metros;
 var iconFB;
+var playAgain;
 
 var Assets=new function(){
 
@@ -91,36 +92,6 @@ var Assets=new function(){
         casas_arr.push(casa);
 
     };
-    this.ponMuro=function(equis){//  no
-
-        var _cual=casas[4];
-
-        var casa=new createjs.Bitmap(imatges[_cual]);/// coje una imagen de casa en array casas
-        casa.cache(0,0,casa.getBounds().width,casa.getBounds().height);
-        //casa.scaleX=sc;
-        casa.regY=casa.getBounds().height;
-
-        var _equis=equis||casa.getTransformedBounds().width/2;
-        casa.x=_equis;
-        casa.y=alturaFondo/1.2;
-
-        //Utils.pon( casa , _equis , alturaFondo/1.2 , false,1,fons);
-        if( fons2 == null || fons2 == undefined ) {
-            fons2=new createjs.Container();
-        }
-        fons2.addChild(casa);
-        //fons.regX=anchuraFondo/2;
-        fons2.regY=alturaFondo/2;//300;//380;// el horizonte en el png
-
-        fons2.y=alt/2;
-        fons2.x=fons.x+fons.getTransformedBounds().width;
-        fons2.scaleX=fons2.scaleY=sc;
-        //fons2.mouseEnabled=false;
-        stage.addChildAt(fons2,2);
-        //casas_arr.push(casa);
-
-    };
-
 
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -248,8 +219,8 @@ var Assets=new function(){
         //energyCont.addChild(energy);
         //stage.addChild(energyCont);
 
-        if(metros==null || metros== undefined ){
-            metros=new createjs.Text("m.", "bold "+Math.abs(70*sc)+"px BoldinaTwo", "#e00000");
+        if(metros==null || metros== undefined ){///////////////////////  contador metros
+            metros=new createjs.Text("m.", "bold "+Math.abs(70*sc)+"px BoldinaTwo", "#a00000");
             metros.y=10;
         }
         metros.text=toques*5+" m.";
@@ -269,25 +240,35 @@ var Assets=new function(){
     };
 
     this.ponGameOver=function(){
-                                                /// trena
+                                                /// angelito
         if(gameOver==null||gameOver==undefined){
             gameOver=new createjs.Bitmap(imatges["gameOver"]);
-            gameOver.addEventListener("click",GamePlay.topGames);
+
         }
         Utils.pon(gameOver,amp/2,alt/2,true,sc);
 
-
+        stage.addChild(metros);
                                           // puntos
         if(puntext==null || puntext== undefined ){
             puntext=new createjs.Text("m.", "bold "+Math.abs(50*sc)+"px BoldinaTwo", "#eeeeee");
 
-            puntext.x=amp/3;
-            puntext.y=alt/5;
+            puntext.x=10;
+            puntext.y=metros.getTransformedBounds().height+20;
         }
-        puntext.text=toques*5+" m.\n top: "+localDades.getItem("miRecord")+"m.";
-        puntext.x=amp/5;
+        puntext.text="record: "+localDades.getItem("miRecord")+" m.";//toques*5+" m.\n
+        puntext.x=10;
         stage.addChild(puntext);
 
+
+        if(playAgain==null || playAgain== undefined ){
+            playAgain=new createjs.Text("play", "bold "+Math.abs(80*sc)+"px BoldinaTwo", "#eeeeee");
+            playAgain.x=amp-playAgain.getTransformedBounds().width-40;
+            playAgain.y=alt/1.3;
+            playAgain.addEventListener("click",GamePlay.topGames);
+        }
+        playAgain.text="play";//toques*5+" m.\n
+
+        stage.addChild(playAgain);
 
                                                             /// fb
         if(iconFB==null||iconFB==undefined){

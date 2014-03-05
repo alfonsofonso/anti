@@ -84,10 +84,11 @@ Utils=new function(){
     this.apuntaPunt=function(puntos){
         var nom="miRecord";
         if (localDades==null && localDades==undefined){
-            localDades=localDades||window.localStorage;
+            localDades=window.localStorage;
+        }
+        if(localDades.getItem(nom)==undefined){
             localDades.setItem(nom,0);
         }
-
 
         var valor=localDades.getItem(nom);
         //console.log("esto es valor:",valor,"y esto puntos:",puntos);
