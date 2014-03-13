@@ -14,9 +14,10 @@ Menu=new  function() {
 
     this.initMenu = function ()///   P O R T A D A   Y   P O N E R     P L A Y    B U T T O N
      {
+         console.log("INIT MENU");
          if( screen01 == null || screen01 == undefined ) {
              screen01=new createjs.Bitmap(imatges["SCREEN_01"]);
-             screen01.addEventListener("click",function(){  Main.toggleFullScreen();GamePlay.init();});
+
              screen01.regY=400;
          }
 
@@ -30,12 +31,12 @@ Menu=new  function() {
 
          Assets.ponJugador();
          anima.gotoAndPlay("quieto");
-         jugador.mouseEnabled=false;
+
          jugador.scaleX=jugador.scaleY=.5;
          jugador.x=amp/1.6;
          jugador.y=alt/1.3;
+         stage.addEventListener("click",function(){  Main.toggleFullScreen();GamePlay.init();});
          createjs.Ticker.addEventListener("tick",Pulso.handlerTick);
-
 
     };
 

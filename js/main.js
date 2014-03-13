@@ -41,7 +41,7 @@ Main = new function()
         alt=window.innerHeight;//$('#mainCanvas').css('height').substr(0,$('#mainCanvas').css('height').lastIndexOf('px'));
         sc =   alt/512;
         console.log("sc: ",sc," amp: ",amp);
-        if(jugando){
+        if(fons!=undefined){
             GamePlay.zoomea();
         }
         stage.update();
@@ -124,12 +124,13 @@ window.requestAnimFrame =  (function(callback) {
             Riff.mutea("guitarra");
             Riff.mutea("bajo");
             Riff.mutea("bateria");
-
+            console.log("no quero empiezo a sonar")
         }else{
             AudioPunk.initializeVars();
             AudioPunk.scheduler();
             jugando=true;
             Riff.initialRiff();
+            console.log("empiezo a sonar")
         }
     }
 })();

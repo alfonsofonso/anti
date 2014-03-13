@@ -11,18 +11,20 @@ var zoom;
 var maxPolis;
 var energia;
 var refuerzosTime;
-var taping;
+var protegido=true;
 var timerPonPoli,timerMuerte,mouseEnabledTimer;
 var minimoZoom=.4;
 var jugando=false;
 var scPlayer;
+var maderos,refuerzos;
 
 var GamePlay=new function(){
 
     this.init=function(){
 
         console.log("init gameplay");
-        screen01.removeEventListener("click");
+        stage.removeAllEventListeners("click");
+
         stage.removeAllChildren();
 
         GamePlay.initVars();
@@ -51,108 +53,46 @@ var GamePlay=new function(){
 
         stage.removeChild(jugador);
         stage.addChild(jugador);
-        jugador.mouseEnabled=false;
+        if( blancote == null || blancote == undefined ) {
+            blancote=new createjs.Shape();
+            blancote.graphics.beginFill("#ff0000").drawRect(0,0, amp, alt);
 
+        }
+        stage.addChild(blancote);
+        blancote.visible=false;
+        //anima.play("quieto");
         Assets.ponHUB();
         Assets.ponSangre();
+
 
                 //start
         TouchEvents.pausePlay();
         anima.gotoAndPlay("quieto");
-
         GamePlay.zoomea();
+        //createjs.Tween.get(energyCont).to({scaleX:10},1200);
         mouseEnabledTimer=setTimeout(GamePlay.activaMouse,1200);
-        console.log("disblo mouse",jugador.mouseEnabled);
-        toques=0;
-        metros.text="0 m.";
+        energyCont.visible=true;
+
     };
     this.activaMouse=function(){
-        console.log("enable mouse");
+        jugando=true;
+
+        Riff.luchando();
         clearTimeout(mouseEnabledTimer);
         mouseEnabledTimer=0;
-
-        jugador.mouseEnabled=true;
-    };
-
-
-    this.downPoli=function(e){///////////////////////////////////////////// empuja poli //////////////////////////////////
-        e.children[0].gotoAndStop(1);
-
-        if(maderos.indexOf(e)!=-1){
-            maderos.splice(maderos.indexOf(e),1);
+        if(!stage.hasEventListener("stagemousedown")){
+            stage.addEventListener("stagemousedown",TouchEvents.downJugador);
         }
-        if(refuerzos.indexOf(e)!=-1){
-            refuerzos.splice(refuerzos.indexOf(e),1);
-        }
-        createjs.Tween.removeTweens(e);
-
-        createjs.Tween.get(e,{override:true}).to({alpha:0,x:amp},350,createjs.Ease.circInOut).call(function(){GamePlay.poliFuera(e)});
-
-        ////////// acelerar pasma /// hasta 100 ó 200ms si es > y no >=
-
-        clearInterval(timerPonPoli);
-        timerPonPoli=0;
-        if(refuerzosTime>=200){refuerzosTime-=100;}
-        timerPonPoli =setInterval(Assets.ponPoli,refuerzosTime);
+        energy.graphics.beginFill("#00ff00").drawRect(0,0, energia, 100);
 
 
-        AudioPunk.tocaCrash();
-        console.log("zas!");
-        e.children[0].gotoAndStop("quieto");
+        Assets.creaPoli();
     };
-    this.poliFuera=function(quePoli){
-
-        stage.removeChild(quePoli.parent);
-
-    };
-
-
-
-
-    this.beatDraw=function(){/// mirar si esta siendo golpeado
-
-        if(maderos.length>0 && jugando ){
-            if(taping){
-                GamePlay.downPoli(maderos[0]);
-            }else{
-               // AudioPunk.tocaTom(t);
-                anima.gotoAndPlay("golpeado");
-                createjs.Tween.get(jugador).to({x: amp/9},350,createjs.Ease.circInOut).call(GamePlay.backFromHit);
-                stage.addChild(sangre);
-                var sang=setTimeout(GamePlay.sangra,80);
-               // energia-=40;
-                //if(energia<=0){
-                GamePlay.muerte();
-            //}
-
-             //   energy.graphics.clear();
-             //   energy.graphics.beginFill("#ff0000").drawRect(0,0, energia, 30);
-            }
-        }
-    };
-    this.backFromHit=function(){
-        createjs.Tween.get(jugador,{override:true}).to({x:amp/4},350,createjs.Ease.circInOut);
-    };
-    this.sangra=function(){
-        sangre.rotation=Math.random()*360;
-        stage.removeChild(sangre);
-    };
-
-    this.spray=function(){
-        Assets.ponMuro();
-        clearInterval(timerPonPoli);
-        timerPonPoli=0;
-        createjs.Ticker.removeEventListener("tick",Pulso.handlerTick);
-        createjs.Ticker.addEventListener("tick",Pulso.handlerTick2);
-        createjs.Tween.get(jugador,{override:true}).to({x:0},350,createjs.Ease.circInOut);
-        jugador.mouseEnabled=false;
-    };
-
 
     this.zoomea=function(cuantoZoom){
         console.log("zoomea",cuantoZoom, "or",sc,"or 0.3");
         zoom=cuantoZoom||.1;
-        scPlayer=sc;///13;
+       ///13;
        // taping=false;////// !
 
                // fons
@@ -161,25 +101,20 @@ var GamePlay=new function(){
         createjs.Tween.get(fons,{override:true}).to({scaleX:minimoZoom+zoom *sc ,scaleY:minimoZoom+zoom *sc,y:alt/2 },1200,createjs.Ease.circInOut);
 
         // jugador
-        createjs.Tween.get(jugador,{override:true}).to({scaleX:minimoZoom + zoom*scPlayer, scaleY:minimoZoom + zoom*scPlayer, x:amp/4, y:alt/1.5},1200,createjs.Ease.circInOut);
-        // polis
-        for(var i=0;i<maderos.length;i++){
-            createjs.Tween.get(maderos[i],{override:true}).to({scaleX:minimoZoom + zoom*scPlayer, scaleY:minimoZoom + zoom*scPlayer, y:alt/1.5},1200,createjs.Ease.circInOut);
-        }
-        for(var j=0;j<refuerzos.length;j++){
-            createjs.Tween.get(refuerzos[j],{override:true}).to({scaleX:minimoZoom + zoom*scPlayer, scaleY:minimoZoom + zoom*scPlayer, y:alt/1.5},1200,createjs.Ease.circInOut);
+        createjs.Tween.get(jugador,{override:true}).to({scaleX:minimoZoom + zoom*sc, scaleY:minimoZoom + zoom*sc, x:amp/4, y:alt/1.5},1200,createjs.Ease.circInOut);
+
+        for(var m=0;m<refuerzos.length;m++){
+            createjs.Tween.get(refuerzos[m],{override:true}).to({scaleX:minimoZoom + zoom*sc, scaleY:minimoZoom + zoom*sc, y:alt/1.5},1200,createjs.Ease.circInOut);
         }
 
     };
 
 
     this.muerte=function(){
-        jugador.mouseEnabled=false;
-        stage.mouseEnabled=false;
-        energy.graphics.clear();
-        clearInterval(timerPonPoli);
-        timerPonPoli=-1;
 
+        stage.removeEventListener("stagemousedown",TouchEvents.downJugador);
+
+        clearInterval(timerPonPoli);
 
         anima.gotoAndStop("golpeado");
 
@@ -188,8 +123,11 @@ var GamePlay=new function(){
         Riff.toqueMortal();
 
         GamePlay.zoomea(4);
-        maderos=[];
+
+        energyCont.visible=false;
+
         jugando=false;
+        taping=false;
         timerMuerte=setTimeout(GamePlay.pantallaFin,1800);
 
 
@@ -220,8 +158,10 @@ var GamePlay=new function(){
         zoom=.2;
 
         maxPolis=15;
-        energia=200;
-        refuerzosTime=1000;
+        energia=160;
+        refuerzosTime=600;
+        velPoli=20;
+        toques=0;
         maderos=[];
         refuerzos=[];
 

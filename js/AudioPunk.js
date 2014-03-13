@@ -10,7 +10,7 @@ var gainNode;          // la etapa de potencia
 var conguita;
 var timerID;            // setInterval identifier.
 var lookahead;         // How frequently to call scheduling function (in milliseconds)
-
+var webAudio;
 
 AudioPunk= new function(){
 
@@ -38,10 +38,14 @@ AudioPunk= new function(){
     this.init=function(){
         console.log("AudioPunk.init");
         // start Engine
-        window.AudioContext=window.AudioContext||window.webkitAudioContext;
-        if(audioContext==undefined || audioContext==null){
-            audioContext =  new AudioContext();
-        }
+
+            window.AudioContext=window.AudioContext||window.webkitAudioContext;
+            if(audioContext==undefined || audioContext==null){
+                audioContext =  new AudioContext();
+            }
+            webAudio=true;
+
+
         gainNode= audioContext.createGainNode();////    crea etapa de potencia
         gainNode.connect(audioContext.destination);//// conectar a altavoces
 
@@ -137,6 +141,8 @@ AudioPunk= new function(){
         crash.connect(gainNode);
         crash.buffer=sonidos["crs"];
         crash.start(nextNoteTime);
+
+
     };
 
 
@@ -153,25 +159,12 @@ AudioPunk= new function(){
         // while there are notes that will need to play before the next interval, schedule them and advance the pointer.
         while (nextNoteTime < audioContext.currentTime + scheduleAheadTime ) {// si toca escribe en el buffer
            // console.log("schedulo util");
-           // GamePlay.beatDraw(nextNoteTime);//// dibuja
 
             AudioPunk.escribeNota(nextNoteTime);/// pon nota
 
             AudioPunk.nextNote();
-
-            if(taping){
-                Riff.corriendo();
-            }else if(jugando){
-                Riff.mutea("bateria");
-            }else{
-
-
-            }
-
         }
 
-        //window.clearTimeout( timerID );
-        //timerID=0;
         timerID = window.setTimeout( AudioPunk.scheduler, lookahead );
 
     };

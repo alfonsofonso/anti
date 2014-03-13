@@ -3,11 +3,11 @@ var fons,fons2;
 var fonsCity,fonsCity2,fonsCity3;
 var paisaje;
 var botPause, botMute;
-var maderos=[];
-var refuerzos=[];
+
 var energy;
 var energyCont;
 var sangre;
+var blancote;
 var gameOver;
 var casas=["edifici1","lacaca","lesvis","starfuck","muro"];
 var casas_arr=[];
@@ -17,9 +17,11 @@ var anchuraFondo;
 var metros;
 var iconFB;
 var playAgain;
+var rage;
+
+
 
 var Assets=new function(){
-
 
     var alturaFondo=512;
     anchuraFondo=1311;
@@ -71,6 +73,7 @@ var Assets=new function(){
         fons.mouseEnabled=false;
         stage.addChild(fons);
 
+
     };
 
 
@@ -109,16 +112,22 @@ var Assets=new function(){
             {
                 "correns":{
                     frames: [0,1,4,5],
-                    next:"quieto",
+                    next:"correns",
                     speed: .3
                 },
                 "quieto":{
                     frames:[2,6],
-                    speed:.1
+                    speed:.1,
+                    next:"quieto"
                 },
                 "golpeado":{
                     frames:[7],
                     next:"quieto",
+                    speed:.2
+                },
+                "empujando":{
+                    frames:[7],
+                    next:"corriendo",
                     speed:.2
                 }
             },
@@ -144,9 +153,8 @@ var Assets=new function(){
        //jugador.scaleX=jugador.scaleY=scPlayer;
         stage.addChild(jugador);
 
-        if(!jugador.hasEventListener("mousedown")){
-            jugador.addEventListener("mousedown",TouchEvents.downJugador);
-        }
+
+
         //createjs.Tween.get(jugador).to({x:amp/2,y:alt/1.3+zoom*200,scaleX:sc/2+zoom,scaleY:sc/2+zoom},1800,createjs.Ease.circOut);
 
     };
@@ -157,16 +165,15 @@ var Assets=new function(){
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-    this.ponPoli=function(){
+    this.creaPoli=function(){
 
-        if(maxPolis<=refuerzos.length+maderos.length){return}
-
-        var madero=new createjs.Container();
+        var  madero=new createjs.Container();
 
         var array_imatges_poli = new createjs.SpriteSheet({ // SpriteSheet
             "animations":   {
                 "correns":{ frames: [0,1,2], next:"correns", speed: .4 },
-                "quieto": { frames:[3] }
+                "quieto": { frames:[3] },
+                "parao":{frames:[0],next:"parao"}
             },
             "images":       [imatges['poliSprite']],
             "frames":       { "height": 512, "width":512, "regX": 256, "regY":256, "count": 4 }
@@ -179,19 +186,23 @@ var Assets=new function(){
         madero.scaleX=madero.scaleY=minimoZoom + zoom *sc;
         //madero.addEventListener("mousedown",TouchEvents.downPoli);
         madero.addChild(animaPoli);
-        madero.mouseEnabled=false;
-        stage.addChild(madero);
+
 
         animaPoli.gotoAndPlay("correns");
-
+        stage.addChild(madero);
+        createjs.Tween.get(madero,{override:true}).to({x:amp/3 },1200,createjs.Ease.circIn).call(function(){Assets.ponPoli(madero)});
         refuerzos.push(madero);
-        //GamePlay.zoomea(zoom);
-        //{GamePlay.mamporrear(madero)});//
     };
+    this.ponPoli=function(m){
+        
+        maderos.push(m);
 
+    };
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     this.ponHUB=function(){
+
+
 
         if( botPause == null || botPause == undefined ) { /////////////////   boton Pause
             botPause=new createjs.Bitmap(imatges["botPause"]);
@@ -213,19 +224,33 @@ var Assets=new function(){
         if( energy == null || energy == undefined ) {
             energy=new createjs.Shape();
 
-            energy.alpha=.8;
         }
-        //energy.graphics.beginFill("#ff0000").drawRect(0,0, 200, 30);
-        //energyCont.addChild(energy);
-        //stage.addChild(energyCont);
+        energy.graphics.clear();
+        energy.graphics.beginFill("#ee0000").drawRect(0,0, 160, 100);
+        energyCont.addChild(energy);
+        stage.addChild(energyCont);
+
+        if( rage == null || rage == undefined ) {///////////////////   barra de energia
+            rage=new createjs.Bitmap(imatges["rage"]);
+            rage.x=10;
+            rage.y=10;
+        }
+
+        //stage.addChild(rage);
+        var amf = new createjs.AlphaMaskFilter(rage.image);
+        energyCont.filters = [amf];
+        energyCont.scaleX=energyCont.scaleY=(amp-40)/rage.image.width;
+        energyCont.cache(0, 0, rage.image.width, rage.image.height);
 
         if(metros==null || metros== undefined ){///////////////////////  contador metros
-            metros=new createjs.Text("m.", "bold "+Math.abs(70*sc)+"px BoldinaTwo", "#a00000");
-            metros.y=10;
+            metros=new createjs.Text("0", "bold "+Math.abs(50*sc)+"px BoldinaTwo", "#ffffff");
+            metros.y=alt-60*sc;
         }
-        metros.text=toques*5+" m.";
-        metros.x=10;
+        metros.text="";
+        metros.x=amp/1.3;
         stage.addChild(metros);
+
+
     };
 
     this.ponSangre=function(){
@@ -236,8 +261,19 @@ var Assets=new function(){
         }
         sangre.x=jugador.x/2;
         sangre.y=jugador.y;
+    };
+
+    this.muestraSangre=function(){
+
+        blancote.visible=true;
+        setTimeout(Assets.ocultaSangre,30);
+        stage.update();
 
     };
+    this.ocultaSangre=function(){
+       blancote.visible=false;
+    };
+
 
     this.ponGameOver=function(){
                                                 /// angelito
@@ -250,19 +286,18 @@ var Assets=new function(){
         stage.addChild(metros);
                                           // puntos
         if(puntext==null || puntext== undefined ){
-            puntext=new createjs.Text("m.", "bold "+Math.abs(50*sc)+"px BoldinaTwo", "#eeeeee");
-
-            puntext.x=10;
-            puntext.y=metros.getTransformedBounds().height+20;
+            puntext=new createjs.Text("0", "bold "+Math.abs(50*sc)+"px BoldinaTwo", "#eeeeee");
+            puntext.x=20;
+            puntext.y=80*sc;
         }
         puntext.text="record: "+localDades.getItem("miRecord")+" m.";//toques*5+" m.\n
-        puntext.x=10;
+
         stage.addChild(puntext);
 
 
         if(playAgain==null || playAgain== undefined ){
             playAgain=new createjs.Text("play", "bold "+Math.abs(80*sc)+"px BoldinaTwo", "#eeeeee");
-            playAgain.x=amp-playAgain.getTransformedBounds().width-40;
+            playAgain.x=20;
             playAgain.y=alt/1.3;
             playAgain.addEventListener("click",GamePlay.topGames);
         }
@@ -278,9 +313,9 @@ var Assets=new function(){
         //Utils.pon(iconFB,amp/1.5,alt/3,false);
 
         maderos=[];
-        refuerzos=[];
+
+
         clearInterval(timerPonPoli);
-        clearTimeout(timerPonPoli);
     };
 
 

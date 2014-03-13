@@ -93,8 +93,8 @@ Utils=new function(){
         var valor=localDades.getItem(nom);
         //console.log("esto es valor:",valor,"y esto puntos:",puntos);
         //if
-        if(valor<puntos*5){
-            valor=puntos*5;//parseInt(valor)
+        if(valor<puntos){
+            valor=puntos;//parseInt(valor)
         }
         //valor++;
        //console.log("valor: ",valor," en ",nom);

@@ -40,6 +40,11 @@ var Riff= new function(){
                      {nota:"aG",duracion:0},{nota:"aG",duracion:1},{nota:"aG",duracion:1},{nota:"aG",duracion:1},
                      {nota:"fG",duracion:2},{nota:"fG",duracion:0},{nota:"fG",duracion:1},{nota:"gG",duracion:2},
                      {nota:"gG",duracion:0},{nota:"gG",duracion:1},{nota:"gG",duracion:1},{nota:"gG",duracion:1}];
+
+        melodiaBate=[{nota:"caj",duracion:1},{nota:"bom",duracion:1},{nota:"caj",duracion:1},{nota:"bom",duracion:1},
+            {nota:"caj",duracion:1},{nota:"bom",duracion:1},{nota:"caj",duracion:1},{nota:"bom",duracion:1},
+            {nota:"caj",duracion:1},{nota:"bom",duracion:1},{nota:"caj",duracion:1},{nota:"bom",duracion:1},
+            {nota:"caj",duracion:1},{nota:"bom",duracion:1},{nota:"caj",duracion:1},{nota:"bom",duracion:1}];
     };
 
     this.mutea=function(cual){// quita riff de...

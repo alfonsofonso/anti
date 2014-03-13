@@ -3,7 +3,7 @@ var preload;
 var manifest;
 var imatges= new Array();
 
-var NUM_IMATGES = 13 ;// --- + NUM_AUDIOS;
+var NUM_IMATGES = 14 ;// --- + NUM_AUDIOS;
 var loaded_imatges = 0;
 var percent;
 var loading;
@@ -94,7 +94,8 @@ Loader = new function() {
             "casas/starfuck.png",
             "casas/edifici1.png",
             "poli/poliSprite.png",
-            "iconFB.png"
+            "iconFB.png",
+            "rage.png"
 
 
         ];
@@ -168,6 +169,8 @@ Loader = new function() {
             case "poli/poliSprite.png": imatges['poliSprite'] =  event.result;
                 break;
             case "iconFB.png": imatges['iconFB'] =  event.result;
+                break;
+            case "rage.png": imatges['rage'] =  event.result;
                 break;
         }
 
