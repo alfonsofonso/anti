@@ -78,7 +78,7 @@ AudioPunk= new function(){
         if (semicorchea == 16) {
             compas++;
             semicorchea = 0;
-            if(compas%4==0&&jugando){
+            if(compas%4==0&&funciones.indexOf(Pulso.jugando)!=-1){
                 console.log("compas=",compas,"scheduleAheadTime",scheduleAheadTime);
                 conguita=!conguita;
                 conguita?Riff.luchando():Riff.mutea("guitarra");

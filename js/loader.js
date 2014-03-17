@@ -36,7 +36,7 @@ Loader = new function() {
     this.ponLoading=function(){
 
       if(loading==null || loading== undefined ){
-          loading=new createjs.Text("loading...", "bold "+Math.abs(80*amp/alt)+"px BoldinaTwo", "#ff0000");
+          loading=new createjs.Text("loading...", Math.abs(80*amp/alt)+"px Permanent Marker", "#ff0000");
 
           loading.x=amp/4;
           loading.y=alt/3;
@@ -95,7 +95,7 @@ Loader = new function() {
             "casas/edifici1.png",
             "poli/poliSprite.png",
             "iconFB.png",
-            "rage.png"
+            "life.png"
 
 
         ];
@@ -170,7 +170,7 @@ Loader = new function() {
                 break;
             case "iconFB.png": imatges['iconFB'] =  event.result;
                 break;
-            case "rage.png": imatges['rage'] =  event.result;
+            case "life.png": imatges['rage'] =  event.result;
                 break;
         }
 

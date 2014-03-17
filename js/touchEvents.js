@@ -18,7 +18,7 @@ TouchEvents=new function(){
             createjs.Tween.get(jugador,{override:true}).to({x:amp/4},300,createjs.Ease.circOut).call(TouchEvents.torna);
         }
         taping=true;
-        if(energia<400){
+        if(energia<energyCont.getBounds().width){
             energia+=20;
         }
         energy.width++;
@@ -84,7 +84,6 @@ TouchEvents=new function(){
     this.pausePlay=function(){
 
 
-        console.log("GamePlay.jugando=",jugando);
 
         clearTimeout(timerPonPoli);
         timerPonPoli=0;

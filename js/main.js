@@ -5,8 +5,6 @@ var alt;
 var botBack;
 
 var canvas;
-var ampFons;
-
 var sc;// alt/1024 ipod= 1136 x 640
 
 Main = new function()
@@ -42,7 +40,9 @@ Main = new function()
         sc =   alt/512;
         console.log("sc: ",sc," amp: ",amp);
         if(fons!=undefined){
-            GamePlay.zoomea();
+            var comenzar=function(){
+
+            }
         }
         stage.update();
 
@@ -120,7 +120,9 @@ window.requestAnimFrame =  (function(callback) {
 
         if(document.body.className=="hidden"){
             AudioPunk.initializeVars();
-            jugando=false;
+
+            funciones.splice(funciones.indexOf(Pulso.jugando),1);
+
             Riff.mutea("guitarra");
             Riff.mutea("bajo");
             Riff.mutea("bateria");
@@ -128,7 +130,9 @@ window.requestAnimFrame =  (function(callback) {
         }else{
             AudioPunk.initializeVars();
             AudioPunk.scheduler();
-            jugando=true;
+            if(funciones.indexOf(Pulso.jugando)==-1){
+                funciones.push(Pulso.jugando);
+            }
             Riff.initialRiff();
             console.log("empiezo a sonar")
         }

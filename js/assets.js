@@ -216,6 +216,12 @@ var Assets=new function(){
         }
         //Utils.pon(botMute,10,110,false,.4);
 
+        if( rage == null || rage == undefined ) {///////////////////   barra de energia
+            rage=new createjs.Bitmap(imatges["rage"]);
+            rage.x=10;
+            rage.y=10;
+        }
+
         if( energyCont == null || energyCont == undefined ) {///////////////////   barra de energia
             energyCont=new createjs.Container();
             energyCont.x=10;
@@ -223,18 +229,14 @@ var Assets=new function(){
         }
         if( energy == null || energy == undefined ) {
             energy=new createjs.Shape();
-
+            energy.alpha=.8;
         }
         energy.graphics.clear();
-        energy.graphics.beginFill("#ee0000").drawRect(0,0, 160, 100);
+        energy.graphics.beginFill("#ee0000").drawRect(0,0, 160, 200);
         energyCont.addChild(energy);
         stage.addChild(energyCont);
 
-        if( rage == null || rage == undefined ) {///////////////////   barra de energia
-            rage=new createjs.Bitmap(imatges["rage"]);
-            rage.x=10;
-            rage.y=10;
-        }
+
 
         //stage.addChild(rage);
         var amf = new createjs.AlphaMaskFilter(rage.image);
@@ -243,11 +245,11 @@ var Assets=new function(){
         energyCont.cache(0, 0, rage.image.width, rage.image.height);
 
         if(metros==null || metros== undefined ){///////////////////////  contador metros
-            metros=new createjs.Text("0", "bold "+Math.abs(50*sc)+"px BoldinaTwo", "#ffffff");
-            metros.y=alt-60*sc;
+            metros=new createjs.Text("0", Math.abs(50*sc)+"px Permanent Marker", "#ffffff");
+            metros.y=alt/1.2;
         }
         metros.text="";
-        metros.x=amp/1.3;
+        metros.x=20;
         stage.addChild(metros);
 
 
@@ -286,9 +288,9 @@ var Assets=new function(){
         stage.addChild(metros);
                                           // puntos
         if(puntext==null || puntext== undefined ){
-            puntext=new createjs.Text("0", "bold "+Math.abs(50*sc)+"px BoldinaTwo", "#eeeeee");
+            puntext=new createjs.Text("0",Math.abs(50*sc)+"px Permanent Marker", "#ffffff");
             puntext.x=20;
-            puntext.y=80*sc;
+            puntext.y=alt/1.4;
         }
         puntext.text="record: "+localDades.getItem("miRecord")+" m.";//toques*5+" m.\n
 
@@ -296,9 +298,9 @@ var Assets=new function(){
 
 
         if(playAgain==null || playAgain== undefined ){
-            playAgain=new createjs.Text("play", "bold "+Math.abs(80*sc)+"px BoldinaTwo", "#eeeeee");
+            playAgain=new createjs.Text("play", Math.abs(120*sc)+"px Permanent Marker", "#eeeeee");
             playAgain.x=20;
-            playAgain.y=alt/1.3;
+            playAgain.y=40;
             playAgain.addEventListener("click",GamePlay.topGames);
         }
         playAgain.text="play";//toques*5+" m.\n

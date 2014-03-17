@@ -14,9 +14,9 @@ var refuerzosTime;
 var protegido=true;
 var timerPonPoli,timerMuerte,mouseEnabledTimer;
 var minimoZoom=.4;
-var jugando=false;
-var scPlayer;
+
 var maderos,refuerzos;
+
 
 var GamePlay=new function(){
 
@@ -75,7 +75,10 @@ var GamePlay=new function(){
 
     };
     this.activaMouse=function(){
-        jugando=true;
+
+        if(funciones.indexOf(Pulso.jugando)==-1){
+            funciones.push(Pulso.jugando);
+        }
 
         Riff.luchando();
         clearTimeout(mouseEnabledTimer);
@@ -87,6 +90,7 @@ var GamePlay=new function(){
 
 
         Assets.creaPoli();
+
     };
 
     this.zoomea=function(cuantoZoom){
@@ -126,11 +130,12 @@ var GamePlay=new function(){
 
         energyCont.visible=false;
 
-        jugando=false;
+        funciones.splice(funciones.indexOf(Pulso.jugando),1);
         taping=false;
         timerMuerte=setTimeout(GamePlay.pantallaFin,1800);
-
-
+       if(amp>500){
+        Ads.publica();
+       }
     };
 
     this.pantallaFin=function(){// en la trena
@@ -144,6 +149,7 @@ var GamePlay=new function(){
         Assets.ponGameOver();
        // console.log(localDades.getItem("miRecord"));
         console.log("FIN");
+
 
     };
 
