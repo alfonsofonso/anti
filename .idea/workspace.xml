@@ -66,7 +66,7 @@
     <file path="/tocaCorriendo.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1391005976478" ignored="false" />
     <file path="/assets.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1395165501519" ignored="false" />
     <file path="/riff.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1392999777807" ignored="false" />
-    <file path="/touchEvents.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1395165329659" ignored="false" />
+    <file path="/touchEvents.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1395166073994" ignored="false" />
     <file path="/ads.js" changelist="4a711f43-1321-4657-827c-d9c36c66a548" time="1394791705302" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -87,10 +87,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="gamePlay.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="gamePlay.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/gamePlay.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="19" selection-start="535" selection-end="535" vertical-scroll-proportion="-3.92">
+            <state line="157" column="22" selection-start="3831" selection-end="3832" vertical-scroll-proportion="0.32577905">
               <folding />
             </state>
           </provider>
@@ -108,16 +108,16 @@
       <file leaf-file-name="touchEvents.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/touchEvents.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="0" selection-start="431" selection-end="431" vertical-scroll-proportion="-8.16">
+            <state line="41" column="52" selection-start="1210" selection-end="1210" vertical-scroll-proportion="36.72">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="assets.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="assets.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/assets.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="196" column="79" selection-start="5930" selection-end="5930" vertical-scroll-proportion="0.8">
+            <state line="196" column="79" selection-start="5930" selection-end="5930" vertical-scroll-proportion="-10.88">
               <folding />
             </state>
           </provider>
@@ -155,7 +155,7 @@
       <file leaf-file-name="Pulso.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/Pulso.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="62" column="38" selection-start="1583" selection-end="1583" vertical-scroll-proportion="-42.16">
+            <state line="62" column="38" selection-start="1583" selection-end="1583" vertical-scroll-proportion="14.96">
               <folding />
             </state>
           </provider>
@@ -193,9 +193,9 @@
         <option value="$PROJECT_DIR$/js/menu.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/Pulso.js" />
-        <option value="$PROJECT_DIR$/js/gamePlay.js" />
-        <option value="$PROJECT_DIR$/js/touchEvents.js" />
         <option value="$PROJECT_DIR$/js/assets.js" />
+        <option value="$PROJECT_DIR$/js/touchEvents.js" />
+        <option value="$PROJECT_DIR$/js/gamePlay.js" />
       </list>
     </option>
   </component>
@@ -543,13 +543,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="120" selection-start="1353" selection-end="1353" vertical-scroll-proportion="-0.65384614">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/menu.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="37" column="55" selection-start="817" selection-end="819" vertical-scroll-proportion="0.0">
@@ -564,30 +557,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/gamePlay.js">
+    <entry file="file://$PROJECT_DIR$/js/assets.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="19" selection-start="535" selection-end="535" vertical-scroll-proportion="-3.92">
+        <state line="196" column="79" selection-start="5930" selection-end="5930" vertical-scroll-proportion="-10.88">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/Pulso.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="38" selection-start="1583" selection-end="1583" vertical-scroll-proportion="-42.16">
+        <state line="62" column="38" selection-start="1583" selection-end="1583" vertical-scroll-proportion="14.96">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="120" selection-start="1353" selection-end="1353" vertical-scroll-proportion="-0.65384614">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/touchEvents.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="0" selection-start="431" selection-end="431" vertical-scroll-proportion="-8.16">
+        <state line="41" column="52" selection-start="1210" selection-end="1210" vertical-scroll-proportion="36.72">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/assets.js">
+    <entry file="file://$PROJECT_DIR$/js/gamePlay.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="196" column="79" selection-start="5930" selection-end="5930" vertical-scroll-proportion="0.8">
+        <state line="157" column="22" selection-start="3831" selection-end="3832" vertical-scroll-proportion="0.32577905">
           <folding />
         </state>
       </provider>

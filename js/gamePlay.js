@@ -13,7 +13,7 @@ var energia;
 var refuerzosTime;
 var protegido=true;
 var timerPonPoli,timerMuerte,mouseEnabledTimer;
-var minimoZoom=.4;
+var minimoZoom=.3;
 
 var maderos,refuerzos;
 
@@ -92,7 +92,7 @@ var GamePlay=new function(){
         }
 
 
-        setTimeout(Assets.creaPoli,200);
+        setTimeout(Assets.creaPoli,2000);
         anima.gotoAndPlay("correns")
 
     };
@@ -155,7 +155,7 @@ var GamePlay=new function(){
 
         maxPolis=15;
         energia=160;
-        refuerzosTime=1000;
+        refuerzosTime=600;
         velPoli=20;
         toques=0;
         maderos=[];

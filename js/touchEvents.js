@@ -17,6 +17,7 @@ TouchEvents=new function(){
         //Assets.muestraSangre();
         TweenMax.killTweensOf(jugador);
 
+
         TweenMax.to(jugador,zoomTime,{x:amp/2,y:alt/1.5,scaleX:personPP,scaleY:personPP,onComplete:TouchEvents.torna});
 
         TweenMax.to(fons,zoomTime,{scaleX:fonsPP,scaleY:fonsPP, yoyo:true,repeat:1});
