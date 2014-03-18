@@ -1,5 +1,5 @@
 
-var fons,fons2;
+var fons;
 var fonsCity,fonsCity2,fonsCity3;
 var paisaje;
 var botPause, botMute;
@@ -7,6 +7,7 @@ var botPause, botMute;
 var energy;
 var energyCont;
 var sangre;
+var playCont;
 var blancote;
 var gameOver;
 var casas=["edifici1","lacaca","lesvis","starfuck","muro"];
@@ -14,6 +15,7 @@ var casas_arr=[];
 var horizonte;
 var puntext;
 var anchuraFondo;
+var alturaFondo=512;
 var metros;
 var iconFB;
 var playAgain;
@@ -23,8 +25,8 @@ var rage;
 
 var Assets=new function(){
 
-    var alturaFondo=512;
-    anchuraFondo=1311;
+
+    anchuraFondo=1700;
 
     this.ponFons=function(){// poner
 
@@ -51,7 +53,8 @@ var Assets=new function(){
 
         paisaje.scaleX=paisaje.scaleY=sc;
         paisaje.regY=alturaFondo/2;
-     //   paisaje.cache(0,0,paisaje.getTransformedBounds().width,paisaje.getTransformedBounds().height);
+        paisaje.y=alt/2.2;
+        //   paisaje.cache(0,0,paisaje.getTransformedBounds().width,paisaje.getTransformedBounds().height);
         stage.addChild(paisaje);
 
         //createjs.Tween.get(fons,{override:false}).to({scaleX:sc,scaleY:sc},1800,createjs.Ease.circInOut);
@@ -65,14 +68,17 @@ var Assets=new function(){
         if( fons == null || fons == undefined ) {
             fons=new createjs.Container();
         }
-        //fons.regX=anchuraFondo/2;
+
         fons.regY=alturaFondo/2;//300;//380;// el horizonte en el png
 
         //fons.y=0;//alt/2.2;
-        fons.scaleX=fons.scaleY=sc;
+        fons.scaleX=fons.scaleY=.6;
+        fons.y=alt/2;
         fons.mouseEnabled=false;
         stage.addChild(fons);
 
+        personPP=sc;
+        fonsPP=sc;
 
     };
 
@@ -122,12 +128,12 @@ var Assets=new function(){
                 },
                 "golpeado":{
                     frames:[7],
-                    next:"quieto",
+                    next:"correns",
                     speed:.2
                 },
                 "empujando":{
                     frames:[7],
-                    next:"corriendo",
+                    next:"correns",
                     speed:.2
                 }
             },
@@ -150,9 +156,8 @@ var Assets=new function(){
         jugador.x=amp/1.6;
         jugador.y=alt/1.3;//alt-jugador.getBounds().height/3;
 
-       //jugador.scaleX=jugador.scaleY=scPlayer;
-        stage.addChild(jugador);
 
+        stage.addChild(jugador);
 
 
         //createjs.Tween.get(jugador).to({x:amp/2,y:alt/1.3+zoom*200,scaleX:sc/2+zoom,scaleY:sc/2+zoom},1800,createjs.Ease.circOut);
@@ -182,19 +187,17 @@ var Assets=new function(){
         animaPoli = new createjs.Sprite(array_imatges_poli);
 
         madero.y=jugador.y;
-        madero.x=amp;
-        madero.scaleX=madero.scaleY=minimoZoom + zoom *sc;
+        madero.x=amp+100;
+       // madero.scaleX=madero.scaleY=minimoZoom + zoom *sc;
         //madero.addEventListener("mousedown",TouchEvents.downPoli);
         madero.addChild(animaPoli);
 
-
         animaPoli.gotoAndPlay("correns");
         stage.addChild(madero);
-        createjs.Tween.get(madero,{override:true}).to({x:amp/3 },1200,createjs.Ease.circIn).call(function(){Assets.ponPoli(madero)});
+        TweenMax.to(madero,1,{x:100,scaleX:jugador.scaleX,scaleY:jugador.scaleY,onComplete:function(){Assets.ponPoli(madero)},ease:Linear.ease });
         refuerzos.push(madero);
     };
     this.ponPoli=function(m){
-        
         maderos.push(m);
 
     };
@@ -255,14 +258,27 @@ var Assets=new function(){
 
     };
 
-    this.ponSangre=function(){
+    this.ponPlay=function(){
+        if(playCont==undefined||playCont==null){
+            playCont=new createjs.Container();
+            playCont.addEventListener("click",GamePlay.topGames);
+        }
+        playCont.x=amp/5;
+        playCont.y=alt/6;
+
+
         if(sangre==null || sangre==undefined){
             sangre=new createjs.Bitmap(imatges["splatter"]);
-            sangre.regX=sangre.regY=480;
-            sangre.mouseEnabled=false;
+            sangre.regX=sangre.regY=330;
+            playCont.addChild(sangre);
         }
-        sangre.x=jugador.x/2;
-        sangre.y=jugador.y;
+
+        if(playAgain==null || playAgain== undefined ){
+            playAgain=new createjs.Text("play", Math.abs(120*sc)+"px Permanent Marker", "#eeeeee");
+            playAgain.text="play";//toques*5+" m.\n
+
+        }
+        playCont.addChild(playAgain);
     };
 
     this.muestraSangre=function(){
@@ -281,10 +297,10 @@ var Assets=new function(){
                                                 /// angelito
         if(gameOver==null||gameOver==undefined){
             gameOver=new createjs.Bitmap(imatges["gameOver"]);
-
+            gameOver.mouseEnabled=false;
         }
-        Utils.pon(gameOver,amp/2,alt/2,true,sc);
-
+        Utils.pon(gameOver,amp/1.6,alt/1.6,true,sc);
+        TweenMax.to(gameOver,2,{y:alt/2,yoyo:true,repeat:-1,ease:Power1.easeInOut});
         stage.addChild(metros);
                                           // puntos
         if(puntext==null || puntext== undefined ){
@@ -296,18 +312,7 @@ var Assets=new function(){
 
         stage.addChild(puntext);
 
-
-        if(playAgain==null || playAgain== undefined ){
-            playAgain=new createjs.Text("play", Math.abs(120*sc)+"px Permanent Marker", "#eeeeee");
-            playAgain.x=20;
-            playAgain.y=40;
-            playAgain.addEventListener("click",GamePlay.topGames);
-        }
-        playAgain.text="play";//toques*5+" m.\n
-
-        stage.addChild(playAgain);
-
-                                                            /// fb
+                                            /// fb
         if(iconFB==null||iconFB==undefined){
             iconFB=new createjs.Bitmap(imatges["iconFB"]);
             //iconFB.addEventListener("click",GamePlay.facebook);

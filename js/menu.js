@@ -32,7 +32,7 @@ Menu=new  function() {
          Assets.ponJugador();
          anima.gotoAndPlay("quieto");
 
-         jugador.scaleX=jugador.scaleY=.5;
+
          jugador.x=amp/1.6;
          jugador.y=alt/1.3;
          stage.addEventListener("click",function(){  Main.toggleFullScreen();GamePlay.init();});
