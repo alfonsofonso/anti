@@ -122,7 +122,7 @@ var GamePlay=new function(){
         timerMuerte=setTimeout(GamePlay.pantallaFin,1800);
         funciones.splice(funciones.indexOf(Pulso.jugando),1);
         if(amp>500){
-            //Ads.publica();
+            Ads.publica();
         }
     };
 
