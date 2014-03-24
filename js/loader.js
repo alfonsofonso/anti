@@ -3,7 +3,7 @@ var preload;
 var manifest;
 var imatges= new Array();
 
-var NUM_IMATGES = 14 ;// --- + NUM_AUDIOS;
+var NUM_IMATGES = 15 ;// --- + NUM_AUDIOS;
 var loaded_imatges = 0;
 var percent;
 var loading;
@@ -95,7 +95,8 @@ Loader = new function() {
             "casas/edifici1.png",
             "poli/poliSprite.png",
             "iconFB.png",
-            "life.png"
+            "life.png",
+            "skate.png"
 
 
         ];
@@ -171,6 +172,8 @@ Loader = new function() {
             case "iconFB.png": imatges['iconFB'] =  event.result;
                 break;
             case "life.png": imatges['rage'] =  event.result;
+                break;
+            case "skate.png": imatges['skate'] =  event.result;
                 break;
         }
 

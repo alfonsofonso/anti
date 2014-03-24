@@ -4,12 +4,14 @@
  */
 var velPoli=2;
 var funciones=[];
-var zoom;
-var cuantoZoom;
-var prevZoom=1;
-
+var skate;
+var colors;
+var colorSpray;
+var mascaraPared;
 
 Pulso = new function(){
+
+    this.zoom;
 
 
     this.handlerTick =function ()
@@ -79,6 +81,16 @@ Pulso = new function(){
             GamePlay.muerte();
             energy.graphics.clear();
         }
+        else if(toques>1000){
+            stage.removeEventListener("stagemousedown",TouchEvents.downJugador);
+
+            setTimeout(function(){
+                funciones.splice(funciones.indexOf(Pulso.jugando),1);
+                Pulso.pintando();
+            },2000);
+
+            clearInterval(timerPonPoli);
+        }
 
     };
 
@@ -96,7 +108,62 @@ Pulso = new function(){
     };
 
 
+    this.pintando=function(){
 
+
+
+        if(skate==null && skate== undefined){
+            skate=new createjs.Bitmap(imatges["skate"]);
+            stage.addChild(skate);
+            skate.x=amp-200;
+            skate.y=alt/2;
+
+
+        }
+        stage.addEventListener("stagemousedown",Pulso.dibujar);
+        //skate.on("click",function(){funciones.push(Pulso.pinta)},this,true);
+        stage.addEventListener("stagemouseup",Pulso.pararDePintar);
+        anima.gotoAndPlay("quieto");
+
+    };
+
+    this.dibujar=function(e){
+        colors = ["#828b20", "#b0ac31", "#cbc53d", "#fad779", "#f9e4ad", "#faf2db", "#563512", "#9b4a0b", "#d36600", "#fe8a00", "#f9a71f"];
+
+
+            //if (stage.contains(title)) { stage.clear(); stage.removeChild(title); }
+            colorSpray = colors[Math.floor(Math.random()*colors.length)];
+            stroke = Math.random()*30 + 10 | 0;
+            oldPt = new createjs.Point(stage.mouseX, stage.mouseY);
+            oldMidPt = oldPt;
+            stage.addEventListener("stagemousemove" , Pulso.garabatear);
+    };
+
+    this.garabatear=function(event) {
+        var midPt = new createjs.Point(oldPt.x + stage.mouseX>>1, oldPt.y+stage.mouseY>>1);
+       mascaraPared=new createjs.Container();
+        var drawingCanvas = new createjs.Shape();
+        mascaraPared.addChild(drawingCanvas);
+        stage.addChild(mascaraPared);
+        drawingCanvas.graphics.clear().setStrokeStyle(stroke, 'round', 'round').beginStroke(colorSpray).moveTo(midPt.x, midPt.y).curveTo(oldPt.x, oldPt.y, oldMidPt.x, oldMidPt.y);
+
+        oldPt.x = stage.mouseX;
+        oldPt.y = stage.mouseY;
+
+        oldMidPt.x = midPt.x;
+        oldMidPt.y = midPt.y;
+
+        //    stage.update();
+
+        var amf = new createjs.AlphaMaskFilter(fons.children[2].image);
+        drawingCanvas.filters = [amf];
+        drawingCanvas.cache(0,0,amp,alt);
+    };
+
+     this.pararDePintar=function(event) {
+            stage.removeEventListener("stagemousemove" , Pulso.garabatear);
+
+     };
 
 
 };

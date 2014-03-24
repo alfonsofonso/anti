@@ -4,8 +4,8 @@
  */
 var toques=0;
 var taping;
-var personPP=1;
-var fonsPP=1.4;
+var personPP=.2;//1;
+var fonsPP=1;//1.4
 var zoomTime=0.2;
 
 TouchEvents=new function(){
@@ -40,7 +40,7 @@ TouchEvents=new function(){
     this.torna=function(){/// fin zoomea y tap caja
 
         TweenMax.to(fons,zoomTime,{scaleX:1,scaleY:1});
-        TweenMax.to(jugador,zoomTime,{x:amp/4,y:alt/1.5,scaleX:.6,scaleY:.6});
+        TweenMax.to(jugador,zoomTime,{x:amp/4,y:alt/1.5,scaleX:minimoZoom+zoom*sc,scaleY:minimoZoom+zoom*sc});
         TweenMax.to(refuerzos,zoomTime,{scaleX:minimoZoom+zoom*sc,y:alt/1.5,scaleY:minimoZoom+zoom*sc});
         TweenMax.to(maderos,zoomTime,{scaleX:minimoZoom+zoom*sc,y:alt/1.5,scaleY:minimoZoom+zoom*sc});
         taping=false;

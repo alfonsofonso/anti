@@ -77,8 +77,8 @@ var Assets=new function(){
         fons.mouseEnabled=false;
         stage.addChild(fons);
 
-        personPP=sc;
-        fonsPP=sc;
+        personPP=sc/2;
+        fonsPP=sc/2;
 
     };
 
